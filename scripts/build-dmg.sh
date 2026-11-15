@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # Builds Sanitized.app and a drag-to-Applications DMG in dist/.
 # Usage: scripts/build-dmg.sh
+#
+# Signing: uses the first "Developer ID Application" identity in the keychain (or SIGN_ID);
+# falls back to an ad-hoc signature when there is none.
+# Notarization: set NOTARY_PROFILE to a profile saved with
+#   xcrun notarytool store-credentials <profile> --apple-id <id> --team-id <team>
+# (defaults to "sanitized" when that profile exists).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -34,8 +40,13 @@ done
 iconutil -c icns "$ICONSET" -o "$BUNDLE/Contents/Resources/AppIcon.icns"
 rm -rf "$ICONSET"
 
-# Ad-hoc signature (no Apple Developer ID). Set SIGN_ID to sign with a real identity.
-codesign --force --deep --options runtime --sign "${SIGN_ID:--}" "$BUNDLE"
+if [ -z "${SIGN_ID:-}" ]; then
+  SIGN_ID=$(security find-identity -v -p codesigning | sed -n 's/.*"\(Developer ID Application:.*\)"/\1/p' | head -1)
+fi
+SIGN_ID=${SIGN_ID:--}
+echo "Signing with: $SIGN_ID"
+codesign --force --options runtime --timestamp --entitlements packaging/entitlements.plist --sign "$SIGN_ID" "$BUNDLE"
+codesign --verify --strict "$BUNDLE"
 
 # DMG with an Applications shortcut so users can drag the app across.
 STAGE="$DIST/dmg"
@@ -44,5 +55,18 @@ cp -R "$BUNDLE" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
 hdiutil create -volname "$APP" -srcfolder "$STAGE" -ov -format UDZO "$DMG" >/dev/null
 rm -rf "$STAGE"
+
+if [ "$SIGN_ID" != "-" ]; then
+  codesign --force --timestamp --sign "$SIGN_ID" "$DMG"
+  PROFILE=${NOTARY_PROFILE:-sanitized}
+  if xcrun notarytool history --keychain-profile "$PROFILE" >/dev/null 2>&1; then
+    echo "Notarizing (usually a few minutes)…"
+    xcrun notarytool submit "$DMG" --keychain-profile "$PROFILE" --wait
+    xcrun stapler staple "$DMG"
+    spctl --assess --type open --context context:primary-signature -v "$DMG"
+  else
+    echo "Skipping notarization: no notarytool profile \"$PROFILE\"."
+  fi
+fi
 
 echo "Built $DMG"

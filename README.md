@@ -22,8 +22,7 @@ Files are moved to the Trash or the quarantine. Nothing is deleted permanently w
 
 1. Download `Sanitized-x.y.z-arm64.dmg` from [Releases](../../releases). Apple Silicon only.
 2. Open the DMG and drag **Sanitized** into **Applications**.
-3. On first launch, right-click the app → **Open** → **Open**. The app is not notarized by Apple, so macOS warns the first time.
-   If macOS says the app "is damaged", run `xattr -dr com.apple.quarantine /Applications/Sanitized.app`.
+3. Open Sanitized. The app is signed with a Developer ID and notarized by Apple.
 4. For a full scan, give the app **Full Disk Access** in System Settings → Privacy & Security.
 
 ## Build from source
@@ -32,6 +31,9 @@ Files are moved to the Trash or the quarantine. Nothing is deleted permanently w
 cargo run --release          # run directly
 scripts/build-dmg.sh         # build dist/Sanitized.app and dist/Sanitized-<version>-<arch>.dmg
 ```
+
+`build-dmg.sh` signs with the first "Developer ID Application" identity in your keychain and notarizes when a
+`notarytool` keychain profile named `sanitized` exists (override with `SIGN_ID` / `NOTARY_PROFILE`). Without them it makes an ad-hoc signed build.
 
 Requires Rust 1.80+ and the Xcode command-line tools.
 

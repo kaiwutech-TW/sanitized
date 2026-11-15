@@ -28,5 +28,7 @@
 	<true/>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Sanitized 需要這個權限才能在移除應用程式前先將它結束。</string>
 </dict>
 </plist>
