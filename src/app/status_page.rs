@@ -28,13 +28,25 @@ fn seg_bar(ui: &mut egui::Ui, segs: &[(f32, Color32)]) {
     let (r, _) = ui.allocate_exact_size(Vec2::new(ui.available_width(), 6.0), egui::Sense::hover());
     ui.painter().rect_filled(r, 3.0, SURFACE_HI);
     let mut x = r.left();
-    for (f, c) in segs {
-        let w = r.width() * f.clamp(0.0, 1.0);
+    for (w, (_, c)) in seg_widths(r.width(), segs).into_iter().zip(segs) {
         if w > 0.5 {
             ui.painter().rect_filled(Rect::from_min_size(Pos2::new(x, r.top()), Vec2::new((w - 2.0).max(1.0), r.height())), 3.0, *c);
         }
         x += w;
     }
+}
+
+/// Pixel width of each segment. Each one gets at most the room left, so together they never
+/// pass the bar's end (memory used + swap can be more than the installed RAM).
+pub(crate) fn seg_widths(width: f32, segs: &[(f32, Color32)]) -> Vec<f32> {
+    let mut left = width;
+    segs.iter()
+        .map(|(f, _)| {
+            let w = (width * f.clamp(0.0, 1.0)).min(left);
+            left -= w;
+            w
+        })
+        .collect()
 }
 
 /// Label above a mono value (the design's small stat blocks).
@@ -85,11 +97,17 @@ fn bars(ui: &mut egui::Ui, data: &[f32], h: f32) {
 
 fn panel(ui: &mut egui::Ui, eyebrow: &str, right: Option<(&str, Color32)>, add: impl FnOnce(&mut egui::Ui)) {
     card(ui, |ui| {
+        // Right-hand link first, then the eyebrow in the room left (cut with "…" on narrow
+        // windows), so the two never draw over each other.
         ui.horizontal(|ui| {
-            ui.label(RichText::new(eyebrow).monospace().size(10.5).color(SUBTLE).extra_letter_spacing(1.2));
-            if let Some((t, c)) = right {
-                ui.with_layout(Layout::right_to_left(Align::Center), |ui| ui.label(RichText::new(t).monospace().size(11.5).color(c)));
-            }
+            ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+                if let Some((t, c)) = right {
+                    ui.label(RichText::new(t).monospace().size(11.5).color(c));
+                }
+                ui.with_layout(Layout::left_to_right(Align::Center), |ui| {
+                    ui.add(egui::Label::new(RichText::new(eyebrow).monospace().size(10.5).color(SUBTLE).extra_letter_spacing(1.2)).truncate());
+                });
+            });
         });
         ui.add_space(4.0);
         add(ui);

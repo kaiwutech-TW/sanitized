@@ -5,7 +5,7 @@ mod docker_page;
 mod pages;
 mod protect;
 mod sources_page;
-mod status_page;
+pub(crate) mod status_page;
 #[cfg(target_os = "macos")]
 mod tray;
 

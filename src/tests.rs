@@ -314,3 +314,15 @@ fn trash_is_silent_and_real() {
         assert_eq!(in_trash, 5, "items not found in ~/.Trash");
     }
 }
+
+#[test]
+fn memory_bar_stays_inside_when_swap_exceeds_ram() {
+    use egui::Color32;
+    // 85 % of RAM used plus swap worth 40 % of RAM (10 GB swap on a 25.8 GB Mac).
+    let w = crate::app::status_page::seg_widths(200.0, &[(0.85, Color32::GREEN), (0.40, Color32::BLUE)]);
+    assert_eq!(w[0], 170.0, "used part keeps its true share");
+    assert!((w[0] + w[1] - 200.0).abs() < 1e-3, "segments end at the bar's edge, got {:?}", w);
+    // Normal case is unchanged.
+    let w = crate::app::status_page::seg_widths(200.0, &[(0.50, Color32::GREEN), (0.10, Color32::BLUE)]);
+    assert_eq!(w, vec![100.0, 20.0]);
+}
