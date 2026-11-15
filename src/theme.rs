@@ -90,6 +90,7 @@ pub enum Glyph {
     Cloud,
     Bug,
     Pulse,
+    Gear,
 }
 
 /// Outline icon (Material-Symbols-like, 1.5 px strokes) centred at `c`, `s` = icon size.
@@ -106,6 +107,16 @@ pub fn icon(painter: &egui::Painter, c: Pos2, s: f32, glyph: Glyph, col: Color32
             } else {
                 painter.line_segment([p(0.0, -0.2), p(0.0, 0.07)], st);
                 painter.circle_filled(p(0.0, 0.2), w * 0.7, col);
+            }
+        }
+        Glyph::Gear => {
+            // Ring with eight teeth around a small hole.
+            painter.circle_stroke(c, s * 0.24, st);
+            painter.circle_stroke(c, s * 0.09, st);
+            for i in 0..8 {
+                let a = i as f32 / 8.0 * std::f32::consts::TAU;
+                let d = Vec2::new(a.cos(), a.sin());
+                painter.line_segment([c + d * s * 0.27, c + d * s * 0.42], Stroke::new(w * 1.6, col));
             }
         }
         Glyph::Pulse => {

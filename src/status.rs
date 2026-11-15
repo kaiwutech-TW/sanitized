@@ -67,18 +67,18 @@ pub struct Snapshot {
 impl Snapshot {
     pub fn health_label(&self) -> &'static str {
         match self.health {
-            85.. => "極佳",
-            65..=84 => "良好",
-            45..=64 => "普通",
-            _ => "需要注意",
+            85.. => t!("極佳"),
+            65..=84 => t!("良好"),
+            45..=64 => t!("普通"),
+            _ => t!("需要注意"),
         }
     }
     pub fn pressure_label(&self) -> &'static str {
         match self.pressure.as_str() {
-            "warn" => "偏高",
-            "critical" => "嚴重",
-            "normal" => "正常",
-            _ => "未知",
+            "warn" => t!("偏高"),
+            "critical" => t!("嚴重"),
+            "normal" => t!("正常"),
+            _ => t!("未知"),
         }
     }
     pub fn disk_used_pct(&self) -> f32 {
@@ -206,7 +206,7 @@ fn battery() -> Option<(u32, String)> {
     let out = util::run("/usr/bin/pmset", &["-g", "batt"]);
     let line = out.lines().find(|l| l.contains('%'))?;
     let pct = line.split('%').next()?.rsplit(|c: char| !c.is_ascii_digit()).next()?.parse().ok()?;
-    let state = if line.contains("discharging") { "使用電池" } else if line.contains("charged") { "已充飽" } else if line.contains("charging") { "充電中" } else { "接上電源" };
+    let state = if line.contains("discharging") { n!("使用電池") } else if line.contains("charged") { n!("已充飽") } else if line.contains("charging") { n!("充電中") } else { n!("接上電源") };
     Some((pct, state.to_string()))
 }
 
@@ -214,7 +214,7 @@ fn devices() -> Vec<String> {
     let mut v: Vec<String> = util::children(std::path::Path::new("/Volumes"))
         .into_iter()
         .filter(|p| std::fs::symlink_metadata(p).map(|m| !m.file_type().is_symlink()).unwrap_or(false))
-        .map(|p| format!("磁碟：{}", util::file_name(&p)))
+        .map(|p| format!("{}：{}", n!("磁碟"), util::file_name(&p))) // i18n-ignore (kind tag, translated where shown)
         .collect();
     // Bluetooth devices listed under "Connected:".
     let bt = util::run("/usr/sbin/system_profiler", &["SPBluetoothDataType"]);
@@ -234,7 +234,7 @@ fn devices() -> Vec<String> {
                 continue;
             }
             if ind == indent + 4 && t.ends_with(':') {
-                v.push(format!("藍牙：{}", t.trim_end_matches(':')));
+                v.push(format!("{}：{}", n!("藍牙"), t.trim_end_matches(':'))); // i18n-ignore (kind tag, translated where shown)
             }
         }
     }
@@ -257,32 +257,32 @@ pub fn health(s: &Snapshot) -> (u32, Vec<String>) {
     let mut issues = Vec::new();
     score -= penalty(s.cpu_pct, CPU_NORMAL, CPU_HIGH, CPU_WEIGHT);
     if s.cpu_pct > CPU_HIGH {
-        issues.push("處理器負載很高".to_string());
+        issues.push(n!("處理器負載很高").to_string());
     }
     score -= penalty(s.mem_used_pct, MEM_NORMAL, MEM_HIGH, MEM_WEIGHT);
     if s.mem_used_pct > MEM_HIGH {
-        issues.push("記憶體用量很高".to_string());
+        issues.push(n!("記憶體用量很高").to_string());
     }
     match s.pressure.as_str() {
         "warn" => {
             score -= PRESSURE_WARN_PENALTY;
-            issues.push("記憶體壓力偏高".to_string());
+            issues.push(n!("記憶體壓力偏高").to_string());
         }
         "critical" => {
             score -= PRESSURE_CRIT_PENALTY;
-            issues.push("記憶體壓力嚴重".to_string());
+            issues.push(n!("記憶體壓力嚴重").to_string());
         }
         _ => {}
     }
     let du = s.disk_used_pct();
     score -= penalty(du, DISK_WARN, DISK_CRIT, DISK_WEIGHT);
     if du > 90.0 || (s.disk_total > 0 && s.disk_free < 30_000_000_000) {
-        issues.push("磁碟空間快滿了".to_string());
+        issues.push(n!("磁碟空間快滿了").to_string());
     }
     let days = s.uptime_secs / 86400;
     if days > UPTIME_DANGER_DAYS {
         score -= 3.0;
-        issues.push(format!("已 {} 天沒有重新開機", days));
+        issues.push(tf!("已 {} 天沒有重新開機", days));
     } else if days > UPTIME_WARN_DAYS {
         score -= 1.0;
     }

@@ -1,10 +1,14 @@
+#[macro_use]
+mod i18n;
 mod app;
 mod av;
 mod clean;
 mod docker;
+mod prefs;
 mod theme;
 mod sources;
 mod status;
+mod update;
 mod util;
 mod vuln;
 #[cfg(test)]

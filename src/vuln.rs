@@ -58,11 +58,11 @@ pub enum Severity {
 impl Severity {
     pub fn label(self) -> &'static str {
         match self {
-            Severity::Critical => "嚴重",
-            Severity::High => "高",
-            Severity::Medium => "中",
-            Severity::Low => "低",
-            Severity::Unknown => "未評級",
+            Severity::Critical => t!("嚴重"),
+            Severity::High => t!("高"),
+            Severity::Medium => t!("中"),
+            Severity::Low => t!("低"),
+            Severity::Unknown => t!("未評級"),
         }
     }
     fn parse(s: &str) -> Severity {
@@ -270,17 +270,17 @@ fn csproj(text: &str) -> Vec<Package> {
 pub fn read_manifest(p: &Path) -> Option<Manifest> {
     let name = util::file_name(p);
     let (kind, exact, parser): (&'static str, bool, fn(&str) -> Vec<Package>) = match name.as_str() {
-        "package-lock.json" | "npm-shrinkwrap.json" => ("npm 鎖定檔", true, npm_lock),
-        "yarn.lock" => ("Yarn 鎖定檔", true, yarn_lock),
-        "package.json" => ("npm 套件清單", false, npm_manifest),
+        "package-lock.json" | "npm-shrinkwrap.json" => (n!("npm 鎖定檔"), true, npm_lock),
+        "yarn.lock" => (n!("Yarn 鎖定檔"), true, yarn_lock),
+        "package.json" => (n!("npm 套件清單"), false, npm_manifest),
         "Cargo.lock" => ("Rust Cargo.lock", true, |t| toml_packages(t, "crates.io")),
         "poetry.lock" => ("Python Poetry", true, |t| toml_packages(t, "PyPI")),
         "Pipfile.lock" => ("Python Pipenv", true, pipfile_lock),
-        "go.mod" => ("Go 模組", true, go_mod),
+        "go.mod" => (n!("Go 模組"), true, go_mod),
         "Gemfile.lock" => ("Ruby Bundler", true, gemfile_lock),
         "composer.lock" => ("PHP Composer", true, composer_lock),
         "pom.xml" => ("Java Maven", true, pom_xml),
-        n if n.ends_with(".csproj") => (".NET 專案", true, csproj),
+        n if n.ends_with(".csproj") => (n!(".NET 專案"), true, csproj),
         n if n.starts_with("requirements") && n.ends_with(".txt") => ("Python requirements", true, requirements),
         _ => return None,
     };
@@ -321,7 +321,7 @@ pub fn find_manifests(root: &Path, cancel: &AtomicBool) -> Vec<Manifest> {
     }
     // A lock file makes the plain package.json beside it unnecessary.
     let locked: HashSet<PathBuf> = out.iter().filter(|m| m.exact && m.packages.first().map(|p| p.ecosystem == "npm").unwrap_or(false)).filter_map(|m| m.path.parent().map(Path::to_path_buf)).collect();
-    out.retain(|m| !(m.kind == "npm 套件清單" && m.path.parent().map(|p| locked.contains(p)).unwrap_or(false)));
+    out.retain(|m| !(m.kind == n!("npm 套件清單") && m.path.parent().map(|p| locked.contains(p)).unwrap_or(false)));
     out.sort_by(|a, b| a.path.cmp(&b.path));
     out
 }
@@ -339,9 +339,9 @@ fn post_json(url: &str, body: &str) -> Result<serde_json::Value, String> {
     child.stdin.take().ok_or("stdin")?.write_all(body.as_bytes()).map_err(|e| e.to_string())?;
     let out = child.wait_with_output().map_err(|e| e.to_string())?;
     if !out.status.success() {
-        return Err(format!("無法連線到漏洞資料庫：{}", String::from_utf8_lossy(&out.stderr).trim()));
+        return Err(tf!("無法連線到漏洞資料庫：{}", String::from_utf8_lossy(&out.stderr).trim()));
     }
-    serde_json::from_slice(&out.stdout).map_err(|e| format!("資料庫回應無法解讀：{}", e))
+    serde_json::from_slice(&out.stdout).map_err(|e| tf!("資料庫回應無法解讀：{}", e))
 }
 
 fn get_json(url: &str) -> Result<serde_json::Value, String> {
@@ -430,7 +430,7 @@ pub fn cmp_ver(a: &str, b: &str) -> std::cmp::Ordering {
 }
 
 pub fn start_check(root: PathBuf) -> CheckHandle {
-    let h = CheckHandle { progress: Arc::new(Mutex::new(CheckProgress { stage: "正在尋找專案的相依套件清單…".into(), ..Default::default() })), cancel: Arc::new(AtomicBool::new(false)) };
+    let h = CheckHandle { progress: Arc::new(Mutex::new(CheckProgress { stage: t!("正在尋找專案的相依套件清單…").into(), ..Default::default() })), cancel: Arc::new(AtomicBool::new(false)) };
     let hh = h.clone();
     std::thread::spawn(move || {
         let set_stage = |s: String, f: f32| {
@@ -454,7 +454,7 @@ pub fn start_check(root: PathBuf) -> CheckHandle {
             let mut p = hh.progress.lock().unwrap();
             p.done = true;
             p.fraction = 1.0;
-            p.stage = "這個資料夾裡沒有找到可檢查的相依套件清單。".into();
+            p.stage = t!("這個資料夾裡沒有找到可檢查的相依套件清單。").into();
             return;
         }
         let pkgs: Vec<Package> = files_of.keys().cloned().collect();
@@ -464,7 +464,7 @@ pub fn start_check(root: PathBuf) -> CheckHandle {
             if hh.cancel.load(Ordering::Relaxed) {
                 break;
             }
-            set_stage(format!("正在查詢漏洞資料庫（{} 個套件）…", pkgs.len()), 0.1 + 0.4 * bi as f32 / batches as f32);
+            set_stage(tf!("正在查詢漏洞資料庫（{} 個套件）…", pkgs.len()), 0.1 + 0.4 * bi as f32 / batches as f32);
             let queries: Vec<serde_json::Value> = chunk.iter().map(|p| serde_json::json!({"package": {"name": p.name, "ecosystem": p.ecosystem}, "version": p.version})).collect();
             let body = serde_json::json!({ "queries": queries }).to_string();
             match post_json(OSV_BATCH, &body) {
@@ -502,7 +502,7 @@ pub fn start_check(root: PathBuf) -> CheckHandle {
                     Some(j.clone())
                 } else if fetched < MAX_DETAILS {
                     fetched += 1;
-                    set_stage(format!("正在讀取漏洞詳情 {}（{}）…", id, pkg.name), 0.5 + 0.5 * fetched as f32 / total as f32);
+                    set_stage(tf!("正在讀取漏洞詳情 {}（{}）…", id, pkg.name), 0.5 + 0.5 * fetched as f32 / total as f32);
                     get_json(&format!("{}{}", OSV_VULN, id)).ok().inspect(|j| {
                         cache.insert(id.clone(), j.clone());
                     })
@@ -539,7 +539,7 @@ pub fn start_check(root: PathBuf) -> CheckHandle {
 
 /// The command a developer runs to update one package.
 pub fn update_hint(f: &Finding) -> String {
-    let to = f.upgrade_to.clone().unwrap_or_else(|| "最新版".into());
+    let to = f.upgrade_to.clone().unwrap_or_else(|| t!("最新版").into());
     let n = &f.package.name;
     match f.package.ecosystem {
         "npm" => format!("npm install {}@{}", n, to),
@@ -548,21 +548,21 @@ pub fn update_hint(f: &Finding) -> String {
         "Go" => format!("go get {}@{}", n, to),
         "RubyGems" => format!("bundle update {}", n),
         "Packagist" => format!("composer require {}:^{}", n, to),
-        "Maven" => format!("把 pom.xml 中 {} 的版本改為 {}", n, to),
+        "Maven" => tf!("把 pom.xml 中 {} 的版本改為 {}", n, to),
         "NuGet" => format!("dotnet add package {} --version {}", n, to),
-        _ => format!("更新 {} 到 {}", n, to),
+        _ => tf!("更新 {} 到 {}", n, to),
     }
 }
 
 pub fn report_text(root: &Path, findings: &[Finding]) -> String {
-    let mut s = format!("專案漏洞檢查報告\n資料夾：{}\n\n", collapse(root));
+    let mut s = tf!("專案漏洞檢查報告\n資料夾：{}\n\n", collapse(root));
     for f in findings {
         s.push_str(&format!("[{}] {} {} ({})\n", f.worst().label(), f.package.name, f.package.version, f.package.ecosystem));
         for v in &f.vulns {
             let ids = if v.cves.is_empty() { v.id.clone() } else { v.cves.join(", ") };
             s.push_str(&format!("  - {} {}\n", ids, v.summary));
         }
-        s.push_str(&format!("  建議：{}\n\n", update_hint(f)));
+        s.push_str(&tf!("  建議：{}\n\n", update_hint(f)));
     }
     s
 }

@@ -1,0 +1,3907 @@
+{
+ "\n有 {} 個項目無法清理（可能正在使用中或需要權限）。": {
+  "en": "\n{} items couldn't be cleaned up (they may be in use or need permission).",
+  "ja": "\n{} 個の項目をクリーンアップできませんでした（使用中か、アクセス権が必要な可能性があります）。",
+  "zh-Hans": "\n有 {} 个项目无法清理（可能正在使用中或需要权限）。"
+ },
+ "  建議：{}\n\n": {
+  "en": "  Suggested: {}\n\n",
+  "ja": "  推奨：{}\n\n",
+  "zh-Hans": "  建议：{}\n\n"
+ },
+ " {} 個項目無法移除（可能正在使用中）。": {
+  "en": " {} items couldn't be removed (they may be in use).",
+  "ja": "{} 個の項目を削除できませんでした（使用中の可能性があります）。",
+  "zh-Hans": " {} 个项目无法移除（可能正在使用中）。"
+ },
+ " · {} 天前使用": {
+  "en": " · used {} days ago",
+  "ja": " · {} 日前に使用",
+  "zh-Hans": " · {} 天前使用"
+ },
+ " · {} 條無法使用": {
+  "en": " · {} unusable",
+  "ja": " · {} 件は使用不可",
+  "zh-Hans": " · {} 条无法使用"
+ },
+ "# 每行一條：<sha256> <大小> <名稱> | path <規則> <名稱> | ext <擴充功能ID> <名稱>\n": {
+  "en": "# One per line: <sha256> <size> <name> | path <rule> <name> | ext <extension-id> <name>\n",
+  "ja": "# 1 行に 1 つ：<sha256> <サイズ> <名前> | path <ルール> <名前> | ext <機能拡張ID> <名前>\n",
+  "zh-Hans": "# 每行一条：<sha256> <大小> <名称> | path <规则> <名称> | ext <扩展ID> <名称>\n"
+ },
+ ".NET 專案": {
+  "en": ".NET project",
+  "ja": ".NET プロジェクト",
+  "zh-Hans": ".NET 项目"
+ },
+ "/ {} 個待處理項目": {
+  "en": "/ {} items to fix",
+  "ja": "/ {} 件の要対応項目",
+  "zh-Hans": "/ {} 个待处理项目"
+ },
+ "<無名稱> {}": {
+  "en": "<unnamed> {}",
+  "ja": "<名前なし> {}",
+  "zh-Hans": "<无名称> {}"
+ },
+ "AI 雜亂檔案": {
+  "en": "AI clutter",
+  "ja": "AI の不要ファイル",
+  "zh-Hans": "AI 杂乱文件"
+ },
+ "Adload 廣告軟體": {
+  "en": "Adload adware",
+  "ja": "Adload アドウェア",
+  "zh-Hans": "Adload 广告软件"
+ },
+ "Apple XProtect {} 版": {
+  "en": "Apple XProtect version {}",
+  "ja": "Apple XProtect バージョン {}",
+  "zh-Hans": "Apple XProtect {} 版"
+ },
+ "Apple XProtect 載入中或無法使用": {
+  "en": "Apple XProtect loading or unavailable",
+  "ja": "Apple XProtect は読み込み中か使用できません",
+  "zh-Hans": "Apple XProtect 正在加载或无法使用"
+ },
+ "Apple 惡意軟體規則 (YARA)": {
+  "en": "Apple malware rules (YARA)",
+  "ja": "Apple マルウェアルール (YARA)",
+  "zh-Hans": "Apple 恶意软件规则 (YARA)"
+ },
+ "Apple 說明：防範惡意軟體": {
+  "en": "Apple: Protecting against malware",
+  "ja": "Apple の説明：マルウェアからの保護",
+  "zh-Hans": "Apple 说明：防范恶意软件"
+ },
+ "Apple 選單「最近使用的項目」中的應用程式、文件與伺服器。": {
+  "en": "Applications, documents and servers in the Apple menu’s Recent Items.",
+  "ja": "Apple メニューの「最近使った項目」にあるアプリケーション、書類、サーバです。",
+  "zh-Hans": "苹果菜单“最近使用的项目”中的应用程序、文稿与服务器。"
+ },
+ "Auth-Key：": {
+  "en": "Auth-Key:",
+  "ja": "Auth-Key：",
+  "zh-Hans": "Auth-Key："
+ },
+ "Bun 下載快取": {
+  "en": "Bun download cache",
+  "ja": "Bun ダウンロードキャッシュ",
+  "zh-Hans": "Bun 下载缓存"
+ },
+ "Bundlore 廣告軟體": {
+  "en": "Bundlore adware",
+  "ja": "Bundlore アドウェア",
+  "zh-Hans": "Bundlore 广告软件"
+ },
+ "CRITICAL（嚴重）": {
+  "en": "CRITICAL",
+  "ja": "CRITICAL（緊急）",
+  "zh-Hans": "CRITICAL（严重）"
+ },
+ "CVE 編號": {
+  "en": "CVE ID",
+  "ja": "CVE 番号",
+  "zh-Hans": "CVE 编号"
+ },
+ "Chrome、Brave、Edge 與 Chromium": {
+  "en": "Chrome, Brave, Edge and Chromium",
+  "ja": "Chrome、Brave、Edge、Chromium",
+  "zh-Hans": "Chrome、Brave、Edge 和 Chromium"
+ },
+ "ChumSearch 瀏覽器綁架": {
+  "en": "ChumSearch browser hijacker",
+  "ja": "ChumSearch ブラウザハイジャッカー",
+  "zh-Hans": "ChumSearch 浏览器劫持"
+ },
+ "Crossrider 廣告軟體": {
+  "en": "Crossrider adware",
+  "ja": "Crossrider アドウェア",
+  "zh-Hans": "Crossrider 广告软件"
+ },
+ "DOCKER 回報的用量（docker system df）": {
+  "en": "USAGE REPORTED BY DOCKER (docker system df)",
+  "ja": "DOCKER が報告した使用量（docker system df）",
+  "zh-Hans": "DOCKER 报告的用量（docker system df）"
+ },
+ "DOCKER 實際佔用": {
+  "en": "DOCKER ACTUAL USAGE",
+  "ja": "DOCKER の実使用量",
+  "zh-Hans": "DOCKER 实际占用"
+ },
+ "Docker {} 執行中": {
+  "en": "Docker {} running",
+  "ja": "Docker {} 実行中",
+  "zh-Hans": "Docker {} 运行中"
+ },
+ "Docker 未開啟": {
+  "en": "Docker not running",
+  "ja": "Docker 未起動",
+  "zh-Hans": "Docker 未打开"
+ },
+ "Docker 沒開時，這裡只顯示實際佔用大小，不提供任何刪除動作。": {
+  "en": "While Docker isn't running, only the actual disk usage is shown and nothing can be deleted.",
+  "ja": "Docker が起動していない間は実使用量だけを表示し、削除操作は行えません。",
+  "zh-Hans": "Docker 未打开时，这里只显示实际占用大小，不提供任何删除操作。"
+ },
+ "Docker 清理": {
+  "en": "Docker Cleanup",
+  "ja": "Docker クリーンアップ",
+  "zh-Hans": "Docker 清理"
+ },
+ "Docker 磁碟清理": {
+  "en": "Docker Disk Cleanup",
+  "ja": "Docker ディスクのクリーンアップ",
+  "zh-Hans": "Docker 磁盘清理"
+ },
+ "Docker.raw 是稀疏檔：名義大小等於整顆硬碟，但只佔用實際寫入的部分。整個 Data 資料夾實際佔用 {}。": {
+  "en": "Docker.raw is a sparse file: its nominal size equals the whole disk, but it only takes up the space actually written. The whole Data folder actually uses {}.",
+  "ja": "Docker.raw はスパースファイルです。見かけのサイズはディスク全体と同じですが、実際に書き込まれた分しか使用しません。Data フォルダ全体の実使用量は {} です。",
+  "zh-Hans": "Docker.raw 是稀疏文件：名义大小等于整个硬盘，但只占用实际写入的部分。整个 Data 文件夹实际占用 {}。"
+ },
+ "Docker.raw 目前還沒有縮小（Docker 可能稍後才會歸還空間），現在實際佔用 {}。": {
+  "en": "Docker.raw hasn't shrunk yet (Docker may give the space back later). It currently uses {}.",
+  "ja": "Docker.raw はまだ縮小していません（Docker が後で領域を返す場合があります）。現在の実使用量は {} です。",
+  "zh-Hans": "Docker.raw 目前还没有缩小（Docker 可能稍后才会归还空间），现在实际占用 {}。"
+ },
+ "Dropbox、Google 雲端硬碟、OneDrive": {
+  "en": "Dropbox, Google Drive, OneDrive",
+  "ja": "Dropbox、Google ドライブ、OneDrive",
+  "zh-Hans": "Dropbox、Google 云端硬盘、OneDrive"
+ },
+ "EICAR 測試檔案": {
+  "en": "EICAR test file",
+  "ja": "EICAR テストファイル",
+  "zh-Hans": "EICAR 测试文件"
+ },
+ "GB 可用": {
+  "en": "GB free",
+  "ja": "GB 空き",
+  "zh-Hans": "GB 可用"
+ },
+ "GB 已使用": {
+  "en": "GB used",
+  "ja": "GB 使用中",
+  "zh-Hans": "GB 已使用"
+ },
+ "Genieo 廣告軟體": {
+  "en": "Genieo adware",
+  "ja": "Genieo アドウェア",
+  "zh-Hans": "Genieo 广告软件"
+ },
+ "Go 模組": {
+  "en": "Go module",
+  "ja": "Go モジュール",
+  "zh-Hans": "Go 模块"
+ },
+ "Gradle 快取": {
+  "en": "Gradle cache",
+  "ja": "Gradle キャッシュ",
+  "zh-Hans": "Gradle 缓存"
+ },
+ "HIGH（高危）": {
+  "en": "HIGH",
+  "ja": "HIGH（高）",
+  "zh-Hans": "HIGH（高危）"
+ },
+ "HTML5 本機儲存與快取": {
+  "en": "HTML5 local storage and cache",
+  "ja": "HTML5 ローカルストレージとキャッシュ",
+  "zh-Hans": "HTML5 本地存储与缓存"
+ },
+ "InstallCore 綑綁安裝程式": {
+  "en": "InstallCore bundled installer",
+  "ja": "InstallCore バンドルインストーラ",
+  "zh-Hans": "InstallCore 捆绑安装程序"
+ },
+ "LOW / 未評級": {
+  "en": "LOW / UNRATED",
+  "ja": "LOW / 未評価",
+  "zh-Hans": "LOW / 未评级"
+ },
+ "MEDIUM（中度）": {
+  "en": "MEDIUM",
+  "ja": "MEDIUM（中）",
+  "zh-Hans": "MEDIUM（中危）"
+ },
+ "MShelper 挖礦程式": {
+  "en": "MShelper cryptominer",
+  "ja": "MShelper マイニングプログラム",
+  "zh-Hans": "MShelper 挖矿程序"
+ },
+ "Mac 健康度：{}（{} 分）": {
+  "en": "Mac health: {} ({} points)",
+  "ja": "Mac の健康状態：{}（{} 点）",
+  "zh-Hans": "Mac 健康度：{}（{} 分）"
+ },
+ "Mac 健康度：讀取中…": {
+  "en": "Mac health: reading…",
+  "ja": "Mac の健康状態：読み込み中…",
+  "zh-Hans": "Mac 健康度：读取中…"
+ },
+ "Mac 會自動連線到以前用過的網路，包括開放的公共熱點。可以移除不再使用的網路。": {
+  "en": "Your Mac joins networks it has used before automatically, including open public hotspots. You can remove networks you no longer use.",
+  "ja": "Mac は以前使ったネットワーク（オープンな公衆ホットスポットを含む）に自動的に接続します。使わなくなったネットワークは削除できます。",
+  "zh-Hans": "Mac 会自动连接以前用过的网络，包括开放的公共热点。可以移除不再使用的网络。"
+ },
+ "Mac 狀態": {
+  "en": "Mac Status",
+  "ja": "Mac の状態",
+  "zh-Hans": "Mac 状态"
+ },
+ "Macintosh HD 磁碟空間": {
+  "en": "Macintosh HD disk space",
+  "ja": "Macintosh HD のディスク容量",
+  "zh-Hans": "Macintosh HD 磁盘空间"
+ },
+ "MalwareBazaar 回應格式不符": {
+  "en": "Unexpected MalwareBazaar response format",
+  "ja": "MalwareBazaar の応答形式が正しくありません",
+  "zh-Hans": "MalwareBazaar 响应格式不符"
+ },
+ "MalwareBazaar 回應無法解讀": {
+  "en": "Couldn't read the MalwareBazaar response",
+  "ja": "MalwareBazaar の応答を解釈できません",
+  "zh-Hans": "无法解析 MalwareBazaar 的响应"
+ },
+ "MalwareBazaar 回覆：{}": {
+  "en": "MalwareBazaar replied: {}",
+  "ja": "MalwareBazaar の応答：{}",
+  "zh-Hans": "MalwareBazaar 回复：{}"
+ },
+ "MalwareBazaar 拒絕了金鑰，請確認金鑰是否正確": {
+  "en": "MalwareBazaar rejected the key. Check that the key is correct",
+  "ja": "MalwareBazaar にキーが拒否されました。キーが正しいか確認してください",
+  "zh-Hans": "MalwareBazaar 拒绝了密钥，请确认密钥是否正确"
+ },
+ "MalwareBazaar 網站": {
+  "en": "MalwareBazaar website",
+  "ja": "MalwareBazaar のサイト",
+  "zh-Hans": "MalwareBazaar 网站"
+ },
+ "MalwareBazaar 金鑰無效，請重新確認": {
+  "en": "MalwareBazaar key is invalid. Please check it again",
+  "ja": "MalwareBazaar のキーが無効です。もう一度確認してください",
+  "zh-Hans": "MalwareBazaar 密钥无效，请重新确认"
+ },
+ "MalwareBazaar（abuse.ch）": {
+  "en": "MalwareBazaar (abuse.ch)",
+  "ja": "MalwareBazaar（abuse.ch）",
+  "zh-Hans": "MalwareBazaar（abuse.ch）"
+ },
+ "Mughthesec 廣告軟體": {
+  "en": "Mughthesec adware",
+  "ja": "Mughthesec アドウェア",
+  "zh-Hans": "Mughthesec 广告软件"
+ },
+ "Objective-See 惡意軟體清單": {
+  "en": "Objective-See malware list",
+  "ja": "Objective-See マルウェア一覧",
+  "zh-Hans": "Objective-See 恶意软件清单"
+ },
+ "OperatorPro 廣告軟體": {
+  "en": "OperatorPro adware",
+  "ja": "OperatorPro アドウェア",
+  "zh-Hans": "OperatorPro 广告软件"
+ },
+ "Pirrit 廣告軟體": {
+  "en": "Pirrit adware",
+  "ja": "Pirrit アドウェア",
+  "zh-Hans": "Pirrit 广告软件"
+ },
+ "Rust Cargo Git 快取": {
+  "en": "Rust Cargo Git cache",
+  "ja": "Rust Cargo Git キャッシュ",
+  "zh-Hans": "Rust Cargo Git 缓存"
+ },
+ "Rust Cargo 下載快取": {
+  "en": "Rust Cargo download cache",
+  "ja": "Rust Cargo ダウンロードキャッシュ",
+  "zh-Hans": "Rust Cargo 下载缓存"
+ },
+ "SWAP 虛擬記憶體": {
+  "en": "Swap",
+  "ja": "スワップ",
+  "zh-Hans": "交换空间"
+ },
+ "SafeFinder 瀏覽器綁架": {
+  "en": "SafeFinder browser hijacker",
+  "ja": "SafeFinder ブラウザハイジャッカー",
+  "zh-Hans": "SafeFinder 浏览器劫持"
+ },
+ "SearchBaron 瀏覽器綁架": {
+  "en": "SearchBaron browser hijacker",
+  "ja": "SearchBaron ブラウザハイジャッカー",
+  "zh-Hans": "SearchBaron 浏览器劫持"
+ },
+ "SearchMine 瀏覽器綁架": {
+  "en": "SearchMine browser hijacker",
+  "ja": "SearchMine ブラウザハイジャッカー",
+  "zh-Hans": "SearchMine 浏览器劫持"
+ },
+ "Shlayer 木馬": {
+  "en": "Shlayer trojan",
+  "ja": "Shlayer トロイの木馬",
+  "zh-Hans": "Shlayer 木马"
+ },
+ "VSearch 廣告軟體": {
+  "en": "VSearch adware",
+  "ja": "VSearch アドウェア",
+  "zh-Hans": "VSearch 广告软件"
+ },
+ "Volume 裡通常是資料庫，刪了救不回來；正在執行的容器可能還在用。是否還在用請您自己判斷，這裡只提供證據。": {
+  "en": "Volumes usually hold databases and can't be recovered once deleted; running containers may still be in use. Decide for yourself whether something is still needed. This page only shows the evidence.",
+  "ja": "ボリュームには通常データベースが入っており、削除すると元に戻せません。実行中のコンテナはまだ使われている可能性があります。まだ使っているかはご自身で判断してください。ここでは判断材料だけを示します。",
+  "zh-Hans": "卷里通常是数据库，删除后无法恢复；正在运行的容器可能仍在使用。是否仍在使用请您自行判断，这里只提供依据。"
+ },
+ "Wi-Fi 網路": {
+  "en": "Wi-Fi networks",
+  "ja": "Wi-Fi ネットワーク",
+  "zh-Hans": "Wi-Fi 网络"
+ },
+ "XProtect 引擎": {
+  "en": "XProtect engine",
+  "ja": "XProtect エンジン",
+  "zh-Hans": "XProtect 引擎"
+ },
+ "XProtect 載入中": {
+  "en": "XProtect loading",
+  "ja": "XProtect 読み込み中",
+  "zh-Hans": "XProtect 加载中"
+ },
+ "XProtect：{}": {
+  "en": "XProtect: {}",
+  "ja": "XProtect：{}",
+  "zh-Hans": "XProtect：{}"
+ },
+ "Xcode 垃圾": {
+  "en": "Xcode junk",
+  "ja": "Xcode のジャンク",
+  "zh-Hans": "Xcode 垃圾"
+ },
+ "Xcode 與 AI 雜亂檔案": {
+  "en": "Xcode and AI clutter",
+  "ja": "Xcode と AI の不要ファイル",
+  "zh-Hans": "Xcode 与 AI 杂乱文件"
+ },
+ "Yarn 下載快取": {
+  "en": "Yarn download cache",
+  "ja": "Yarn ダウンロードキャッシュ",
+  "zh-Hans": "Yarn 下载缓存"
+ },
+ "Yarn 鎖定檔": {
+  "en": "Yarn lockfile",
+  "ja": "Yarn ロックファイル",
+  "zh-Hans": "Yarn 锁定文件"
+ },
+ "iCloud 雲碟": {
+  "en": "iCloud Drive",
+  "ja": "iCloud Drive",
+  "zh-Hans": "iCloud 云盘"
+ },
+ "iOS 裝置備份": {
+  "en": "iOS device backups",
+  "ja": "iOS デバイスのバックアップ",
+  "zh-Hans": "iOS 设备备份"
+ },
+ "iPhone 或 iPad 的舊備份。刪除前請確認不再需要。": {
+  "en": "Old iPhone or iPad backups. Make sure you no longer need them before deleting.",
+  "ja": "iPhone や iPad の古いバックアップです。削除する前に、不要であることを確認してください。",
+  "zh-Hans": "iPhone 或 iPad 的旧备份。删除前请确认不再需要。"
+ },
+ "macOS 內建、由 Apple 自動更新的惡意軟體特徵規則（YARA 格式）。本程式直接讀取這台 Mac 上的規則，用來檢查已經在電腦裡的程式與腳本。": {
+  "en": "Malware signature rules (YARA format) built into macOS and updated automatically by Apple. This app reads the rules on this Mac directly to check apps and scripts already on the computer.",
+  "ja": "macOS に内蔵され、Apple が自動更新するマルウェア検出ルール（YARA 形式）です。このアプリはこの Mac 上のルールを直接読み込み、すでにコンピュータにあるアプリやスクリプトを検査します。",
+  "zh-Hans": "macOS 内置、由 Apple 自动更新的恶意软件特征规则（YARA 格式）。本程序直接读取这台 Mac 上的规则，用来检查电脑中已有的程序与脚本。"
+ },
+ "macOS 可能會要求輸入管理員密碼": {
+  "en": "macOS may ask for your administrator password",
+  "ja": "macOS が管理者パスワードを求める場合があります",
+  "zh-Hans": "macOS 可能会要求输入管理员密码"
+ },
+ "macOS 會把閒置的記憶體拿來當快取，強制「釋放記憶體」只會清掉這些快取、幾秒後又被填滿，所以不提供這個按鈕。有效的做法是結束佔用最多記憶體的應用程式：": {
+  "en": "macOS uses idle memory as cache. Forcing a \"free up memory\" only clears that cache, which fills up again within seconds, so there is no such button here. What works is quitting the apps that use the most memory:",
+  "ja": "macOS は使われていないメモリをキャッシュとして利用します。「メモリ解放」を強制してもキャッシュが消えるだけで、数秒後にはまた埋まるため、このボタンは用意していません。効果があるのは、メモリを最も多く使っているアプリを終了することです：",
+  "zh-Hans": "macOS 会把闲置的内存用作缓存，强制“释放内存”只会清掉这些缓存，几秒后又会被填满，所以不提供这个按钮。有效的做法是退出占用内存最多的应用："
+ },
+ "node-gyp 快取": {
+  "en": "node-gyp cache",
+  "ja": "node-gyp キャッシュ",
+  "zh-Hans": "node-gyp 缓存"
+ },
+ "npm 下載快取": {
+  "en": "npm download cache",
+  "ja": "npm ダウンロードキャッシュ",
+  "zh-Hans": "npm 下载缓存"
+ },
+ "npm 套件清單": {
+  "en": "npm manifest",
+  "ja": "npm パッケージリスト",
+  "zh-Hans": "npm 软件包清单"
+ },
+ "npm 鎖定檔": {
+  "en": "npm lockfile",
+  "ja": "npm ロックファイル",
+  "zh-Hans": "npm 锁定文件"
+ },
+ "npm、Python、Rust、Go、Ruby、PHP、Java、.NET": {
+  "en": "npm, Python, Rust, Go, Ruby, PHP, Java, .NET",
+  "ja": "npm、Python、Rust、Go、Ruby、PHP、Java、.NET",
+  "zh-Hans": "npm、Python、Rust、Go、Ruby、PHP、Java、.NET"
+ },
+ "npm、pnpm、Cargo、Gradle 等套件管理工具的下載快取，刪除後需要時會自動重新下載。": {
+  "en": "Download caches of package managers such as npm, pnpm, Cargo and Gradle. They are downloaded again automatically when needed.",
+  "ja": "npm、pnpm、Cargo、Gradle などのパッケージ管理ツールのダウンロードキャッシュです。削除しても必要なときに自動で再ダウンロードされます。",
+  "zh-Hans": "npm、pnpm、Cargo、Gradle 等包管理工具的下载缓存，删除后在需要时会自动重新下载。"
+ },
+ "pnpm 套件庫": {
+  "en": "pnpm package store",
+  "ja": "pnpm パッケージストア",
+  "zh-Hans": "pnpm 软件包存储"
+ },
+ "pre-commit 快取": {
+  "en": "pre-commit cache",
+  "ja": "pre-commit キャッシュ",
+  "zh-Hans": "pre-commit 缓存"
+ },
+ "{}  {}：檢查 {} 個檔案，發現 {} 個威脅，{} 秒": {
+  "en": "{}  {}: {} files checked, {} threats found, {} s",
+  "ja": "{}  {}：{} 個のファイルを確認、{} 件の脅威を検出、{} 秒",
+  "zh-Hans": "{}  {}：检查 {} 个文件，发现 {} 个威胁，{} 秒"
+ },
+ "{} · {} 天未修改": {
+  "en": "{} · not modified for {} days",
+  "ja": "{} · {} 日間変更なし",
+  "zh-Hans": "{} · {} 天未修改"
+ },
+ "{} · {} 核心 · 已開機 {} 天 · 分數計算參考 Mole": {
+  "en": "{} · {} cores · up {} days · score based on Mole",
+  "ja": "{} · {} コア · 起動 {} 日 · スコアは Mole 準拠",
+  "zh-Hans": "{} · {} 核 · 已开机 {} 天 · 分数计算参考 Mole"
+ },
+ "{} · 內建與 Objective-See 規則 · {} 條自訂病毒碼": {
+  "en": "{} · built-in and Objective-See rules · {} custom signatures",
+  "ja": "{} · 内蔵および Objective-See のルール · カスタム定義 {} 件",
+  "zh-Hans": "{} · 内置与 Objective-See 规则 · {} 条自定义病毒库规则"
+ },
+ "{} · 共 {} 條規則": {
+  "en": "{} · {} rules",
+  "ja": "{} · 全 {} 件のルール",
+  "zh-Hans": "{} · 共 {} 条规则"
+ },
+ "{} · 即時防護開啟": {
+  "en": "{} · Real-time protection on",
+  "ja": "{} · リアルタイム保護オン",
+  "zh-Hans": "{} · 实时防护已开启"
+ },
+ "{} · 即時防護關閉": {
+  "en": "{} · Real-time protection off",
+  "ja": "{} · リアルタイム保護オフ",
+  "zh-Hans": "{} · 实时防护已关闭"
+ },
+ "{} · 建立 {} · 掛載：{}": {
+  "en": "{} · Created {} · Mounted by: {}",
+  "ja": "{} · 作成 {} · マウント：{}",
+  "zh-Hans": "{} · 创建于 {} · 挂载：{}"
+ },
+ "{} 以上的檔案": {
+  "en": "Files over {}",
+  "ja": "{} 以上のファイル",
+  "zh-Hans": "{} 以上的文件"
+ },
+ "{} 個": {
+  "en": "{}",
+  "ja": "{} 個",
+  "zh-Hans": "{} 个"
+ },
+ "{} 個大型檔案": {
+  "en": "{} large files",
+  "ja": "{} 個の大きなファイル",
+  "zh-Hans": "{} 个大文件"
+ },
+ "{} 個大型檔案待檢視": {
+  "en": "{} large files to review",
+  "ja": "確認待ちの大きなファイル {} 個",
+  "zh-Hans": "{} 个大文件待查看"
+ },
+ "{} 個應用程式 · {}": {
+  "en": "{} apps · {}",
+  "ja": "{} 個のアプリ · {}",
+  "zh-Hans": "{} 个应用程序 · {}"
+ },
+ "{} 個清單解析完成": {
+  "en": "{} files parsed",
+  "ja": "{} 個のファイルを解析済み",
+  "zh-Hans": "{} 个清单解析完成"
+ },
+ "{} 個相依清單": {
+  "en": "{} dependency files",
+  "ja": "{} 個の依存関係ファイル",
+  "zh-Hans": "{} 个依赖清单"
+ },
+ "{} 個相同的檔案，每個 {}": {
+  "en": "{} identical files, {} each",
+  "ja": "同じファイルが {} 個、各 {}",
+  "zh-Hans": "{} 个相同的文件，每个 {}"
+ },
+ "{} 個項目": {
+  "en": "{} items",
+  "ja": "{} 項目",
+  "zh-Hans": "{} 个项目"
+ },
+ "{} 個項目已移入隔離區，可在「隔離區」中還原或永久刪除。": {
+  "en": "{} items were moved to Quarantine. You can restore or permanently delete them in Quarantine.",
+  "ja": "{} 個の項目を隔離領域に移動しました。「隔離領域」で復元または完全に削除できます。",
+  "zh-Hans": "{} 个项目已移入隔离区，可在“隔离区”中还原或永久删除。"
+ },
+ "{} 分 {} 秒": {
+  "en": "{} min {} s",
+  "ja": "{} 分 {} 秒",
+  "zh-Hans": "{} 分 {} 秒"
+ },
+ "{} 天前下載": {
+  "en": "Downloaded {} days ago",
+  "ja": "{} 日前にダウンロード",
+  "zh-Hans": "{} 天前下载"
+ },
+ "{} 小時 {} 分": {
+  "en": "{} h {} min",
+  "ja": "{} 時間 {} 分",
+  "zh-Hans": "{} 小时 {} 分"
+ },
+ "{} 惡意軟體": {
+  "en": "{} malware",
+  "ja": "{} マルウェア",
+  "zh-Hans": "{} 恶意软件"
+ },
+ "{} 條。您自己加入的規則，每行一條：「SHA-256 大小 名稱」、「path 規則 名稱」或「ext 擴充功能ID 名稱」。": {
+  "en": "{} rules. Rules you add yourself, one per line: “SHA-256 size name”, “path rule name” or “ext extension-ID name”.",
+  "ja": "{} 件。ご自身で追加したルールです。1 行に 1 件ずつ、「SHA-256 サイズ 名前」「path ルール 名前」「ext 機能拡張ID 名前」のいずれかで記述します。",
+  "zh-Hans": "{} 条。您自己添加的规则，每行一条：“SHA-256 大小 名称”、“path 规则 名称”或“ext 扩展ID 名称”。"
+ },
+ "{} 條規則": {
+  "en": "{} rules",
+  "ja": "{} ルール",
+  "zh-Hans": "{} 条规则"
+ },
+ "{} 條：EICAR 防毒測試檔指紋（EICAR 組織公布的標準測試檔）、資安研究公開報導的 Mac 廣告軟體家族名稱，以及本程式自己寫的可疑行為特徵（例如下載後直接執行的腳本、假冒密碼視窗）。": {
+  "en": "{} rules: the EICAR antivirus test file fingerprint (the standard test file published by EICAR), Mac adware family names reported publicly in security research, and suspicious-behavior patterns written for this app (such as scripts that run right after download, or fake password windows).",
+  "ja": "{} 件：EICAR ウイルス対策テストファイルのフィンガープリント（EICAR が公開している標準テストファイル）、セキュリティ研究で公に報告された Mac アドウェアのファミリー名、このアプリ独自の不審な動作パターン（ダウンロード直後に実行されるスクリプト、偽のパスワードウインドウなど）。",
+  "zh-Hans": "{} 条：EICAR 反病毒测试文件指纹（EICAR 组织发布的标准测试文件）、安全研究公开报道的 Mac 广告软件家族名称，以及本程序自己编写的可疑行为特征（例如下载后直接运行的脚本、伪装的密码窗口）。"
+ },
+ "{} 秒": {
+  "en": "{} s",
+  "ja": "{} 秒",
+  "zh-Hans": "{} 秒"
+ },
+ "{} 組重複檔案": {
+  "en": "{} sets of duplicates",
+  "ja": "{} 組の重複ファイル",
+  "zh-Hans": "{} 组重复文件"
+ },
+ "{}% 負載": {
+  "en": "{}% load",
+  "ja": "負荷 {}%",
+  "zh-Hans": "{}% 负载"
+ },
+ "{}　已檢查 {} 個檔案的安全性": {
+  "en": "{}  {} files checked for security",
+  "ja": "{}　{} 個のファイルの安全性をチェック済み",
+  "zh-Hans": "{}　已检查 {} 个文件的安全性"
+ },
+ "{}（MalwareBazaar 樣本）": {
+  "en": "{} (MalwareBazaar sample)",
+  "ja": "{}（MalwareBazaar サンプル）",
+  "zh-Hans": "{}（MalwareBazaar 样本）"
+ },
+ "{}（{} 項）": {
+  "en": "{} ({} items)",
+  "ja": "{}（{} 項目）",
+  "zh-Hans": "{}（{} 项）"
+ },
+ "{}（{}%）": {
+  "en": "{} ({}%)",
+  "ja": "{}（{}%）",
+  "zh-Hans": "{}（{}%）"
+ },
+ "{}（{}）": {
+  "en": "{} ({})",
+  "ja": "{}（{}）",
+  "zh-Hans": "{}（{}）"
+ },
+ "{}（{}，{} 個套件）": {
+  "en": "{} ({}, {} packages)",
+  "ja": "{}（{}、{} 個のパッケージ）",
+  "zh-Hans": "{}（{}，{} 个软件包）"
+ },
+ "{}（可能需要管理員權限）": {
+  "en": "{} (administrator privileges may be required)",
+  "ja": "{}（管理者権限が必要な場合があります）",
+  "zh-Hans": "{}（可能需要管理员权限）"
+ },
+ "{}：{}": {
+  "en": "{}: {}",
+  "ja": "{}：{}",
+  "zh-Hans": "{}：{}"
+ },
+ "~/{}，需要時會重新下載": {
+  "en": "~/{}, downloaded again when needed",
+  "ja": "~/{}、必要なときに再ダウンロードされます",
+  "zh-Hans": "~/{}，需要时会重新下载"
+ },
+ "……共 {} 項": {
+  "en": "…{} items in total",
+  "ja": "…合計 {} 項目",
+  "zh-Hans": "……共 {} 项"
+ },
+ "← 上一層": {
+  "en": "← Up one level",
+  "ja": "← 上の階層へ",
+  "zh-Hans": "← 上一层"
+ },
+ "● 壓力{} {}%": {
+  "en": "● Pressure {} {}%",
+  "ja": "● プレッシャー {} {}%",
+  "zh-Hans": "● 压力{} {}%"
+ },
+ "● 有需要留意的項目": {
+  "en": "● Some items need attention",
+  "ja": "● 注意が必要な項目があります",
+  "zh-Hans": "● 有需要留意的项目"
+ },
+ "● 系統各項指標均處於良好狀態": {
+  "en": "● All system indicators look good",
+  "ja": "● システムの各指標はすべて良好です",
+  "zh-Hans": "● 系统各项指标均处于良好状态"
+ },
+ "　共 {} 個套件": {
+  "en": "  {} packages",
+  "ja": "　全 {} 個のパッケージ",
+  "zh-Hans": "　共 {} 个软件包"
+ },
+ "、": {
+  "en": ", ",
+  "ja": "、",
+  "zh-Hans": "、"
+ },
+ "一切都是最新的！": {
+  "en": "Everything is up to date!",
+  "ja": "すべて最新です！",
+  "zh-Hans": "一切都是最新的！"
+ },
+ "一次處理一類，任何一步失敗就停止。執行後會記錄在 docker_cleanup.log。": {
+  "en": "One category at a time; stops if any step fails. Each run is logged to docker_cleanup.log.",
+  "ja": "1 種類ずつ処理し、どこかで失敗すると停止します。実行内容は docker_cleanup.log に記録されます。",
+  "zh-Hans": "一次处理一类，任何一步失败就停止。运行后会记录在 docker_cleanup.log 中。"
+ },
+ "一鍵健檢": {
+  "en": "Quick Checkup",
+  "ja": "クイックチェック",
+  "zh-Hans": "一键体检"
+ },
+ "一鍵健檢…": {
+  "en": "Quick Checkup…",
+  "ja": "クイックチェック…",
+  "zh-Hans": "一键体检…"
+ },
+ "一鍵清理第 1 級": {
+  "en": "Clean up Level 1",
+  "ja": "レベル 1 をクリーンアップ",
+  "zh-Hans": "一键清理第 1 级"
+ },
+ "一鍵複製更新指令或存成文字報告": {
+  "en": "Copy update commands in one click or save a text report",
+  "ja": "ワンクリックで更新コマンドをコピー、またはテキストレポートとして保存",
+  "zh-Hans": "一键复制更新命令或保存为文本报告"
+ },
+ "上傳 (TX)": {
+  "en": "Upload (TX)",
+  "ja": "送信（TX）",
+  "zh-Hans": "上传 (TX)"
+ },
+ "上次工作階段的分頁": {
+  "en": "Tabs from last session",
+  "ja": "前回のセッションのタブ",
+  "zh-Hans": "上次会话的标签页"
+ },
+ "上次掃描：{}，檢查 {} 個檔案，發現 {} 個威脅": {
+  "en": "Last scan: {}, {} files checked, {} threats found",
+  "ja": "前回のスキャン：{}、{} 個のファイルを確認、{} 件の脅威を検出",
+  "zh-Hans": "上次扫描：{}，检查了 {} 个文件，发现 {} 个威胁"
+ },
+ "上次檢查：{}": {
+  "en": "Last checked: {}",
+  "ja": "前回の確認：{}",
+  "zh-Hans": "上次检查：{}"
+ },
+ "上次清理結果": {
+  "en": "Last cleanup result",
+  "ja": "前回のクリーンアップ結果",
+  "zh-Hans": "上次清理结果"
+ },
+ "下載 (RX)": {
+  "en": "Download (RX)",
+  "ja": "受信（RX）",
+  "zh-Hans": "下载 (RX)"
+ },
+ "下載後直接執行的腳本": {
+  "en": "Script that downloads and runs code",
+  "ja": "ダウンロードしてそのまま実行するスクリプト",
+  "zh-Hans": "下载后直接运行的脚本"
+ },
+ "下載記錄": {
+  "en": "Download history",
+  "ja": "ダウンロード履歴",
+  "zh-Hans": "下载记录"
+ },
+ "下載資料夾中的 DMG 與 PKG": {
+  "en": "DMG and PKG files in Downloads",
+  "ja": "ダウンロードフォルダ内の DMG と PKG",
+  "zh-Hans": "“下载”文件夹中的 DMG 与 PKG"
+ },
+ "不需登入": {
+  "en": "No sign-in needed",
+  "ja": "サインイン不要",
+  "zh-Hans": "无需登录"
+ },
+ "中": {
+  "en": "Medium",
+  "ja": "中",
+  "zh-Hans": "中"
+ },
+ "中等": {
+  "en": "Medium",
+  "ja": "中程度",
+  "zh-Hans": "中等"
+ },
+ "中等權限": {
+  "en": "Medium access",
+  "ja": "中程度の権限",
+  "zh-Hans": "中等权限"
+ },
+ "也可以直接把檔案或資料夾拖進視窗": {
+  "en": "You can also drag files or folders into the window",
+  "ja": "ファイルやフォルダをウインドウにドラッグすることもできます",
+  "zh-Hans": "也可以直接把文件或文件夹拖进窗口"
+ },
+ "介面使用的語言。預設跟著這台 Mac 的系統語言。": {
+  "en": "The language of the interface. By default it follows this Mac's system language.",
+  "ja": "画面に表示する言語です。初期設定ではこの Mac のシステム言語に合わせます。",
+  "zh-Hans": "界面使用的语言。默认跟随这台 Mac 的系统语言。"
+ },
+ "以下是會執行的指令與完整清單，確認後才會執行：": {
+  "en": "These are the commands that will run and the full list. Nothing runs until you confirm:",
+  "ja": "実行されるコマンドと対象の一覧です。確認するまで実行されません：",
+  "zh-Hans": "以下是将要运行的命令与完整清单，确认后才会运行："
+ },
+ "以後的掃描不再檢查這個位置": {
+  "en": "Future scans will skip this location",
+  "ja": "今後のスキャンではこの場所を確認しません",
+  "zh-Hans": "以后的扫描不再检查这个位置"
+ },
+ "以病毒碼、已知路徑與特徵碼找出威脅": {
+  "en": "Finds threats by signatures, known paths and patterns",
+  "ja": "マルウェア定義、既知のパス、パターンで脅威を検出",
+  "zh-Hans": "通过病毒库、已知路径和特征码找出威胁"
+ },
+ "以視覺化的方式查看哪些資料夾佔用了最多空間。": {
+  "en": "See at a glance which folders take up the most space.",
+  "ja": "どのフォルダが最も容量を使っているかを視覚的に確認します。",
+  "zh-Hans": "以可视化的方式查看哪些文件夹占用了最多空间。"
+ },
+ "位置：{}": {
+  "en": "Location: {}",
+  "ja": "場所：{}",
+  "zh-Hans": "位置：{}"
+ },
+ "低": {
+  "en": "Low",
+  "ja": "低",
+  "zh-Hans": "低"
+ },
+ "低權限": {
+  "en": "Low access",
+  "ja": "低い権限",
+  "zh-Hans": "低权限"
+ },
+ "使用者啟動代理": {
+  "en": "User launch agent",
+  "ja": "ユーザの起動エージェント",
+  "zh-Hans": "用户启动代理"
+ },
+ "使用者快取檔案": {
+  "en": "User cache files",
+  "ja": "ユーザキャッシュファイル",
+  "zh-Hans": "用户缓存文件"
+ },
+ "使用者記錄檔": {
+  "en": "User log files",
+  "ja": "ユーザログファイル",
+  "zh-Hans": "用户日志文件"
+ },
+ "使用電池": {
+  "en": "On battery",
+  "ja": "バッテリー使用中",
+  "zh-Hans": "使用电池"
+ },
+ "來源：{}": {
+  "en": "Source: {}",
+  "ja": "ソース：{}",
+  "zh-Hans": "来源：{}"
+ },
+ "依大小排列，一眼找出空間殺手": {
+  "en": "Sorted by size to spot space hogs instantly",
+  "ja": "サイズ順に並べ、容量を食うものをひと目で発見",
+  "zh-Hans": "按大小排列，一眼找出空间杀手"
+ },
+ "保留最新的副本": {
+  "en": "Newest copy is kept",
+  "ja": "最新のコピーを残します",
+  "zh-Hans": "保留最新的副本"
+ },
+ "修復磁碟權限": {
+  "en": "Repair disk permissions",
+  "ja": "ディスクのアクセス権を修復",
+  "zh-Hans": "修复磁盘权限"
+ },
+ "假冒密碼視窗（竊密程式特徵）": {
+  "en": "Fake password dialog (info-stealer trait)",
+  "ja": "偽のパスワードダイアログ（情報窃取型の特徴）",
+  "zh-Hans": "伪造密码窗口（窃密程序特征）"
+ },
+ "偏高": {
+  "en": "High",
+  "ja": "高め",
+  "zh-Hans": "偏高"
+ },
+ "做得好！您的 Mac 狀態良好！": {
+  "en": "Well done! Your Mac is in good shape!",
+  "ja": "お疲れさまでした！Mac は良好な状態です！",
+  "zh-Hans": "干得好！您的 Mac 状态良好！"
+ },
+ "停止": {
+  "en": "Stop",
+  "ja": "停止",
+  "zh-Hans": "停止"
+ },
+ "停止並刪除…": {
+  "en": "Stop and delete…",
+  "ja": "停止して削除…",
+  "zh-Hans": "停止并删除…"
+ },
+ "停止容器「{}」": {
+  "en": "Stop container “{}”",
+  "ja": "コンテナ「{}」を停止",
+  "zh-Hans": "停止容器“{}”"
+ },
+ "健康狀態：": {
+  "en": "Health:",
+  "ja": "健康状態：",
+  "zh-Hans": "健康状态："
+ },
+ "偵測到威脅": {
+  "en": "Threat detected",
+  "ja": "脅威を検出しました",
+  "zh-Hans": "检测到威胁"
+ },
+ "僅高危（{}）": {
+  "en": "High only ({})",
+  "ja": "高以上のみ（{}）",
+  "zh-Hans": "仅高危（{}）"
+ },
+ "儘快更新": {
+  "en": "Update soon",
+  "ja": "早めに更新",
+  "zh-Hans": "尽快更新"
+ },
+ "儲存並更新": {
+  "en": "Save and update",
+  "ja": "保存して更新",
+  "zh-Hans": "保存并更新"
+ },
+ "允許應用程式使用 Mac 的相機。": {
+  "en": "Lets apps use your Mac's camera.",
+  "ja": "Mac のカメラの使用をアプリに許可します。",
+  "zh-Hans": "允许应用使用 Mac 的相机。"
+ },
+ "允許應用程式使用 Mac 的麥克風。": {
+  "en": "Lets apps use your Mac's microphone.",
+  "ja": "Mac のマイクの使用をアプリに許可します。",
+  "zh-Hans": "允许应用使用 Mac 的麦克风。"
+ },
+ "允許應用程式控制其他應用程式。": {
+  "en": "Lets apps control other apps.",
+  "ja": "ほかのアプリの操作をアプリに許可します。",
+  "zh-Hans": "允许应用控制其他应用。"
+ },
+ "允許應用程式控制電腦，可用來模擬點擊與按鍵。": {
+  "en": "Lets apps control your computer, which can be used to simulate clicks and keystrokes.",
+  "ja": "コンピュータの操作をアプリに許可します。クリックやキー入力の再現に使われることがあります。",
+  "zh-Hans": "允许应用控制电脑，可用来模拟点击与按键。"
+ },
+ "允許應用程式記錄您的鍵盤與滑鼠輸入。": {
+  "en": "Lets apps record your keyboard and mouse input.",
+  "ja": "キーボードとマウスの入力の記録をアプリに許可します。",
+  "zh-Hans": "允许应用记录您的键盘与鼠标输入。"
+ },
+ "允許應用程式讀取您的照片圖庫。": {
+  "en": "Lets apps read your photo library.",
+  "ja": "写真ライブラリの読み取りをアプリに許可します。",
+  "zh-Hans": "允许应用读取您的照片图库。"
+ },
+ "允許應用程式讀取您的聯絡人。": {
+  "en": "Lets apps read your contacts.",
+  "ja": "連絡先の読み取りをアプリに許可します。",
+  "zh-Hans": "允许应用读取您的联系人。"
+ },
+ "允許應用程式讀取您的行事曆。": {
+  "en": "Lets apps read your calendars.",
+  "ja": "カレンダーの読み取りをアプリに許可します。",
+  "zh-Hans": "允许应用读取您的日历。"
+ },
+ "允許應用程式讀寫 Mac 磁碟的任何位置。": {
+  "en": "Lets apps read and write anywhere on your Mac's disk.",
+  "ja": "Mac のディスク上のあらゆる場所の読み書きをアプリに許可します。",
+  "zh-Hans": "允许应用读写 Mac 磁盘上的任何位置。"
+ },
+ "允許應用程式錄下您的螢幕畫面。": {
+  "en": "Lets apps record your screen.",
+  "ja": "画面の収録をアプリに許可します。",
+  "zh-Hans": "允许应用录制您的屏幕画面。"
+ },
+ "充電中": {
+  "en": "Charging",
+  "ja": "充電中",
+  "zh-Hans": "充电中"
+ },
+ "先為您的 Mac 進行一次快速而全面的掃描。": {
+  "en": "Start with a quick, thorough scan of your Mac.",
+  "ja": "まずは Mac をすばやく総合的にスキャンしましょう。",
+  "zh-Hans": "先为您的 Mac 进行一次快速而全面的扫描。"
+ },
+ "內容完全相同的副本": {
+  "en": "Copies with identical content",
+  "ja": "内容がまったく同じコピー",
+  "zh-Hans": "内容完全相同的副本"
+ },
+ "內建規則": {
+  "en": "Built-in rules",
+  "ja": "内蔵ルール",
+  "zh-Hans": "内置规则"
+ },
+ "內建電池": {
+  "en": "Built-in battery",
+  "ja": "内蔵バッテリー",
+  "zh-Hans": "内置电池"
+ },
+ "全部永久刪除": {
+  "en": "Delete all permanently",
+  "ja": "すべて完全に削除",
+  "zh-Hans": "全部永久删除"
+ },
+ "全部（{}）": {
+  "en": "All ({})",
+  "ja": "すべて（{}）",
+  "zh-Hans": "全部（{}）"
+ },
+ "全面": {
+  "en": "Full",
+  "ja": "全体",
+  "zh-Hans": "全面"
+ },
+ "共 {} 條規則": {
+  "en": "{} rules in total",
+  "ja": "合計 {} 件のルール",
+  "zh-Hans": "共 {} 条规则"
+ },
+ "共釋放 {} 空間。項目已移到廢紙簍，需要時可以還原。": {
+  "en": "Freed {} in total. Items were moved to the Trash and can be restored if needed.",
+  "ja": "合計 {} を解放しました。項目はゴミ箱に移動したので、必要なら復元できます。",
+  "zh-Hans": "共释放 {} 空间。项目已移到废纸篓，需要时可以还原。"
+ },
+ "列出 CVE 編號、風險等級與建議升級的版本": {
+  "en": "Lists CVE IDs, risk levels and suggested upgrades",
+  "ja": "CVE 番号、リスクレベル、推奨アップグレードを一覧表示",
+  "zh-Hans": "列出 CVE 编号、风险等级和建议升级版本"
+ },
+ "刪了會自動重建，只是下次建置或下載比較慢。": {
+  "en": "Rebuilt automatically after deletion; the next build or download is just slower.",
+  "ja": "削除しても自動的に再作成されます。次回のビルドやダウンロードが遅くなるだけです。",
+  "zh-Hans": "删除后会自动重建，只是下次构建或下载会慢一些。"
+ },
+ "刪除 volume「{}」（無法復原）": {
+  "en": "Delete volume “{}” (can’t be undone)",
+  "ja": "ボリューム「{}」を削除（元に戻せません）",
+  "zh-Hans": "删除卷“{}”（无法恢复）"
+ },
+ "刪除…": {
+  "en": "Delete…",
+  "ja": "削除…",
+  "zh-Hans": "删除…"
+ },
+ "刪除勾選的項目（{} 類）…": {
+  "en": "Delete selected items ({} types)…",
+  "ja": "選択した項目を削除（{} 種類）…",
+  "zh-Hans": "删除勾选的项目（{} 类）…"
+ },
+ "刪除容器「{}」": {
+  "en": "Delete container “{}”",
+  "ja": "コンテナ「{}」を削除",
+  "zh-Hans": "删除容器“{}”"
+ },
+ "刪除已停止的容器": {
+  "en": "Delete stopped containers",
+  "ja": "停止したコンテナを削除",
+  "zh-Hans": "删除已停止的容器"
+ },
+ "刪除後無法復原": {
+  "en": "Can't be undone",
+  "ja": "削除すると元に戻せません",
+  "zh-Hans": "删除后无法恢复"
+ },
+ "刪除後無法復原。": {
+  "en": "This can't be undone.",
+  "ja": "削除すると元に戻せません。",
+  "zh-Hans": "删除后无法恢复。"
+ },
+ "刪除後需重新登入各網站": {
+  "en": "You'll need to sign in to websites again",
+  "ja": "削除すると各サイトに再ログインが必要です",
+  "zh-Hans": "删除后需重新登录各网站"
+ },
+ "刪除沒在用的網路": {
+  "en": "Delete unused networks",
+  "ja": "使われていないネットワークを削除",
+  "zh-Hans": "删除未使用的网络"
+ },
+ "刪除沒有容器使用的映像檔": {
+  "en": "Delete images not used by any container",
+  "ja": "どのコンテナにも使われていないイメージを削除",
+  "zh-Hans": "删除没有容器使用的镜像"
+ },
+ "刷新 DNS 快取": {
+  "en": "Flush DNS cache",
+  "ja": "DNS キャッシュをクリア",
+  "zh-Hans": "刷新 DNS 缓存"
+ },
+ "前往下載": {
+  "en": "Download",
+  "ja": "ダウンロード",
+  "zh-Hans": "前往下载"
+ },
+ "前往垃圾清理": {
+  "en": "Go to Junk Cleanup",
+  "ja": "ジャンク削除へ",
+  "zh-Hans": "前往垃圾清理"
+ },
+ "加入": {
+  "en": "Add",
+  "ja": "追加",
+  "zh-Hans": "添加"
+ },
+ "加入安全清單": {
+  "en": "Add to allow list",
+  "ja": "許可リストに追加",
+  "zh-Hans": "加入白名单"
+ },
+ "加入您信任的檔案或資料夾，避免誤判。也可以在掃描結果中按「加入安全清單」。": {
+  "en": "Add files or folders you trust to avoid false alarms. You can also click \"Add to allow list\" in scan results.",
+  "ja": "信頼できるファイルやフォルダを追加して、誤検出を防ぎます。スキャン結果で「許可リストに追加」をクリックすることもできます。",
+  "zh-Hans": "添加你信任的文件或文件夹，避免误报。也可以在扫描结果中点击“加入白名单”。"
+ },
+ "加密貨幣挖礦程式": {
+  "en": "Cryptocurrency miner",
+  "ja": "暗号資産マイニングプログラム",
+  "zh-Hans": "加密货币挖矿程序"
+ },
+ "勾選後才清": {
+  "en": "Cleaned only when selected",
+  "ja": "選択したものだけ削除",
+  "zh-Hans": "勾选后才清理"
+ },
+ "匯出報告": {
+  "en": "Export report",
+  "ja": "レポートを書き出す",
+  "zh-Hans": "导出报告"
+ },
+ "匯出檢查報告到桌面": {
+  "en": "Export report to Desktop",
+  "ja": "レポートをデスクトップに書き出す",
+  "zh-Hans": "导出检查报告到桌面"
+ },
+ "即使您沒有執行掃描，也會持續檢查新下載的檔案、新安裝的應用程式、新的啟動項目與瀏覽器擴充功能。": {
+  "en": "Even when you're not scanning, Sanitized keeps checking new downloads, newly installed apps, new launch items and browser extensions.",
+  "ja": "スキャンを実行していなくても、新しくダウンロードしたファイル、新しくインストールしたアプリ、新しい起動項目、ブラウザ機能拡張を常に確認します。",
+  "zh-Hans": "即使你没有运行扫描，也会持续检查新下载的文件、新安装的应用、新的启动项和浏览器扩展。"
+ },
+ "即時惡意軟體監控": {
+  "en": "Real-time malware monitoring",
+  "ja": "リアルタイムのマルウェア監視",
+  "zh-Hans": "实时恶意软件监控"
+ },
+ "即時監控": {
+  "en": "Real-time monitoring",
+  "ja": "リアルタイム監視",
+  "zh-Hans": "实时监控"
+ },
+ "即時防護": {
+  "en": "Real-time protection",
+  "ja": "リアルタイム保護",
+  "zh-Hans": "实时防护"
+ },
+ "即時防護 –": {
+  "en": "Real-time protection –",
+  "ja": "リアルタイム保護 –",
+  "zh-Hans": "实时防护 –"
+ },
+ "即時防護已啟動": {
+  "en": "Real-time protection turned on",
+  "ja": "リアルタイム保護をオンにしました",
+  "zh-Hans": "实时防护已启动"
+ },
+ "即時防護已關閉": {
+  "en": "Real-time protection turned off",
+  "ja": "リアルタイム保護をオフにしました",
+  "zh-Hans": "实时防护已关闭"
+ },
+ "即時防護：開啟": {
+  "en": "Real-time protection: on",
+  "ja": "リアルタイム保護：オン",
+  "zh-Hans": "实时防护：开启"
+ },
+ "即時防護：關閉": {
+  "en": "Real-time protection: off",
+  "ja": "リアルタイム保護：オフ",
+  "zh-Hans": "实时防护：关闭"
+ },
+ "原位置已有同名檔案": {
+  "en": "A file with the same name already exists in the original location",
+  "ja": "元の場所に同じ名前のファイルがすでにあります",
+  "zh-Hans": "原位置已有同名文件"
+ },
+ "原位置：{}": {
+  "en": "Original location: {}",
+  "ja": "元の場所：{}",
+  "zh-Hans": "原位置：{}"
+ },
+ "反向連線後門": {
+  "en": "Reverse shell backdoor",
+  "ja": "リバースシェルのバックドア",
+  "zh-Hans": "反向连接后门"
+ },
+ "取得免費金鑰": {
+  "en": "Get a free key",
+  "ja": "無料キーを取得",
+  "zh-Hans": "获取免费密钥"
+ },
+ "取消": {
+  "en": "Cancel",
+  "ja": "キャンセル",
+  "zh-Hans": "取消"
+ },
+ "受保護": {
+  "en": "Protected",
+  "ja": "保護対象",
+  "zh-Hans": "受保护"
+ },
+ "受保護 · 不可直接刪除": {
+  "en": "Protected · can't be deleted directly",
+  "ja": "保護対象 · 直接削除できません",
+  "zh-Hans": "受保护 · 无法直接删除"
+ },
+ "另有 {} 個漏洞": {
+  "en": "{} more vulnerabilities",
+  "ja": "ほかに {} 件の脆弱性",
+  "zh-Hans": "另有 {} 个漏洞"
+ },
+ "只向 OSV.dev 查詢套件名稱與版本，不傳送專案程式碼。": {
+  "en": "Only package names and versions are sent to OSV.dev; your project code never leaves your Mac.",
+  "ja": "OSV.dev に照会するのはパッケージ名とバージョンのみで、プロジェクトのコードは送信しません。",
+  "zh-Hans": "只向 OSV.dev 查询软件包名称和版本，不发送项目代码。"
+ },
+ "只會向 GitHub 查詢最新的版本號，不會傳送任何關於這台 Mac 或你的資料，也不會自動下載或安裝。": {
+  "en": "Only asks GitHub for the latest version number. Nothing about this Mac or you is sent, and nothing is downloaded or installed automatically.",
+  "ja": "GitHub に最新のバージョン番号を問い合わせるだけです。この Mac やあなたに関する情報は送信されず、自動でダウンロードやインストールもしません。",
+  "zh-Hans": "只会向 GitHub 查询最新的版本号，不会发送任何关于这台 Mac 或你的数据，也不会自动下载或安装。"
+ },
+ "只會把套件名稱與版本（不含程式碼）送到 OSV.dev 查詢。": {
+  "en": "Only package names and versions (no code) are sent to OSV.dev.",
+  "ja": "OSV.dev に送信されるのはパッケージ名とバージョンのみです（コードは含みません）。",
+  "zh-Hans": "只会把软件包名称和版本（不含代码）发送到 OSV.dev 查询。"
+ },
+ "只處理這台 Mac 上的同步資料夾": {
+  "en": "Only handles sync folders on this Mac",
+  "ja": "この Mac 上の同期フォルダのみを処理",
+  "zh-Hans": "只处理这台 Mac 上的同步文件夹"
+ },
+ "只透過 docker 指令清理，讓 Docker 自己處理；不會直接刪除或搬動 Docker 的檔案。": {
+  "en": "Cleans up only through docker commands and lets Docker handle it. Docker's files are never deleted or moved directly.",
+  "ja": "docker コマンドだけでクリーンアップし、処理は Docker に任せます。Docker のファイルを直接削除したり移動したりすることはありません。",
+  "zh-Hans": "只通过 docker 命令清理，交给 Docker 自己处理；不会直接删除或移动 Docker 的文件。"
+ },
+ "可以一鍵清": {
+  "en": "Safe to clean in one click",
+  "ja": "ワンクリックで削除可能",
+  "zh-Hans": "可以一键清理"
+ },
+ "可在 signatures.txt 加入病毒碼：每行「SHA-256 大小 名稱」、「path 規則 名稱」或「ext 擴充功能ID 名稱」。": {
+  "en": "Add signatures in signatures.txt, one per line: \"SHA-256 size name\", \"path rule name\" or \"ext extension-ID name\".",
+  "ja": "signatures.txt にマルウェア定義を追加できます。1 行に 1 つ、「SHA-256 サイズ 名前」「path ルール 名前」「ext 機能拡張ID 名前」の形式で記入します。",
+  "zh-Hans": "可在 signatures.txt 中添加病毒库：每行“SHA-256 大小 名称”、“path 规则 名称”或“ext 扩展ID 名称”。"
+ },
+ "可套用官方修補": {
+  "en": "Apply the official patch",
+  "ja": "公式パッチを適用可能",
+  "zh-Hans": "可应用官方补丁"
+ },
+ "可用": {
+  "en": "Free",
+  "ja": "空き",
+  "zh-Hans": "可用"
+ },
+ "可用空間": {
+  "en": "Free space",
+  "ja": "空き容量",
+  "zh-Hans": "可用空间"
+ },
+ "可疑項目": {
+  "en": "Suspicious item",
+  "ja": "不審な項目",
+  "zh-Hans": "可疑项目"
+ },
+ "可釋放": {
+  "en": "Reclaimable",
+  "ja": "解放可能",
+  "zh-Hans": "可释放"
+ },
+ "向公開漏洞資料庫 OSV.dev 查詢每個套件版本": {
+  "en": "Looks up each package version in the public OSV.dev vulnerability database",
+  "ja": "公開脆弱性データベース OSV.dev で各パッケージのバージョンを照会",
+  "zh-Hans": "向公开漏洞数据库 OSV.dev 查询每个软件包版本"
+ },
+ "啟動磁碟：已使用 {} / {}": {
+  "en": "Startup disk: {} of {} used",
+  "ja": "起動ディスク：{} / {} 使用中",
+  "zh-Hans": "启动磁盘：已使用 {} / {}"
+ },
+ "啟動項目會執行：{}": {
+  "en": "Launch item runs: {}",
+  "ja": "起動項目が実行するもの：{}",
+  "zh-Hans": "启动项会运行：{}"
+ },
+ "啟動項目檢查": {
+  "en": "Launch item check",
+  "ja": "起動項目チェック",
+  "zh-Hans": "启动项检查"
+ },
+ "啟動項目：{}": {
+  "en": "Launch item: {}",
+  "ja": "起動項目：{}",
+  "zh-Hans": "启动项：{}"
+ },
+ "嚴重": {
+  "en": "Critical",
+  "ja": "緊急",
+  "zh-Hans": "严重"
+ },
+ "嚴重程度": {
+  "en": "SEVERITY",
+  "ja": "深刻度",
+  "zh-Hans": "严重程度"
+ },
+ "嚴重程度與修正版本": {
+  "en": "Severity and fixed versions",
+  "ja": "深刻度と修正版",
+  "zh-Hans": "严重程度与修复版本"
+ },
+ "在 GitHub 查看並下載新版本": {
+  "en": "See and download the new version on GitHub",
+  "ja": "GitHub で新しいバージョンを確認してダウンロード",
+  "zh-Hans": "在 GitHub 查看并下载新版本"
+ },
+ "在「下載項目」放一個無害的標準測試檔 (EICAR)，用來確認掃描有效": {
+  "en": "Puts a harmless standard test file (EICAR) in Downloads to confirm scanning works",
+  "ja": "「ダウンロード」に無害な標準テストファイル（EICAR）を置き、スキャンが機能しているか確認します",
+  "zh-Hans": "在“下载”文件夹放一个无害的标准测试文件 (EICAR)，用来确认扫描有效"
+ },
+ "在「郵件」中開啟過的附件副本，原始郵件不受影響。": {
+  "en": "Copies of attachments opened in Mail. The original emails are not affected.",
+  "ja": "「メール」で開いた添付ファイルのコピーです。元のメールには影響しません。",
+  "zh-Hans": "在“邮件”中打开过的附件副本，原始邮件不受影响。"
+ },
+ "在目前的 macOS 中，這些權限由系統統一管理。點「檢查」會開啟對應的「隱私權與安全性」設定頁，您可以在那裡撤銷權限。": {
+  "en": "In current versions of macOS, the system manages these permissions. Click Check to open the matching Privacy & Security pane, where you can revoke access.",
+  "ja": "現在の macOS では、これらのアクセス権はシステムが一括管理しています。「確認」をクリックすると「プライバシーとセキュリティ」の該当ページが開き、そこでアクセス権を取り消せます。",
+  "zh-Hans": "在当前的 macOS 中，这些权限由系统统一管理。点击“检查”会打开对应的“隐私与安全性”设置页，你可以在那里撤销权限。"
+ },
+ "垃圾清理": {
+  "en": "Junk Cleanup",
+  "ja": "ジャンク削除",
+  "zh-Hans": "垃圾清理"
+ },
+ "執行": {
+  "en": "Run",
+  "ja": "実行",
+  "zh-Hans": "运行"
+ },
+ "執行一鍵健檢": {
+  "en": "Run Quick Checkup",
+  "ja": "クイックチェックを実行",
+  "zh-Hans": "运行一键体检"
+ },
+ "執行中": {
+  "en": "Running",
+  "ja": "実行中",
+  "zh-Hans": "运行中"
+ },
+ "執行中 · 啟動於 {} UTC": {
+  "en": "Running · Started {} UTC",
+  "ja": "実行中 · 起動 {} UTC",
+  "zh-Hans": "运行中 · 启动于 {} UTC"
+ },
+ "執行中 · 專案：{}": {
+  "en": "Running · Project: {}",
+  "ja": "実行中 · プロジェクト：{}",
+  "zh-Hans": "运行中 · 项目：{}"
+ },
+ "執行任務已準備就緒。看看我們發現了什麼：": {
+  "en": "Your tasks are ready. Here's what we found:",
+  "ja": "タスクの準備ができました。見つかった内容は次のとおりです：",
+  "zh-Hans": "任务已准备就绪。看看我们发现了什么："
+ },
+ "執行定期維護腳本": {
+  "en": "Run periodic maintenance scripts",
+  "ja": "定期メンテナンススクリプトを実行",
+  "zh-Hans": "运行定期维护脚本"
+ },
+ "執行系統每日、每週與每月的維護腳本。": {
+  "en": "Runs the system's daily, weekly and monthly maintenance scripts.",
+  "ja": "システムの日次・週次・月次のメンテナンススクリプトを実行します。",
+  "zh-Hans": "运行系统每日、每周与每月的维护脚本。"
+ },
+ "壓力 {} · 可用 {}% · SWAP {} / {}（{}%）": {
+  "en": "Pressure {} · {}% free · Swap {} / {} ({}%)",
+  "ja": "プレッシャー {} · 空き {}% · スワップ {} / {}（{}%）",
+  "zh-Hans": "压力 {} · 可用 {}% · 交换空间 {} / {}（{}%）"
+ },
+ "壓縮「郵件」、Safari 與「訊息」的資料庫，讓搜尋與捲動更流暢（正在使用的應用程式會略過）。": {
+  "en": "Compacts the Mail, Safari and Messages databases for smoother searching and scrolling (apps in use are skipped).",
+  "ja": "「メール」、Safari、「メッセージ」のデータベースを圧縮し、検索とスクロールを快適にします（使用中のアプリはスキップされます）。",
+  "zh-Hans": "压缩“邮件”、Safari 与“信息”的数据库，让搜索与滚动更流畅（正在使用的应用会跳过）。"
+ },
+ "壓縮檔內容": {
+  "en": "Archive contents",
+  "ja": "圧縮ファイルの内容",
+  "zh-Hans": "压缩包内容"
+ },
+ "壓縮檔內：{}": {
+  "en": "In archive: {}",
+  "ja": "圧縮ファイル内：{}",
+  "zh-Hans": "压缩包内：{}"
+ },
+ "大型檔案": {
+  "en": "Large Files",
+  "ja": "大きなファイル",
+  "zh-Hans": "大文件"
+ },
+ "大小": {
+  "en": "Size",
+  "ja": "サイズ",
+  "zh-Hans": "大小"
+ },
+ "大小 {}{}": {
+  "en": "Size {}{}",
+  "ja": "サイズ {}{}",
+  "zh-Hans": "大小 {}{}"
+ },
+ "失敗：{}：{}。後面的步驟已停止。": {
+  "en": "Failed: {}: {}. The remaining steps were stopped.",
+  "ja": "失敗：{}：{}。残りの手順は中止しました。",
+  "zh-Hans": "失败：{}：{}。后续步骤已停止。"
+ },
+ "套件名稱 (PACKAGE)": {
+  "en": "PACKAGE",
+  "ja": "パッケージ名 (PACKAGE)",
+  "zh-Hans": "软件包名称 (PACKAGE)"
+ },
+ "安全清單": {
+  "en": "Allow list",
+  "ja": "許可リスト",
+  "zh-Hans": "白名单"
+ },
+ "安全清單是空的。": {
+  "en": "The allow list is empty.",
+  "ja": "許可リストは空です。",
+  "zh-Hans": "白名单是空的。"
+ },
+ "安全移除": {
+  "en": "Safe removal",
+  "ja": "安全に削除",
+  "zh-Hans": "安全移除"
+ },
+ "安全防護": {
+  "en": "Protection",
+  "ja": "セキュリティ保護",
+  "zh-Hans": "安全防护"
+ },
+ "完成": {
+  "en": "Done",
+  "ja": "完了",
+  "zh-Hans": "完成"
+ },
+ "完成移除！": {
+  "en": "Removal complete!",
+  "ja": "削除が完了しました！",
+  "zh-Hans": "移除完成！"
+ },
+ "完整磁碟取用權限": {
+  "en": "Full Disk Access",
+  "ja": "フルディスクアクセス",
+  "zh-Hans": "完全磁盘访问权限"
+ },
+ "完整解除安裝、檢查更新，並清除應用程式殘留檔案。": {
+  "en": "Uninstall apps completely, check for updates and clear leftover files.",
+  "ja": "アプリを完全にアンインストールし、アップデートを確認し、残りファイルを消去します。",
+  "zh-Hans": "彻底卸载、检查更新，并清除应用程序残留文件。"
+ },
+ "家族名稱本身不直接當作規則，因為有些是常見單字（例如 Dummy、Snake），會造成誤判。這份清單由人工整理，需要隨新版本手動更新。": {
+  "en": "Family names themselves aren't used as rules, because some are common words (like Dummy or Snake) and would cause false positives. This list is curated by hand and must be updated manually with new versions.",
+  "ja": "ファミリー名そのものはルールとして使いません。一般的な単語（Dummy、Snake など）もあり、誤検出の原因になるためです。この一覧は手作業でまとめており、新しいバージョンに合わせて手動で更新する必要があります。",
+  "zh-Hans": "家族名称本身不直接用作规则，因为有些是常见单词（例如 Dummy、Snake），会造成误报。这份清单由人工整理，需要随新版本手动更新。"
+ },
+ "容器": {
+  "en": "Container",
+  "ja": "コンテナ",
+  "zh-Hans": "容器"
+ },
+ "實際釋放 {}（Docker.raw 實際佔用 {} → {}）": {
+  "en": "Actually freed {} (Docker.raw actual usage {} → {})",
+  "ja": "実際に解放：{}（Docker.raw の実使用量 {} → {}）",
+  "zh-Hans": "实际释放 {}（Docker.raw 实际占用 {} → {}）"
+ },
+ "實體 RAM 佔用": {
+  "en": "Physical RAM",
+  "ja": "物理 RAM 使用量",
+  "zh-Hans": "物理内存占用"
+ },
+ "專案漏洞報告.txt": {
+  "en": "Project vulnerability report.txt",
+  "ja": "プロジェクト脆弱性レポート.txt",
+  "zh-Hans": "项目漏洞报告.txt"
+ },
+ "專案漏洞檢查": {
+  "en": "Project vulnerability check",
+  "ja": "プロジェクトの脆弱性チェック",
+  "zh-Hans": "项目漏洞检查"
+ },
+ "專案漏洞檢查報告\n資料夾：{}\n\n": {
+  "en": "Project vulnerability report\nFolder: {}\n\n",
+  "ja": "プロジェクト脆弱性チェックレポート\nフォルダ：{}\n\n",
+  "zh-Hans": "项目漏洞检查报告\n文件夹：{}\n\n"
+ },
+ "專案漏洞檢查（CVE Scanner）": {
+  "en": "Project vulnerability check (CVE Scanner)",
+  "ja": "プロジェクトの脆弱性チェック（CVE Scanner）",
+  "zh-Hans": "项目漏洞检查（CVE Scanner）"
+ },
+ "專案資料夾：": {
+  "en": "Project folder:",
+  "ja": "プロジェクトフォルダ：",
+  "zh-Hans": "项目文件夹："
+ },
+ "專案：{}": {
+  "en": "Project: {}",
+  "ja": "プロジェクト：{}",
+  "zh-Hans": "项目：{}"
+ },
+ "專門研究 Mac 惡意軟體的非營利組織，公開收錄了 {} 個 Mac 惡意軟體家族。本程式依公開的分析報告，整理其中 {} 個家族會安裝的檔案位置，作為 {} 條規則。": {
+  "en": "A non-profit dedicated to Mac malware research that publicly catalogues {} Mac malware families. Based on the public analysis reports, this app lists where {} of those families install files, as {} rules.",
+  "ja": "Mac マルウェアを専門に研究する非営利団体で、{} の Mac マルウェアファミリーを公開しています。このアプリは公開されている分析レポートをもとに、そのうち {} ファミリーがインストールするファイルの場所を {} 件のルールとしてまとめています。",
+  "zh-Hans": "专门研究 Mac 恶意软件的非营利组织，公开收录了 {} 个 Mac 恶意软件家族。本程序根据公开的分析报告，整理了其中 {} 个家族会安装的文件位置，作为 {} 条规则。"
+ },
+ "尚未下載": {
+  "en": "Not downloaded yet",
+  "ja": "未ダウンロード",
+  "zh-Hans": "尚未下载"
+ },
+ "尚無修正版本": {
+  "en": "No fixed version yet",
+  "ja": "修正版はまだありません",
+  "zh-Hans": "暂无修复版本"
+ },
+ "工具": {
+  "en": "Tools",
+  "ja": "ツール",
+  "zh-Hans": "工具"
+ },
+ "已 {} 天沒有重新開機": {
+  "en": "Not restarted in {} days",
+  "ja": "{} 日間再起動していません",
+  "zh-Hans": "已 {} 天没有重启"
+ },
+ "已下載到這台 Mac 的大型雲端檔案。「移除下載」只刪本機副本，雲端上的檔案保留。": {
+  "en": "Large cloud files downloaded to this Mac. “Remove download” deletes only the local copy; the file stays in the cloud.",
+  "ja": "この Mac にダウンロードされた大きなクラウドファイルです。「ダウンロードを削除」はローカルのコピーだけを削除し、クラウド上のファイルは残ります。",
+  "zh-Hans": "已下载到这台 Mac 的大型云端文件。“移除下载”只删除本地副本，云端上的文件会保留。"
+ },
+ "已使用": {
+  "en": "Used",
+  "ja": "使用済み",
+  "zh-Hans": "已使用"
+ },
+ "已保護": {
+  "en": "Protected",
+  "ja": "保護中",
+  "zh-Hans": "已保护"
+ },
+ "已停止": {
+  "en": "Stopped",
+  "ja": "停止中",
+  "zh-Hans": "已停止"
+ },
+ "已停止的容器：容器內沒有掛 volume 的資料會一起消失。本機建置的映像檔刪了要重新建置，不是重新下載。": {
+  "en": "Stopped containers: data inside a container that isn't on a volume is lost with it. Locally built images must be rebuilt after deletion, not downloaded again.",
+  "ja": "停止したコンテナ：ボリュームに置かれていないコンテナ内のデータも一緒に消えます。ローカルでビルドしたイメージは、削除すると再ダウンロードではなく再ビルドが必要です。",
+  "zh-Hans": "已停止的容器：容器内没有挂载到卷的数据会一起消失。本地构建的镜像删除后需要重新构建，而不是重新下载。"
+ },
+ "已停止：只算完 {} / {} 個項目，以下為部分結果。": {
+  "en": "Stopped: measured {} of {} items. Partial results below.",
+  "ja": "停止しました：{} / {} 項目のみ計測済みです。以下は一部の結果です。",
+  "zh-Hans": "已停止：只算完 {} / {} 个项目，以下为部分结果。"
+ },
+ "已儲存 {}": {
+  "en": "Saved {}",
+  "ja": "{} を保存しました",
+  "zh-Hans": "已保存 {}"
+ },
+ "已儲存在鑰匙圈（輸入新的可取代）": {
+  "en": "Saved in Keychain (enter a new one to replace it)",
+  "ja": "キーチェーンに保存済み（新しいキーを入力すると置き換えます）",
+  "zh-Hans": "已保存在钥匙串中（输入新的可替换）"
+ },
+ "已儲存的密碼": {
+  "en": "Saved passwords",
+  "ja": "保存されたパスワード",
+  "zh-Hans": "已保存的密码"
+ },
+ "已充飽": {
+  "en": "Fully charged",
+  "ja": "充電完了",
+  "zh-Hans": "已充满"
+ },
+ "已啟用": {
+  "en": "On",
+  "ja": "オン",
+  "zh-Hans": "已启用"
+ },
+ "已完成 {} / {} 個項目 · 已檢查 {} 個檔案 · 已用 {}": {
+  "en": "{} / {} items done · {} files checked · {} elapsed",
+  "ja": "{} / {} 項目完了 · {} 個のファイルをチェック済み · 経過 {}",
+  "zh-Hans": "已完成 {} / {} 个项目 · 已检查 {} 个文件 · 已用 {}"
+ },
+ "已將 {} 移到廢紙簍": {
+  "en": "Moved {} to the Trash",
+  "ja": "{} をゴミ箱に入れました",
+  "zh-Hans": "已将 {} 移到废纸篓"
+ },
+ "已建立 {}，執行掃描或等即時防護偵測。": {
+  "en": "Created {}. Run a scan or wait for real-time protection to detect it.",
+  "ja": "{} を作成しました。スキャンを実行するか、リアルタイム保護が検出するのを待ってください。",
+  "zh-Hans": "已创建 {}，运行扫描或等待实时防护检测。"
+ },
+ "已從 MalwareBazaar 下載 {} 筆 Mac 惡意軟體指紋": {
+  "en": "Downloaded {} Mac malware fingerprints from MalwareBazaar",
+  "ja": "MalwareBazaar から Mac マルウェアのフィンガープリントを {} 件ダウンロードしました",
+  "zh-Hans": "已从 MalwareBazaar 下载 {} 条 Mac 恶意软件指纹"
+ },
+ "已損壞": {
+  "en": "Broken",
+  "ja": "破損",
+  "zh-Hans": "已损坏"
+ },
+ "已是最新版本。": {
+  "en": "You have the latest version.",
+  "ja": "最新のバージョンです。",
+  "zh-Hans": "已是最新版本。"
+ },
+ "已有規則的家族": {
+  "en": "Families with rules",
+  "ja": "ルールがあるファミリー",
+  "zh-Hans": "已有规则的家族"
+ },
+ "已檢查 {} 個檔案 · {} 秒": {
+  "en": "{} files checked · {} s",
+  "ja": "{} 個のファイルを確認 · {} 秒",
+  "zh-Hans": "已检查 {} 个文件 · {} 秒"
+ },
+ "已檢查 {} 個檔案　{}": {
+  "en": "Checked {} files  {}",
+  "ja": "{} 個のファイルを確認済み　{}",
+  "zh-Hans": "已检查 {} 个文件　{}"
+ },
+ "已檢測套件": {
+  "en": "Packages checked",
+  "ja": "確認したパッケージ",
+  "zh-Hans": "已检测软件包"
+ },
+ "已永久刪除": {
+  "en": "Permanently deleted",
+  "ja": "完全に削除しました",
+  "zh-Hans": "已永久删除"
+ },
+ "已清理 {} 的垃圾，隔離 {} 個威脅。": {
+  "en": "Cleaned up {} of junk and quarantined {} threats.",
+  "ja": "{} のジャンクをクリーンアップし、{} 個の脅威を隔離しました。",
+  "zh-Hans": "已清理 {} 的垃圾，隔离 {} 个威胁。"
+ },
+ "已清除 {} 的應用程式殘留": {
+  "en": "Cleared {} of app leftovers",
+  "ja": "アプリの残りファイル {} を消去しました",
+  "zh-Hans": "已清除 {} 的应用程序残留"
+ },
+ "已清除金鑰與下載的指紋": {
+  "en": "Removed the key and the downloaded fingerprints",
+  "ja": "キーとダウンロードしたフィンガープリントを削除しました",
+  "zh-Hans": "已清除密钥与下载的指纹"
+ },
+ "已知惡意": {
+  "en": "Known malicious",
+  "ja": "既知の悪質な拡張",
+  "zh-Hans": "已知恶意"
+ },
+ "已知路徑規則": {
+  "en": "Known path rule",
+  "ja": "既知のパスルール",
+  "zh-Hans": "已知路径规则"
+ },
+ "已移除 {}": {
+  "en": "Removed {}",
+  "ja": "{} を削除しました",
+  "zh-Hans": "已移除 {}"
+ },
+ "已移除 {} 個檔案的本機副本（雲端上仍保留）": {
+  "en": "Removed local copies of {} files (they stay in the cloud)",
+  "ja": "{} 個のファイルのローカルコピーを削除しました（クラウドには残っています）",
+  "zh-Hans": "已移除 {} 个文件的本地副本（云端上仍保留）"
+ },
+ "已移除 {} 的安裝檔": {
+  "en": "Removed {} of installers",
+  "ja": "インストーラ {} を削除しました",
+  "zh-Hans": "已移除 {} 的安装包"
+ },
+ "已移除 {} 的隱私項目{}": {
+  "en": "Removed {} of privacy items{}",
+  "ja": "{} のプライバシー項目を削除しました{}",
+  "zh-Hans": "已移除 {} 的隐私项目{}"
+ },
+ "已移除 {}，項目在廢紙簍中": {
+  "en": "Removed {}; the items are in the Trash",
+  "ja": "{} を削除しました。項目はゴミ箱にあります",
+  "zh-Hans": "已移除 {}，项目在废纸篓中"
+ },
+ "已移除本機副本：{}": {
+  "en": "Removed local copy: {}",
+  "ja": "ローカルのコピーを削除しました：{}",
+  "zh-Hans": "已移除本地副本：{}"
+ },
+ "已移除選取的 Wi-Fi 網路": {
+  "en": "Removed the selected Wi-Fi networks",
+  "ja": "選択した Wi-Fi ネットワークを削除しました",
+  "zh-Hans": "已移除所选 Wi-Fi 网络"
+ },
+ "已複製更新指令": {
+  "en": "Update command copied",
+  "ja": "更新コマンドをコピーしました",
+  "zh-Hans": "已复制更新命令"
+ },
+ "已要求 {} 結束": {
+  "en": "Asked {} to quit",
+  "ja": "{} に終了を要求しました",
+  "zh-Hans": "已请求 {} 退出"
+ },
+ "已解除安裝 {}": {
+  "en": "Uninstalled {}",
+  "ja": "{} をアンインストールしました",
+  "zh-Hans": "已卸载 {}"
+ },
+ "已讀取的相依清單": {
+  "en": "Dependency files read",
+  "ja": "読み込んだ依存関係ファイル",
+  "zh-Hans": "已读取的依赖清单"
+ },
+ "已連接周邊裝置": {
+  "en": "Connected devices",
+  "ja": "接続中のデバイス",
+  "zh-Hans": "已连接外设"
+ },
+ "已選取 {}": {
+  "en": "{} selected",
+  "ja": "{} を選択済み",
+  "zh-Hans": "已选择 {}"
+ },
+ "已還原 {}": {
+  "en": "Restored {}",
+  "ja": "{} を復元しました",
+  "zh-Hans": "已还原 {}"
+ },
+ "已關閉": {
+  "en": "Off",
+  "ja": "オフ",
+  "zh-Hans": "已关闭"
+ },
+ "常用網站": {
+  "en": "Top sites",
+  "ja": "よく見るサイト",
+  "zh-Hans": "常用网站"
+ },
+ "平均負載：{} · {} · {}": {
+  "en": "Load average: {} · {} · {}",
+  "ja": "平均負荷：{} · {} · {}",
+  "zh-Hans": "平均负载：{} · {} · {}"
+ },
+ "平衡掃描": {
+  "en": "Balanced scan",
+  "ja": "バランススキャン",
+  "zh-Hans": "平衡扫描"
+ },
+ "廢紙簍": {
+  "en": "Trash",
+  "ja": "ゴミ箱",
+  "zh-Hans": "废纸篓"
+ },
+ "廢紙簍裡的項目會被永久刪除。": {
+  "en": "Items in the Trash will be deleted permanently.",
+  "ja": "ゴミ箱の項目は完全に削除されます。",
+  "zh-Hans": "废纸篓里的项目会被永久删除。"
+ },
+ "廣告軟體": {
+  "en": "Adware",
+  "ja": "アドウェア",
+  "zh-Hans": "广告软件"
+ },
+ "建立防毒測試檔": {
+  "en": "Create antivirus test file",
+  "ja": "ウイルス対策テストファイルを作成",
+  "zh-Hans": "创建杀毒测试文件"
+ },
+ "建置快取": {
+  "en": "Build cache",
+  "ja": "ビルドキャッシュ",
+  "zh-Hans": "构建缓存"
+ },
+ "建置快取，可釋放約 {}": {
+  "en": "Build cache, about {} can be freed",
+  "ja": "ビルドキャッシュ、約 {} を解放できます",
+  "zh-Hans": "构建缓存，可释放约 {}"
+ },
+ "建置快取：{}（Docker 回報可釋放 {}）": {
+  "en": "Build cache: {} (Docker reports {} reclaimable)",
+  "ja": "ビルドキャッシュ：{}（Docker の報告では {} を解放可能）",
+  "zh-Hans": "构建缓存：{}（Docker 报告可释放 {}）"
+ },
+ "建議升級版本": {
+  "en": "SUGGESTED UPGRADE",
+  "ja": "推奨アップグレード",
+  "zh-Hans": "建议升级版本"
+ },
+ "弱點詳細清單": {
+  "en": "Vulnerability details",
+  "ja": "脆弱性の詳細",
+  "zh-Hans": "漏洞详细清单"
+ },
+ "待清理的垃圾": {
+  "en": "junk to clean up",
+  "ja": "クリーンアップ対象のジャンク",
+  "zh-Hans": "待清理的垃圾"
+ },
+ "待移除的威脅": {
+  "en": "threats to remove",
+  "ja": "削除対象の脅威",
+  "zh-Hans": "待移除的威胁"
+ },
+ "從左邊選一個應用程式以查看詳細資料。": {
+  "en": "Select an app on the left to see its details.",
+  "ja": "左側でアプリを選択すると詳細を表示します。",
+  "zh-Hans": "从左侧选择一个应用程序以查看详细信息。"
+ },
+ "從隱藏或暫存位置自動啟動的程式": {
+  "en": "Program launched automatically from a hidden or temporary location",
+  "ja": "隠れた場所または一時的な場所から自動起動するプログラム",
+  "zh-Hans": "从隐藏或临时位置自动启动的程序"
+ },
+ "快取、記錄檔與損壞的偏好設定": {
+  "en": "Caches, log files and broken preferences",
+  "ja": "キャッシュ、ログファイル、壊れた環境設定",
+  "zh-Hans": "缓存、日志文件与损坏的偏好设置"
+ },
+ "快速修復指令 (QUICK FIX)": {
+  "en": "QUICK FIX",
+  "ja": "クイック修正コマンド (QUICK FIX)",
+  "zh-Hans": "快速修复命令 (QUICK FIX)"
+ },
+ "快速掃描": {
+  "en": "Quick scan",
+  "ja": "クイックスキャン",
+  "zh-Hans": "快速扫描"
+ },
+ "快速清理": {
+  "en": "Quick Clean",
+  "ja": "クイック削除",
+  "zh-Hans": "快速清理"
+ },
+ "您的 Mac 上有 {} 的垃圾檔案。": {
+  "en": "There are {} of junk files on your Mac.",
+  "ja": "Mac に {} のジャンクファイルがあります。",
+  "zh-Hans": "您的 Mac 上有 {} 的垃圾文件。"
+ },
+ "您的 Mac 很乾淨": {
+  "en": "Your Mac is clean",
+  "ja": "Mac はきれいです",
+  "zh-Hans": "您的 Mac 很干净"
+ },
+ "您的 Mac 很乾淨！": {
+  "en": "Your Mac is clean!",
+  "ja": "Mac はきれいです！",
+  "zh-Hans": "您的 Mac 很干净！"
+ },
+ "您的 Mac 是安全的": {
+  "en": "Your Mac is safe",
+  "ja": "Mac は安全です",
+  "zh-Hans": "您的 Mac 是安全的"
+ },
+ "您的 Mac 是安全的。已檢查 {} 個檔案，用時 {} 秒。": {
+  "en": "Your Mac is safe. Checked {} files in {} s.",
+  "ja": "お使いの Mac は安全です。{} 個のファイルを {} 秒で確認しました。",
+  "zh-Hans": "你的 Mac 是安全的。已检查 {} 个文件，用时 {} 秒。"
+ },
+ "惡意軟體": {
+  "en": "Malware",
+  "ja": "マルウェア",
+  "zh-Hans": "恶意软件"
+ },
+ "惡意軟體掃描": {
+  "en": "Malware scan",
+  "ja": "マルウェアスキャン",
+  "zh-Hans": "恶意软件扫描"
+ },
+ "惡意軟體清除": {
+  "en": "Malware removal",
+  "ja": "マルウェアの除去",
+  "zh-Hans": "恶意软件清除"
+ },
+ "應用程式": {
+  "en": "Applications",
+  "ja": "アプリケーション",
+  "zh-Hans": "应用程序"
+ },
+ "應用程式權限": {
+  "en": "App permissions",
+  "ja": "アプリのアクセス権",
+  "zh-Hans": "应用权限"
+ },
+ "應用程式殘留": {
+  "en": "Leftovers",
+  "ja": "アプリの残りファイル",
+  "zh-Hans": "应用程序残留"
+ },
+ "應用程式為了加快速度而暫存的資料，刪除後會在需要時重新產生。": {
+  "en": "Data apps store temporarily to run faster. It is recreated when needed.",
+  "ja": "アプリが動作を速くするために一時保存しているデータです。削除しても必要なときに再作成されます。",
+  "zh-Hans": "应用为加快速度而临时存储的数据，删除后会在需要时重新生成。"
+ },
+ "應用程式與系統服務的活動記錄，通常只在排除問題時用到。": {
+  "en": "Activity records from apps and system services, usually only needed for troubleshooting.",
+  "ja": "アプリとシステムサービスの動作記録です。通常はトラブルシューティングのときにしか使いません。",
+  "zh-Hans": "应用与系统服务的活动记录，通常只在排查问题时用到。"
+ },
+ "我了解刪除後無法復原": {
+  "en": "I understand this can't be undone",
+  "ja": "削除すると元に戻せないことを理解しました",
+  "zh-Hans": "我了解删除后无法恢复"
+ },
+ "或把資料夾拖進視窗": {
+  "en": "or drag a folder into the window",
+  "ja": "またはフォルダをウインドウにドラッグ",
+  "zh-Hans": "或把文件夹拖进窗口"
+ },
+ "所有項目都先移到廢紙簍": {
+  "en": "Everything goes to the Trash first",
+  "ja": "すべての項目はまずゴミ箱に移動します",
+  "zh-Hans": "所有项目都先移到废纸篓"
+ },
+ "打開 App Store 更新": {
+  "en": "Open App Store Updates",
+  "ja": "App Store のアップデートを開く",
+  "zh-Hans": "打开 App Store 更新"
+ },
+ "打開 Sanitized": {
+  "en": "Open Sanitized",
+  "ja": "Sanitized を開く",
+  "zh-Hans": "打开 Sanitized"
+ },
+ "打開 macOS 軟體更新": {
+  "en": "Open macOS Software Update",
+  "ja": "macOS のソフトウェアアップデートを開く",
+  "zh-Hans": "打开 macOS 软件更新"
+ },
+ "打開以更新": {
+  "en": "Open to update",
+  "ja": "開いてアップデート",
+  "zh-Hans": "打开以更新"
+ },
+ "打開病毒碼檔案": {
+  "en": "Open signatures file",
+  "ja": "マルウェア定義ファイルを開く",
+  "zh-Hans": "打开病毒库文件"
+ },
+ "打開系統的「登入項目」設定": {
+  "en": "Open Login Items in System Settings",
+  "ja": "システム設定の「ログイン項目」を開く",
+  "zh-Hans": "打开系统的“登录项”设置"
+ },
+ "打開隔離區資料夾": {
+  "en": "Open Quarantine folder",
+  "ja": "隔離領域のフォルダを開く",
+  "zh-Hans": "打开隔离区文件夹"
+ },
+ "找不到 docker 指令": {
+  "en": "Can’t find the docker command",
+  "ja": "docker コマンドが見つかりません",
+  "zh-Hans": "找不到 docker 命令"
+ },
+ "找不到對應應用程式的支援檔案": {
+  "en": "Support files with no matching app",
+  "ja": "対応するアプリが見つからないサポートファイル",
+  "zh-Hans": "找不到对应应用程序的支持文件"
+ },
+ "找不到對應的應用程式": {
+  "en": "No matching app found",
+  "ja": "対応するアプリが見つかりません",
+  "zh-Hans": "找不到对应的应用程序"
+ },
+ "找不到這個資料夾": {
+  "en": "Folder not found",
+  "ja": "このフォルダが見つかりません",
+  "zh-Hans": "找不到这个文件夹"
+ },
+ "找不到隔離檔案": {
+  "en": "Can’t find the quarantined file",
+  "ja": "隔離されたファイルが見つかりません",
+  "zh-Hans": "找不到隔离文件"
+ },
+ "找出佔用大量空間的檔案與重複的副本。": {
+  "en": "Find files taking up lots of space and duplicate copies.",
+  "ja": "容量を大きく占めるファイルと重複したコピーを見つけます。",
+  "zh-Hans": "找出占用大量空间的文件与重复的副本。"
+ },
+ "找出佔用空間的大型檔案": {
+  "en": "Find large files taking up space",
+  "ja": "容量を占める大きなファイルを検出",
+  "zh-Hans": "找出占用空间的大文件"
+ },
+ "找出專案中尚未更新、含有已知 CVE 漏洞的套件。": {
+  "en": "Finds outdated packages in your projects that have known CVE vulnerabilities.",
+  "ja": "プロジェクト内の、既知の CVE 脆弱性を含む未更新のパッケージを見つけます。",
+  "zh-Hans": "找出项目中尚未更新、含有已知 CVE 漏洞的软件包。"
+ },
+ "找出已下載到這台 Mac 的大型雲端檔案，釋放本機空間。": {
+  "en": "Find large cloud files downloaded to this Mac and free up local space.",
+  "ja": "この Mac にダウンロード済みの大きなクラウドファイルを見つけ、ローカルの容量を解放します。",
+  "zh-Hans": "找出已下载到这台 Mac 的大型云端文件，释放本地空间。"
+ },
+ "找出惡意軟體與可疑的自動啟動項目": {
+  "en": "Find malware and suspicious launch items",
+  "ja": "マルウェアと不審な起動項目を検出",
+  "zh-Hans": "找出恶意软件与可疑的自启动项"
+ },
+ "找出有新版本的應用程式": {
+  "en": "Find apps with newer versions",
+  "ja": "新しいバージョンがあるアプリを検出",
+  "zh-Hans": "找出有新版本的应用程序"
+ },
+ "找出瀏覽器的歷史記錄、Cookie、自動填寫資料，以及「最近使用的項目」與已儲存的 Wi-Fi 網路。": {
+  "en": "Finds browser history, cookies, autofill data, Recent Items and saved Wi-Fi networks.",
+  "ja": "ブラウザの履歴、Cookie、自動入力データ、「最近使った項目」、保存済みの Wi-Fi ネットワークを探します。",
+  "zh-Hans": "找出浏览器的历史记录、Cookie、自动填充数据，以及“最近使用的项目”和已存储的 Wi-Fi 网络。"
+ },
+ "把 pom.xml 中 {} 的版本改為 {}": {
+  "en": "Change the version of {} in pom.xml to {}",
+  "ja": "pom.xml の {} のバージョンを {} に変更",
+  "zh-Hans": "将 pom.xml 中 {} 的版本改为 {}"
+ },
+ "把要檢查的檔案或資料夾拖進這個視窗即可開始掃描。": {
+  "en": "Drag the files or folders you want to check into this window to start a scan.",
+  "ja": "確認したいファイルやフォルダをこのウインドウにドラッグすると、スキャンが始まります。",
+  "zh-Hans": "把要检查的文件或文件夹拖进这个窗口即可开始扫描。"
+ },
+ "掃描": {
+  "en": "Scan",
+  "ja": "スキャン",
+  "zh-Hans": "扫描"
+ },
+ "掃描 DMG 磁碟映像檔": {
+  "en": "Scan DMG disk images",
+  "ja": "DMG ディスクイメージをスキャン",
+  "zh-Hans": "扫描 DMG 磁盘映像"
+ },
+ "掃描 USB 外接磁碟": {
+  "en": "Scan external USB drives",
+  "ja": "外部 USB ディスクをスキャン",
+  "zh-Hans": "扫描 USB 外置磁盘"
+ },
+ "掃描壓縮檔（ZIP）": {
+  "en": "Scan archives (ZIP)",
+  "ja": "圧縮ファイルをスキャン（ZIP）",
+  "zh-Hans": "扫描压缩文件（ZIP）"
+ },
+ "掃描專案的相依套件，向 OSV.dev 公開資料庫比對 CVE 弱點與修正版本。": {
+  "en": "Scans the project's dependencies against the public OSV.dev database for CVEs and fixed versions.",
+  "ja": "プロジェクトの依存パッケージをスキャンし、公開データベース OSV.dev で CVE 脆弱性と修正版を照合します。",
+  "zh-Hans": "扫描项目的依赖包，向 OSV.dev 公开数据库比对 CVE 漏洞与修复版本。"
+ },
+ "掃描時會同時使用以下來源。每個掃描結果都會註明是哪一個來源抓到的。": {
+  "en": "Scans use all of the sources below. Every result notes which source detected it.",
+  "ja": "スキャンでは以下のソースをすべて使用します。各スキャン結果には、どのソースで検出されたかが表示されます。",
+  "zh-Hans": "扫描时会同时使用以下来源。每个扫描结果都会注明是由哪个来源检出的。"
+ },
+ "掃描時發生錯誤而中止，以下為已算完的部分結果。": {
+  "en": "The scan stopped because of an error. Below are the results measured so far.",
+  "ja": "エラーのためスキャンを中止しました。以下はそれまでに計測できた結果です。",
+  "zh-Hans": "扫描时出错而中止，以下为已算完的部分结果。"
+ },
+ "掃描時顯示進度與預估剩餘時間，可隨時停止": {
+  "en": "Shows progress and time left while scanning; stop any time",
+  "ja": "スキャン中に進捗と残り時間を表示。いつでも停止可能",
+  "zh-Hans": "扫描时显示进度与预计剩余时间，可随时停止"
+ },
+ "掃描模式": {
+  "en": "Scan mode",
+  "ja": "スキャンモード",
+  "zh-Hans": "扫描模式"
+ },
+ "掃描記錄": {
+  "en": "Scan history",
+  "ja": "スキャン履歴",
+  "zh-Hans": "扫描记录"
+ },
+ "掃描設定": {
+  "en": "Scan settings",
+  "ja": "スキャン設定",
+  "zh-Hans": "扫描设置"
+ },
+ "掃描選項": {
+  "en": "Scan options",
+  "ja": "スキャンオプション",
+  "zh-Hans": "扫描选项"
+ },
+ "掃描隱私痕跡": {
+  "en": "Scan for privacy traces",
+  "ja": "プライバシーの痕跡をスキャン",
+  "zh-Hans": "扫描隐私痕迹"
+ },
+ "掌控哪些應用程式能使用敏感功能": {
+  "en": "Control which apps can use sensitive features",
+  "ja": "機密性の高い機能を使えるアプリを管理",
+  "zh-Hans": "掌控哪些应用能使用敏感功能"
+ },
+ "排除已下載的 iCloud 檔案（通常是安全的，可節省時間）": {
+  "en": "Skip downloaded iCloud files (usually safe, saves time)",
+  "ja": "ダウンロード済みの iCloud ファイルを除外（通常は安全で、時間を節約できます）",
+  "zh-Hans": "排除已下载的 iCloud 文件（通常是安全的，可节省时间）"
+ },
+ "掛載 {}": {
+  "en": "Mounts {}",
+  "ja": "マウント：{}",
+  "zh-Hans": "挂载 {}"
+ },
+ "接上電源": {
+  "en": "On power adapter",
+  "ja": "電源アダプタ接続中",
+  "zh-Hans": "已接通电源"
+ },
+ "揪出開機時偷偷執行的程式": {
+  "en": "Catches programs that quietly run at startup",
+  "ja": "起動時にこっそり実行されるプログラムを見つけます",
+  "zh-Hans": "揪出开机时偷偷运行的程序"
+ },
+ "損壞的偏好設定檔": {
+  "en": "Broken preferences files",
+  "ja": "破損した環境設定ファイル",
+  "zh-Hans": "损坏的偏好设置文件"
+ },
+ "損壞的背景項目": {
+  "en": "broken background items",
+  "ja": "壊れたバックグラウンド項目",
+  "zh-Hans": "损坏的后台项目"
+ },
+ "搜尋": {
+  "en": "Search",
+  "ja": "検索",
+  "zh-Hans": "搜索"
+ },
+ "擴充功能已移到廢紙簍，重新開啟瀏覽器後生效。": {
+  "en": "The extension was moved to the Trash. Reopen the browser for the change to take effect.",
+  "ja": "機能拡張をゴミ箱に入れました。ブラウザを開き直すと反映されます。",
+  "zh-Hans": "扩展已移到废纸篓，重新打开浏览器后生效。"
+ },
+ "擴充功能若能讀取所有網站並攔截網路請求，就可能竊取資料或插入廣告。請移除不認得的項目。": {
+  "en": "Extensions that can read every site and intercept network requests could steal data or inject ads. Remove any you don't recognize.",
+  "ja": "すべてのサイトを読み取り、ネットワーク要求を傍受できる機能拡張は、データを盗んだり広告を挿入したりする可能性があります。心当たりのない項目は削除してください。",
+  "zh-Hans": "扩展如果能读取所有网站并拦截网络请求，就可能窃取数据或插入广告。请移除不认识的项目。"
+ },
+ "收錄的 {} 個家族名稱": {
+  "en": "{} catalogued family names",
+  "ja": "収録されている {} のファミリー名",
+  "zh-Hans": "收录的 {} 个家族名称"
+ },
+ "效能": {
+  "en": "Performance",
+  "ja": "パフォーマンス",
+  "zh-Hans": "性能"
+ },
+ "效能最佳化": {
+  "en": "Performance",
+  "ja": "パフォーマンス",
+  "zh-Hans": "性能优化"
+ },
+ "效能維護任務": {
+  "en": "Maintenance Tasks",
+  "ja": "メンテナンス",
+  "zh-Hans": "性能维护任务"
+ },
+ "整理雜亂": {
+  "en": "Clutter",
+  "ja": "不要ファイル整理",
+  "zh-Hans": "整理杂乱"
+ },
+ "數量（使用中）": {
+  "en": "Count (in use)",
+  "ja": "数（使用中）",
+  "zh-Hans": "数量（使用中）"
+ },
+ "新": {
+  "en": "New",
+  "ja": "新",
+  "zh-Hans": "新"
+ },
+ "新版本": {
+  "en": "Updates",
+  "ja": "アップデート",
+  "zh-Hans": "新版本"
+ },
+ "新版本 v{} →": {
+  "en": "New version v{} →",
+  "ja": "新しいバージョン v{} →",
+  "zh-Hans": "新版本 v{} →"
+ },
+ "新的啟動項目已檢查，安全：{}": {
+  "en": "New launch item checked, safe: {}",
+  "ja": "新しい起動項目をチェックしました（安全）：{}",
+  "zh-Hans": "已检查新的启动项，安全：{}"
+ },
+ "映像檔": {
+  "en": "Image",
+  "ja": "イメージ",
+  "zh-Hans": "镜像"
+ },
+ "映像檔之間會共用層，把每個映像檔的大小相加會高估；可釋放空間以 Docker 回報的數字為準。": {
+  "en": "Images share layers, so adding up each image's size overstates the total. Go by Docker's reported number for reclaimable space.",
+  "ja": "イメージ同士はレイヤーを共有しているため、各イメージのサイズを合計すると多めになります。解放可能な容量は Docker が報告した値を基準にしてください。",
+  "zh-Hans": "镜像之间会共享层，把每个镜像的大小相加会高估；可释放空间以 Docker 报告的数字为准。"
+ },
+ "普通": {
+  "en": "Fair",
+  "ja": "普通",
+  "zh-Hans": "一般"
+ },
+ "更新 {} 到 {}": {
+  "en": "Update {} to {}",
+  "ja": "{} を {} にアップデート",
+  "zh-Hans": "将 {} 更新到 {}"
+ },
+ "更新中…": {
+  "en": "Updating…",
+  "ja": "更新中…",
+  "zh-Hans": "更新中…"
+ },
+ "更新程式": {
+  "en": "Updater",
+  "ja": "アップデート",
+  "zh-Hans": "更新程序"
+ },
+ "最佔記憶體：{}": {
+  "en": "Top memory user: {}",
+  "ja": "メモリ使用量トップ：{}",
+  "zh-Hans": "内存占用最多：{}"
+ },
+ "最後寫入時間：Docker Desktop 的 volume 在虛擬機內，無法從外面讀取，因此不顯示。": {
+  "en": "Last write time: Docker Desktop volumes live inside a virtual machine and can't be read from outside, so it isn't shown.",
+  "ja": "最終書き込み日時：Docker Desktop のボリュームは仮想マシン内にあり外部から読み取れないため、表示しません。",
+  "zh-Hans": "最后写入时间：Docker Desktop 的卷位于虚拟机内，无法从外部读取，因此不显示。"
+ },
+ "最後檢查": {
+  "en": "Last checked",
+  "ja": "最終チェック",
+  "zh-Hans": "最后检查"
+ },
+ "最快": {
+  "en": "Fastest",
+  "ja": "最速",
+  "zh-Hans": "最快"
+ },
+ "最慢": {
+  "en": "Slowest",
+  "ja": "最も遅い",
+  "zh-Hans": "最慢"
+ },
+ "最新版": {
+  "en": "latest",
+  "ja": "最新版",
+  "zh-Hans": "最新版"
+ },
+ "最易受攻擊的位置": {
+  "en": "Most vulnerable areas",
+  "ja": "攻撃されやすい場所",
+  "zh-Hans": "最易受攻击的位置"
+ },
+ "最近使用的應用程式": {
+  "en": "Recent applications",
+  "ja": "最近使ったアプリケーション",
+  "zh-Hans": "最近使用的应用程序"
+ },
+ "最近連接的伺服器": {
+  "en": "Recent servers",
+  "ja": "最近接続したサーバ",
+  "zh-Hans": "最近连接的服务器"
+ },
+ "最近開啟的文件": {
+  "en": "Recent documents",
+  "ja": "最近開いた書類",
+  "zh-Hans": "最近打开的文稿"
+ },
+ "最近項目": {
+  "en": "Recent items",
+  "ja": "最近使った項目",
+  "zh-Hans": "最近项目"
+ },
+ "最近項目列表": {
+  "en": "Recent items lists",
+  "ja": "最近使った項目のリスト",
+  "zh-Hans": "最近项目列表"
+ },
+ "會一併移除的支援檔案：": {
+  "en": "Support files that will also be removed:",
+  "ja": "一緒に削除されるサポートファイル：",
+  "zh-Hans": "会一并移除的支持文件："
+ },
+ "會在開機時執行 {}": {
+  "en": "Runs {} at startup",
+  "ja": "起動時に {} を実行します",
+  "zh-Hans": "会在开机时运行 {}"
+ },
+ "會自動啟動已知威脅 {}": {
+  "en": "Automatically launches known threat {}",
+  "ja": "既知の脅威 {} を自動起動します",
+  "zh-Hans": "会自动启动已知威胁 {}"
+ },
+ "有 {} 個應用程式提供線上更新資訊，按「檢查」向它們的官方更新來源查詢最新版本。": {
+  "en": "{} apps publish online update info. Click \"Check\" to ask their official update sources for the latest version.",
+  "ja": "{} 個のアプリがオンラインのアップデート情報を提供しています。「確認」を押すと公式のアップデート元に最新バージョンを問い合わせます。",
+  "zh-Hans": "有 {} 个应用程序提供在线更新信息，按“检查”向其官方更新源查询最新版本。"
+ },
+ "有新版本 v{}。": {
+  "en": "Version v{} is available.",
+  "ja": "新しいバージョン v{} があります。",
+  "zh-Hans": "有新版本 v{}。"
+ },
+ "未使用的安裝檔": {
+  "en": "Unused Installers",
+  "ja": "未使用のインストーラ",
+  "zh-Hans": "未使用的安装包"
+ },
+ "未保護": {
+  "en": "Not protected",
+  "ja": "未保護",
+  "zh-Hans": "未保护"
+ },
+ "未完成：{}：{}": {
+  "en": "Not done: {}: {}",
+  "ja": "未完了：{}：{}",
+  "zh-Hans": "未完成：{}：{}"
+ },
+ "未完成：{}：{}（系統應用程式或需要管理員權限）": {
+  "en": "Not done: {}: {} (system app, or administrator rights needed)",
+  "ja": "未完了：{}：{}（システムアプリ、または管理者権限が必要です）",
+  "zh-Hans": "未完成：{}：{}（系统应用或需要管理员权限）"
+ },
+ "未完成：{}：部分資料需要給本程式「完整磁碟取用權限」，或請先結束相關應用程式": {
+  "en": "Not done: {}: some data needs Full Disk Access for Sanitized, or quit the related apps first",
+  "ja": "未完了：{}：一部のデータには Sanitized へのフルディスクアクセスが必要です。または関連するアプリを先に終了してください",
+  "zh-Hans": "未完成：{}：部分数据需要为本程序授予“完全磁盘访问权限”，或请先退出相关应用"
+ },
+ "未完成：無法移除本機副本：{}": {
+  "en": "Not done: couldn't remove the local copy: {}",
+  "ja": "未完了：ローカルのコピーを削除できませんでした：{}",
+  "zh-Hans": "未完成：无法移除本地副本：{}"
+ },
+ "未完成：系統任務未執行：{}": {
+  "en": "Not done: system tasks didn't run: {}",
+  "ja": "未完了：システムタスクを実行できませんでした：{}",
+  "zh-Hans": "未完成：系统任务未运行：{}"
+ },
+ "未完成：系統背景項目未移除：{}": {
+  "en": "Not done: system background items weren't removed: {}",
+  "ja": "未完了：システムのバックグラウンド項目を削除できませんでした：{}",
+  "zh-Hans": "未完成：系统后台项目未移除：{}"
+ },
+ "未發現潛在威脅": {
+  "en": "No potential threats found",
+  "ja": "潜在的な脅威は見つかりませんでした",
+  "zh-Hans": "未发现潜在威胁"
+ },
+ "未知": {
+  "en": "Unknown",
+  "ja": "不明",
+  "zh-Hans": "未知"
+ },
+ "未移除：{}": {
+  "en": "Not removed: {}",
+  "ja": "削除されませんでした：{}",
+  "zh-Hans": "未移除：{}"
+ },
+ "未評級": {
+  "en": "Unrated",
+  "ja": "未評価",
+  "zh-Hans": "未评级"
+ },
+ "本機 AI 工具下載的模型與快取。刪除本機模型可能影響您的專案。": {
+  "en": "Models and caches downloaded by local AI tools. Deleting local models may affect your projects.",
+  "ja": "ローカルの AI ツールがダウンロードしたモデルとキャッシュです。ローカルモデルを削除すると、プロジェクトに影響する場合があります。",
+  "zh-Hans": "本地 AI 工具下载的模型与缓存。删除本地模型可能影响您的项目。"
+ },
+ "本機 AI 模型或快取": {
+  "en": "Local AI model or cache",
+  "ja": "ローカルの AI モデルまたはキャッシュ",
+  "zh-Hans": "本地 AI 模型或缓存"
+ },
+ "本機建置": {
+  "en": "Built locally",
+  "ja": "ローカルビルド",
+  "zh-Hans": "本地构建"
+ },
+ "本機隱私保護：": {
+  "en": "Local privacy:",
+  "ja": "ローカルのプライバシー保護：",
+  "zh-Hans": "本地隐私保护："
+ },
+ "查看 Mac 狀態": {
+  "en": "Show Mac Status",
+  "ja": "Mac の状態を表示",
+  "zh-Hans": "查看 Mac 状态"
+ },
+ "根據公開的 CVE 資料，這些套件版本目前沒有已知的安全漏洞。": {
+  "en": "According to public CVE data, these package versions have no known vulnerabilities.",
+  "ja": "公開されている CVE データによると、これらのパッケージのバージョンに既知の脆弱性はありません。",
+  "zh-Hans": "根据公开的 CVE 数据，这些软件包版本目前没有已知的安全漏洞。"
+ },
+ "格式已損壞、應用程式無法再讀取的設定檔。": {
+  "en": "Settings files that are damaged and can no longer be read by their apps.",
+  "ja": "形式が壊れていて、アプリが読み込めなくなった設定ファイルです。",
+  "zh-Hans": "格式已损坏、应用无法再读取的设置文件。"
+ },
+ "極佳": {
+  "en": "Excellent",
+  "ja": "非常に良好",
+  "zh-Hans": "极佳"
+ },
+ "模組": {
+  "en": "Modules",
+  "ja": "モジュール",
+  "zh-Hans": "模块"
+ },
+ "檔案內容符合惡意特徵": {
+  "en": "File contents match a malicious pattern",
+  "ja": "ファイルの内容が悪意のあるパターンと一致します",
+  "zh-Hans": "文件内容符合恶意特征"
+ },
+ "檔案已不存在": {
+  "en": "The file no longer exists",
+  "ja": "ファイルはもう存在しません",
+  "zh-Hans": "文件已不存在"
+ },
+ "檢查": {
+  "en": "Check",
+  "ja": "確認",
+  "zh-Hans": "检查"
+ },
+ "檢查其他資料夾": {
+  "en": "Check another folder",
+  "ja": "別のフォルダを確認",
+  "zh-Hans": "检查其他文件夹"
+ },
+ "檢查您的 Mac 是否有惡意軟體、廣告軟體與可疑的自動啟動項目。": {
+  "en": "Check your Mac for malware, adware and suspicious launch items.",
+  "ja": "Mac にマルウェア、アドウェア、不審な自動起動項目がないか確認します。",
+  "zh-Hans": "检查你的 Mac 是否有恶意软件、广告软件和可疑的自启动项。"
+ },
+ "檢查指定檔案…": {
+  "en": "Check specific files…",
+  "ja": "ファイルを指定して確認…",
+  "zh-Hans": "检查指定文件…"
+ },
+ "檢查損壞的背景項目與維護工作": {
+  "en": "Check broken background items and maintenance",
+  "ja": "壊れたバックグラウンド項目とメンテナンスをチェック",
+  "zh-Hans": "检查损坏的后台项目与维护任务"
+ },
+ "檢查系統中最容易被攻擊的區域，找出眼前的威脅。適合日常檢查或時間不多時使用。": {
+  "en": "Checks the areas of the system most open to attack to find immediate threats. Good for everyday checks or when you’re short on time.",
+  "ja": "システムの中で最も攻撃されやすい場所を調べ、差し迫った脅威を見つけます。日常のチェックや時間がないときに適しています。",
+  "zh-Hans": "检查系统中最容易被攻击的区域，找出眼前的威胁。适合日常检查或时间不多时使用。"
+ },
+ "歡迎使用 Sanitized": {
+  "en": "Welcome to Sanitized",
+  "ja": "Sanitized へようこそ",
+  "zh-Hans": "欢迎使用 Sanitized"
+ },
+ "正在估算時間…": {
+  "en": "Estimating time…",
+  "ja": "時間を見積もり中…",
+  "zh-Hans": "正在估算时间…"
+ },
+ "正在全面檢查您的 Mac…": {
+  "en": "Checking your Mac thoroughly…",
+  "ja": "Mac を総合的にチェック中…",
+  "zh-Hans": "正在全面检查您的 Mac…"
+ },
+ "正在執行效能維護任務…": {
+  "en": "Running maintenance tasks…",
+  "ja": "メンテナンスを実行中…",
+  "zh-Hans": "正在运行性能维护任务…"
+ },
+ "正在執行，請稍候（一次只處理一類，失敗會立即停止）…": {
+  "en": "Running, please wait (one category at a time; stops at the first failure)…",
+  "ja": "実行中です。しばらくお待ちください（1 種類ずつ処理し、失敗するとすぐに停止します）…",
+  "zh-Hans": "正在运行，请稍候（一次只处理一类，失败会立即停止）…"
+ },
+ "正在完成安全檢查…": {
+  "en": "Finishing security check…",
+  "ja": "セキュリティチェックを完了中…",
+  "zh-Hans": "正在完成安全检查…"
+ },
+ "正在尋找專案的相依套件清單…": {
+  "en": "Looking for project dependency files…",
+  "ja": "プロジェクトの依存関係ファイルを探しています…",
+  "zh-Hans": "正在查找项目的依赖清单…"
+ },
+ "正在建立 {} 的儲存空間地圖…": {
+  "en": "Mapping storage in {}…",
+  "ja": "{} のディスクマップを作成中…",
+  "zh-Hans": "正在建立 {} 的存储空间地图…"
+ },
+ "正在從 MalwareBazaar 下載…": {
+  "en": "Downloading from MalwareBazaar…",
+  "ja": "MalwareBazaar からダウンロード中…",
+  "zh-Hans": "正在从 MalwareBazaar 下载…"
+ },
+ "正在整理雜亂檔案…": {
+  "en": "Sorting through clutter…",
+  "ja": "不要ファイルを整理中…",
+  "zh-Hans": "正在整理杂乱文件…"
+ },
+ "正在查找 AI 雜亂檔案…": {
+  "en": "Looking for AI clutter…",
+  "ja": "AI の不要ファイルを検索中…",
+  "zh-Hans": "正在查找 AI 杂乱文件…"
+ },
+ "正在查找 Xcode 垃圾…": {
+  "en": "Looking for Xcode junk…",
+  "ja": "Xcode のジャンクを検索中…",
+  "zh-Hans": "正在查找 Xcode 垃圾…"
+ },
+ "正在查找 iOS 裝置備份…": {
+  "en": "Looking for iOS device backups…",
+  "ja": "iOS デバイスのバックアップを検索中…",
+  "zh-Hans": "正在查找 iOS 设备备份…"
+ },
+ "正在查找使用者快取檔案…": {
+  "en": "Looking for user cache files…",
+  "ja": "ユーザキャッシュファイルを検索中…",
+  "zh-Hans": "正在查找用户缓存文件…"
+ },
+ "正在查找垃圾檔案…": {
+  "en": "Looking for junk files…",
+  "ja": "ジャンクファイルを検索中…",
+  "zh-Hans": "正在查找垃圾文件…"
+ },
+ "正在查找大型檔案…": {
+  "en": "Looking for large files…",
+  "ja": "大きなファイルを検索中…",
+  "zh-Hans": "正在查找大文件…"
+ },
+ "正在查找廢紙簍…": {
+  "en": "Looking in the Trash…",
+  "ja": "ゴミ箱を検索中…",
+  "zh-Hans": "正在查找废纸篓…"
+ },
+ "正在查找應用程式…": {
+  "en": "Looking for applications…",
+  "ja": "アプリケーションを検索中…",
+  "zh-Hans": "正在查找应用程序…"
+ },
+ "正在查找損壞的偏好設定…": {
+  "en": "Looking for broken preferences…",
+  "ja": "破損した環境設定を検索中…",
+  "zh-Hans": "正在查找损坏的偏好设置…"
+ },
+ "正在查找潛在威脅…": {
+  "en": "Looking for potential threats…",
+  "ja": "潜在的な脅威を探しています…",
+  "zh-Hans": "正在查找潜在威胁…"
+ },
+ "正在查找潛在威脅…（已發現 {} 個）": {
+  "en": "Looking for potential threats… ({} found)",
+  "ja": "潜在的な脅威を探しています…（{} 件検出）",
+  "zh-Hans": "正在查找潜在威胁…（已发现 {} 个）"
+ },
+ "正在查找記錄檔…": {
+  "en": "Looking for log files…",
+  "ja": "ログファイルを検索中…",
+  "zh-Hans": "正在查找日志文件…"
+ },
+ "正在查找郵件附件…": {
+  "en": "Looking for mail attachments…",
+  "ja": "メールの添付ファイルを検索中…",
+  "zh-Hans": "正在查找邮件附件…"
+ },
+ "正在查找開發工具快取…": {
+  "en": "Looking for developer tool caches…",
+  "ja": "開発ツールのキャッシュを検索中…",
+  "zh-Hans": "正在查找开发工具缓存…"
+ },
+ "正在查看 {}…": {
+  "en": "Checking {}…",
+  "ja": "{} を確認中…",
+  "zh-Hans": "正在查看 {}…"
+ },
+ "正在查看雲端資料夾…": {
+  "en": "Looking through cloud folders…",
+  "ja": "クラウドフォルダを確認中…",
+  "zh-Hans": "正在查看云端文件夹…"
+ },
+ "正在查詢漏洞資料庫（{} 個套件）…": {
+  "en": "Querying the vulnerability database ({} packages)…",
+  "ja": "脆弱性データベースを照会しています（{} 個のパッケージ）…",
+  "zh-Hans": "正在查询漏洞数据库（{} 个软件包）…"
+ },
+ "正在檢查 {} 的更新…": {
+  "en": "Checking for {} updates…",
+  "ja": "{} のアップデートを確認中…",
+  "zh-Hans": "正在检查 {} 的更新…"
+ },
+ "正在檢查…": {
+  "en": "Checking…",
+  "ja": "確認中…",
+  "zh-Hans": "正在检查…"
+ },
+ "正在檢查專案的已知漏洞…": {
+  "en": "Checking the project for known vulnerabilities…",
+  "ja": "プロジェクトの既知の脆弱性を確認しています…",
+  "zh-Hans": "正在检查项目的已知漏洞…"
+ },
+ "正在檢查應用程式更新…": {
+  "en": "Checking for app updates…",
+  "ja": "アプリのアップデートを確認中…",
+  "zh-Hans": "正在检查应用程序更新…"
+ },
+ "正在檢查背景項目…": {
+  "en": "Checking background items…",
+  "ja": "バックグラウンド項目をチェック中…",
+  "zh-Hans": "正在检查后台项目…"
+ },
+ "正在比對重複檔案…": {
+  "en": "Comparing duplicate files…",
+  "ja": "重複ファイルを照合中…",
+  "zh-Hans": "正在比对重复文件…"
+ },
+ "正在編譯規則，約需幾秒鐘…": {
+  "en": "Compiling rules, this takes a few seconds…",
+  "ja": "ルールをコンパイル中です。数秒かかります…",
+  "zh-Hans": "正在编译规则，大约需要几秒钟…"
+ },
+ "正在計算速度…": {
+  "en": "Measuring speed…",
+  "ja": "速度を計算中…",
+  "zh-Hans": "正在计算速度…"
+ },
+ "正在計算：{}": {
+  "en": "Measuring: {}",
+  "ja": "計算中：{}",
+  "zh-Hans": "正在计算：{}"
+ },
+ "正在讀取 Docker 的磁碟用量…": {
+  "en": "Reading Docker's disk usage…",
+  "ja": "Docker のディスク使用量を読み込み中…",
+  "zh-Hans": "正在读取 Docker 的磁盘用量…"
+ },
+ "正在讀取 {}…": {
+  "en": "Reading {}…",
+  "ja": "{} を読み込み中…",
+  "zh-Hans": "正在读取 {}…"
+ },
+ "正在讀取…": {
+  "en": "Reading…",
+  "ja": "読み込み中…",
+  "zh-Hans": "正在读取…"
+ },
+ "正在讀取漏洞詳情 {}（{}）…": {
+  "en": "Reading vulnerability details {} ({})…",
+  "ja": "脆弱性の詳細を読み込んでいます {}（{}）…",
+  "zh-Hans": "正在读取漏洞详情 {}（{}）…"
+ },
+ "正在讀取系統狀態…": {
+  "en": "Reading system status…",
+  "ja": "システムの状態を読み込み中…",
+  "zh-Hans": "正在读取系统状态…"
+ },
+ "正在重新載入所有病毒碼來源…": {
+  "en": "Reloading all signature sources…",
+  "ja": "すべての定義ソースを再読み込みしています…",
+  "zh-Hans": "正在重新加载所有病毒库来源…"
+ },
+ "正常": {
+  "en": "Normal",
+  "ja": "正常",
+  "zh-Hans": "正常"
+ },
+ "每 {} 秒檢查一次 · 目前已檢查 {} 個變動的檔案": {
+  "en": "Checks every {} s · {} changed files checked so far",
+  "ja": "{} 秒ごとに確認 · これまでに変更された {} 個のファイルを確認",
+  "zh-Hans": "每 {} 秒检查一次 · 目前已检查 {} 个变动的文件"
+ },
+ "每天自動檢查一次新版本": {
+  "en": "Check for a new version once a day",
+  "ja": "新しいバージョンを毎日1回自動で確認",
+  "zh-Hans": "每天自动检查一次新版本"
+ },
+ "每週為您推薦的一組維護任務": {
+  "en": "A set of maintenance tasks recommended weekly",
+  "ja": "毎週おすすめのメンテナンス",
+  "zh-Hans": "每周为您推荐的一组维护任务"
+ },
+ "比對 CVE 資料": {
+  "en": "Matches CVE data",
+  "ja": "CVE データと照合",
+  "zh-Hans": "比对 CVE 数据"
+ },
+ "永久刪除": {
+  "en": "Delete permanently",
+  "ja": "完全に削除",
+  "zh-Hans": "永久删除"
+ },
+ "沒有任何容器使用的映像檔（停止中的容器也算使用）、已停止的容器、沒在用的網路。": {
+  "en": "Images no container uses (stopped containers count as using them), stopped containers and unused networks.",
+  "ja": "どのコンテナも使っていないイメージ（停止中のコンテナも使用中とみなします）、停止したコンテナ、使われていないネットワーク。",
+  "zh-Hans": "没有任何容器使用的镜像（已停止的容器也算使用）、已停止的容器、未使用的网络。"
+ },
+ "沒有可以清理的項目。": {
+  "en": "Nothing to clean up.",
+  "ja": "クリーンアップできる項目はありません。",
+  "zh-Hans": "没有可以清理的项目。"
+ },
+ "沒有名稱、沒有容器使用的殘留映像檔（dangling）：{} 個，約 {}": {
+  "en": "Unnamed leftover images no container uses (dangling): {}, about {}",
+  "ja": "名前がなく、どのコンテナも使っていない残りイメージ（dangling）：{} 個、約 {}",
+  "zh-Hans": "没有名称、没有容器使用的残留镜像（dangling）：{} 个，约 {}"
+ },
+ "沒有容器掛載": {
+  "en": "Not mounted by any container",
+  "ja": "マウントしているコンテナなし",
+  "zh-Hans": "没有容器挂载"
+ },
+ "沒有找到 Chromium 系瀏覽器的擴充功能。": {
+  "en": "No extensions found for Chromium-based browsers.",
+  "ja": "Chromium 系ブラウザの機能拡張は見つかりませんでした。",
+  "zh-Hans": "没有找到 Chromium 系浏览器的扩展。"
+ },
+ "沒有找到啟動項目。": {
+  "en": "No launch items found.",
+  "ja": "起動項目は見つかりませんでした。",
+  "zh-Hans": "没有找到启动项。"
+ },
+ "沒有找到支援檔案": {
+  "en": "No support files found",
+  "ja": "サポートファイルは見つかりませんでした",
+  "zh-Hans": "没有找到支持文件"
+ },
+ "沒有找到重複的檔案。": {
+  "en": "No duplicate files found.",
+  "ja": "重複ファイルは見つかりませんでした。",
+  "zh-Hans": "没有找到重复的文件。"
+ },
+ "沒有找到雲端同步資料夾。": {
+  "en": "No cloud sync folders found.",
+  "ja": "クラウド同期フォルダは見つかりませんでした。",
+  "zh-Hans": "没有找到云端同步文件夹。"
+ },
+ "沒有找到項目。": {
+  "en": "No items found.",
+  "ja": "項目が見つかりませんでした。",
+  "zh-Hans": "没有找到项目。"
+ },
+ "沒有掛 volume": {
+  "en": "No volumes",
+  "ja": "ボリュームなし",
+  "zh-Hans": "未挂载卷"
+ },
+ "沒有連接裝置": {
+  "en": "No devices connected",
+  "ja": "接続中のデバイスはありません",
+  "zh-Hans": "没有连接设备"
+ },
+ "沒有金鑰": {
+  "en": "No key",
+  "ja": "キーがありません",
+  "zh-Hans": "没有密钥"
+ },
+ "沒有需要處理的項目": {
+  "en": "Nothing needs attention",
+  "ja": "対応が必要な項目はありません",
+  "zh-Hans": "没有需要处理的项目"
+ },
+ "注意：這些原本在執行的容器現在沒有在執行：{}": {
+  "en": "Note: these containers were running before and aren't running now: {}",
+  "ja": "注意：実行中だった次のコンテナが、現在は実行されていません：{}",
+  "zh-Hans": "注意：这些原本在运行的容器现在没有在运行：{}"
+ },
+ "活動監視器 →": {
+  "en": "Activity Monitor →",
+  "ja": "アクティビティモニタ →",
+  "zh-Hans": "活动监视器 →"
+ },
+ "深入每一個檔案與資料夾，完整檢查整個系統。懷疑中毒或需要最高安全性時使用。": {
+  "en": "Goes through every file and folder to check the whole system. Use it if you suspect an infection or need the highest level of security.",
+  "ja": "すべてのファイルとフォルダを調べ、システム全体を徹底的にチェックします。感染が疑われるときや最高の安全性が必要なときに使用します。",
+  "zh-Hans": "深入每一个文件与文件夹，完整检查整个系统。怀疑中毒或需要最高安全性时使用。"
+ },
+ "深度掃描": {
+  "en": "Deep scan",
+  "ja": "ディープスキャン",
+  "zh-Hans": "深度扫描"
+ },
+ "清理": {
+  "en": "Clean Up",
+  "ja": "クリーンアップ",
+  "zh-Hans": "清理"
+ },
+ "清理完畢": {
+  "en": "Cleanup complete",
+  "ja": "クリーンアップ完了",
+  "zh-Hans": "清理完毕"
+ },
+ "清空所有廢紙簍": {
+  "en": "Empty all Trash bins",
+  "ja": "すべてのゴミ箱を空にする",
+  "zh-Hans": "清空所有废纸篓"
+ },
+ "清空系統記錄的「從哪裡下載了哪些檔案」歷史，保護隱私。": {
+  "en": "Empties the system's record of which files were downloaded from where, to protect your privacy.",
+  "ja": "システムが記録している「どのファイルをどこからダウンロードしたか」の履歴を消去し、プライバシーを守ります。",
+  "zh-Hans": "清空系统记录的“从哪里下载了哪些文件”历史，保护隐私。"
+ },
+ "清除下載追蹤記錄": {
+  "en": "Clear download tracking history",
+  "ja": "ダウンロード追跡履歴を消去",
+  "zh-Hans": "清除下载追踪记录"
+ },
+ "清除已刪除應用程式留下的檔案": {
+  "en": "Clear files left behind by deleted apps",
+  "ja": "削除したアプリが残したファイルを消去",
+  "zh-Hans": "清除已删除应用程序留下的文件"
+ },
+ "清除建置快取（下次建置會比較慢）": {
+  "en": "Clear build cache (the next build will be slower)",
+  "ja": "ビルドキャッシュを消去（次回のビルドは遅くなります）",
+  "zh-Hans": "清除构建缓存（下次构建会比较慢）"
+ },
+ "清除沒有名稱的殘留映像檔": {
+  "en": "Remove leftover unnamed images",
+  "ja": "名前のない残りイメージを消去",
+  "zh-Hans": "清除没有名称的残留镜像"
+ },
+ "清除瀏覽記錄與使用痕跡": {
+  "en": "Clear browsing history and usage traces",
+  "ja": "閲覧履歴と使用の痕跡を消去",
+  "zh-Hans": "清除浏览记录和使用痕迹"
+ },
+ "清除網址對應的暫存，解決部分網站無法開啟的問題。": {
+  "en": "Clears stored address lookups to fix some websites that won't open.",
+  "ja": "保存されたアドレスの対応情報を消去し、一部のサイトが開けない問題を解決します。",
+  "zh-Hans": "清除网址解析缓存，解决部分网站无法打开的问题。"
+ },
+ "清除舊的應用程式狀態": {
+  "en": "Clear old app state",
+  "ja": "古いアプリの状態を消去",
+  "zh-Hans": "清除旧的应用状态"
+ },
+ "清除路由表與 ARP 快取，解決網路卡住或連不上的問題（網路會短暫中斷）。": {
+  "en": "Clears the routing table and ARP cache to fix a stuck or unreachable network (the network drops briefly).",
+  "ja": "ルーティングテーブルと ARP キャッシュを消去し、ネットワークが止まる・つながらない問題を解決します（ネットワークが一時的に切断されます）。",
+  "zh-Hans": "清除路由表与 ARP 缓存，解决网络卡住或连不上的问题（网络会短暂中断）。"
+ },
+ "清除金鑰": {
+  "en": "Remove key",
+  "ja": "キーを削除",
+  "zh-Hans": "清除密钥"
+ },
+ "測試檔案": {
+  "en": "Test file",
+  "ja": "テストファイル",
+  "zh-Hans": "测试文件"
+ },
+ "漏洞檢查": {
+  "en": "Vulnerability Check",
+  "ja": "脆弱性チェック",
+  "zh-Hans": "漏洞检查"
+ },
+ "瀏覽器擴充功能": {
+  "en": "Browser extensions",
+  "ja": "ブラウザ機能拡張",
+  "zh-Hans": "浏览器扩展"
+ },
+ "瀏覽歷史記錄": {
+  "en": "Browsing history",
+  "ja": "閲覧履歴",
+  "zh-Hans": "浏览历史记录"
+ },
+ "瀏覽歷史記錄與下載記錄": {
+  "en": "Browsing and download history",
+  "ja": "閲覧履歴とダウンロード履歴",
+  "zh-Hans": "浏览历史记录与下载记录"
+ },
+ "瀏覽與下載記錄": {
+  "en": "Browsing and download history",
+  "ja": "閲覧とダウンロードの履歴",
+  "zh-Hans": "浏览与下载记录"
+ },
+ "無": {
+  "en": "None",
+  "ja": "なし",
+  "zh-Hans": "无"
+ },
+ "無威脅": {
+  "en": "No threats",
+  "ja": "脅威なし",
+  "zh-Hans": "无威胁"
+ },
+ "無法儲存金鑰：{}": {
+  "en": "Couldn't save the key: {}",
+  "ja": "キーを保存できませんでした：{}",
+  "zh-Hans": "无法保存密钥：{}"
+ },
+ "無法儲存：{}": {
+  "en": "Could not save: {}",
+  "ja": "保存できませんでした：{}",
+  "zh-Hans": "无法保存：{}"
+ },
+ "無法建立：{}": {
+  "en": "Could not create: {}",
+  "ja": "作成できませんでした：{}",
+  "zh-Hans": "无法创建：{}"
+ },
+ "無法搬移資料夾到隔離區（位於其他磁碟）": {
+  "en": "Can’t move the folder to Quarantine (it’s on another disk)",
+  "ja": "フォルダを隔離領域に移動できません（別のディスクにあります）",
+  "zh-Hans": "无法将文件夹移到隔离区（位于其他磁盘）"
+ },
+ "無法檢查新版本：{}": {
+  "en": "Couldn't check for a new version: {}",
+  "ja": "新しいバージョンを確認できませんでした：{}",
+  "zh-Hans": "无法检查新版本：{}"
+ },
+ "無法移除：{}": {
+  "en": "Could not remove: {}",
+  "ja": "削除できませんでした：{}",
+  "zh-Hans": "无法移除：{}"
+ },
+ "無法結束 {}：{}": {
+  "en": "Couldn't quit {}: {}",
+  "ja": "{} を終了できません：{}",
+  "zh-Hans": "无法退出 {}：{}"
+ },
+ "無法讀取的偏好設定檔": {
+  "en": "Unreadable preferences file",
+  "ja": "読み込めない環境設定ファイル",
+  "zh-Hans": "无法读取的偏好设置文件"
+ },
+ "無法連線到 MalwareBazaar：{}": {
+  "en": "Couldn't connect to MalwareBazaar: {}",
+  "ja": "MalwareBazaar に接続できません：{}",
+  "zh-Hans": "无法连接到 MalwareBazaar：{}"
+ },
+ "無法連線到漏洞資料庫：{}": {
+  "en": "Can’t connect to the vulnerability database: {}",
+  "ja": "脆弱性データベースに接続できません：{}",
+  "zh-Hans": "无法连接到漏洞数据库：{}"
+ },
+ "無法還原：{}": {
+  "en": "Could not restore: {}",
+  "ja": "復元できませんでした：{}",
+  "zh-Hans": "无法还原：{}"
+ },
+ "無法隔離 {}：{}": {
+  "en": "Could not quarantine {}: {}",
+  "ja": "{} を隔離できませんでした：{}",
+  "zh-Hans": "无法隔离 {}：{}"
+ },
+ "照片": {
+  "en": "Photos",
+  "ja": "写真",
+  "zh-Hans": "照片"
+ },
+ "版本 {} · {}": {
+  "en": "Version {} · {}",
+  "ja": "バージョン {} · {}",
+  "zh-Hans": "版本 {} · {}"
+ },
+ "版本 {} · 已載入 {} 條規則 · 規則檔更新於 {}": {
+  "en": "Version {} · {} rules loaded · Rule file updated {}",
+  "ja": "バージョン {} · {} 件のルールを読み込み済み · ルールファイル更新日 {}",
+  "zh-Hans": "版本 {} · 已加载 {} 条规则 · 规则文件更新于 {}"
+ },
+ "特徵碼比對": {
+  "en": "Pattern match",
+  "ja": "パターン照合",
+  "zh-Hans": "特征码比对"
+ },
+ "狀況良好": {
+  "en": "Looks good",
+  "ja": "良好",
+  "zh-Hans": "状况良好"
+ },
+ "獨占 {} · 建立 {}": {
+  "en": "Unique {} · Created {}",
+  "ja": "固有 {} · 作成 {}",
+  "zh-Hans": "独占 {} · 创建于 {}"
+ },
+ "瑞士非營利組織 abuse.ch 的公開惡意軟體樣本資料庫（CC0 公眾領域授權）。本程式會下載最新的 Mac 惡意軟體檔案指紋（Mach-O 程式、DMG、PKG 各最多 {} 筆），並每天自動更新一次。": {
+  "en": "A public malware sample database (CC0 public domain) run by abuse.ch, a Swiss non-profit. This app downloads the latest Mac malware fingerprints (up to {} each for Mach-O binaries, DMGs and PKGs) and updates them automatically once a day.",
+  "ja": "スイスの非営利団体 abuse.ch による公開マルウェアサンプルデータベース（CC0 パブリックドメイン）です。このアプリは最新の Mac マルウェアのフィンガープリント（Mach-O プログラム、DMG、PKG それぞれ最大 {} 件）をダウンロードし、1 日 1 回自動更新します。",
+  "zh-Hans": "瑞士非营利组织 abuse.ch 的公开恶意软件样本数据库（CC0 公共领域授权）。本程序会下载最新的 Mac 恶意软件文件指纹（Mach-O 程序、DMG、PKG 各最多 {} 条），并每天自动更新一次。"
+ },
+ "當前版本": {
+  "en": "CURRENT VERSION",
+  "ja": "現在のバージョン",
+  "zh-Hans": "当前版本"
+ },
+ "病毒碼": {
+  "en": "Malware signatures",
+  "ja": "マルウェア定義",
+  "zh-Hans": "病毒库"
+ },
+ "病毒碼 (SHA-256)": {
+  "en": "Signature (SHA-256)",
+  "ja": "マルウェア定義 (SHA-256)",
+  "zh-Hans": "病毒库 (SHA-256)"
+ },
+ "病毒碼來源": {
+  "en": "Signature sources",
+  "ja": "定義ソース",
+  "zh-Hans": "病毒库来源"
+ },
+ "登入與背景項目": {
+  "en": "Login & Background Items",
+  "ja": "ログイン項目とバックグラウンド項目",
+  "zh-Hans": "登录项与后台项目"
+ },
+ "發現 {} 個潛在威脅": {
+  "en": "{} potential threats found",
+  "ja": "{} 件の潜在的な脅威を検出",
+  "zh-Hans": "发现 {} 个潜在威胁"
+ },
+ "發現{}：{}（{}，來源：{}）": {
+  "en": "Found {}: {} ({}, source: {})",
+  "ja": "{}を検出：{}（{}、ソース：{}）",
+  "zh-Hans": "发现{}：{}（{}，来源：{}）"
+ },
+ "發現威脅時自動移入隔離區": {
+  "en": "Quarantine threats automatically",
+  "ja": "脅威を検出したら自動的に隔離",
+  "zh-Hans": "发现威胁时自动移入隔离区"
+ },
+ "盡早移除它們，以保護您的 Mac。移除的項目會先放進隔離區。": {
+  "en": "Remove them soon to protect your Mac. Removed items go to Quarantine first.",
+  "ja": "Mac を守るため、早めに削除してください。削除した項目はまず隔離領域に移動します。",
+  "zh-Hans": "尽早移除它们，以保护你的 Mac。移除的项目会先放入隔离区。"
+ },
+ "監控下載、應用程式與啟動項目的變動": {
+  "en": "Watches downloads, apps and launch items for changes",
+  "ja": "ダウンロード、アプリ、起動項目の変更を監視します",
+  "zh-Hans": "监控下载、应用和启动项的变动"
+ },
+ "監控的位置": {
+  "en": "Watched locations",
+  "ja": "監視している場所",
+  "zh-Hans": "监控的位置"
+ },
+ "目前 {} → 最新 {}": {
+  "en": "Current {} → Latest {}",
+  "ja": "現在 {} → 最新 {}",
+  "zh-Hans": "当前 {} → 最新 {}"
+ },
+ "目前有 {} 筆指紋 · 更新於 {}": {
+  "en": "{} fingerprints · Updated {}",
+  "ja": "フィンガープリント {} 件 · 更新日 {}",
+  "zh-Hans": "当前有 {} 条指纹 · 更新于 {}"
+ },
+ "目前沒有事件。": {
+  "en": "No events yet.",
+  "ja": "イベントはまだありません。",
+  "zh-Hans": "目前没有事件。"
+ },
+ "目前版本：v{}": {
+  "en": "Current version: v{}",
+  "ja": "現在のバージョン：v{}",
+  "zh-Hans": "当前版本：v{}"
+ },
+ "相機": {
+  "en": "Camera",
+  "ja": "カメラ",
+  "zh-Hans": "相机"
+ },
+ "確認刪除": {
+  "en": "Confirm deletion",
+  "ja": "削除の確認",
+  "zh-Hans": "确认删除"
+ },
+ "確認執行": {
+  "en": "Confirm and run",
+  "ja": "実行する",
+  "zh-Hans": "确认并运行"
+ },
+ "磁碟": {
+  "en": "Disk",
+  "ja": "ディスク",
+  "zh-Hans": "磁盘"
+ },
+ "磁碟可用 {}": {
+  "en": "Disk free {}",
+  "ja": "ディスク空き容量 {}",
+  "zh-Hans": "磁盘可用 {}"
+ },
+ "磁碟可用 –": {
+  "en": "Disk free –",
+  "ja": "ディスク空き容量 –",
+  "zh-Hans": "磁盘可用 –"
+ },
+ "磁碟空間快滿了": {
+  "en": "Disk is almost full",
+  "ja": "ディスクの空き容量がわずか",
+  "zh-Hans": "磁盘空间快满了"
+ },
+ "移到廢紙簍": {
+  "en": "Move to Trash",
+  "ja": "ゴミ箱に入れる",
+  "zh-Hans": "移到废纸篓"
+ },
+ "移到廢紙簍；請先結束瀏覽器": {
+  "en": "Moves it to the Trash; quit the browser first",
+  "ja": "ゴミ箱に入れます。先にブラウザを終了してください",
+  "zh-Hans": "移到废纸篓；请先退出浏览器"
+ },
+ "移除": {
+  "en": "Remove",
+  "ja": "削除",
+  "zh-Hans": "移除"
+ },
+ "移除 30 天以上沒用過的視窗還原資料（應用程式會自動重新建立）。": {
+  "en": "Removes window-restore data unused for over 30 days (apps recreate it automatically).",
+  "ja": "30 日以上使われていないウインドウ復元データを削除します（アプリが自動で再作成します）。",
+  "zh-Hans": "移除 30 天以上未使用的窗口恢复数据（应用会自动重新创建）。"
+ },
+ "移除下載": {
+  "en": "Remove Downloads",
+  "ja": "ダウンロードを削除",
+  "zh-Hans": "移除下载"
+ },
+ "移除使用 Firefox 後留在本機的瀏覽資料。": {
+  "en": "Remove browsing data that Firefox leaves on this Mac.",
+  "ja": "Firefox の使用後にこの Mac に残る閲覧データを削除します。",
+  "zh-Hans": "移除使用 Firefox 后留在本机的浏览数据。"
+ },
+ "移除使用 Safari 後留在本機的瀏覽資料。部分項目需要「完整磁碟取用權限」。": {
+  "en": "Remove browsing data that Safari leaves on this Mac. Some items need Full Disk Access.",
+  "ja": "Safari の使用後にこの Mac に残る閲覧データを削除します。一部の項目にはフルディスクアクセスが必要です。",
+  "zh-Hans": "移除使用 Safari 后留在本机的浏览数据。部分项目需要“完全磁盘访问权限”。"
+ },
+ "移除使用 {} 後留在本機的瀏覽資料。": {
+  "en": "Remove browsing data that {} leaves on this Mac.",
+  "ja": "{} の使用後にこの Mac に残る閲覧データを削除します。",
+  "zh-Hans": "移除使用 {} 后留在本机的浏览数据。"
+ },
+ "移除本機副本，檔案仍保留在 iCloud": {
+  "en": "Remove local copies; files stay in iCloud",
+  "ja": "ローカルのコピーを削除。ファイルは iCloud に残ります",
+  "zh-Hans": "移除本地副本，文件仍保留在 iCloud"
+ },
+ "移除本機的時間機器快照，釋放可清除的空間。": {
+  "en": "Removes local Time Machine snapshots to free purgeable space.",
+  "ja": "ローカルの Time Machine スナップショットを削除し、パージ可能な領域を解放します。",
+  "zh-Hans": "移除本地的时间机器快照，释放可清除的空间。"
+ },
+ "移除的項目先隔離，誤判可隨時還原": {
+  "en": "Removed items are quarantined first, so false alarms can be restored anytime",
+  "ja": "削除した項目はまず隔離されるので、誤検出はいつでも復元できます",
+  "zh-Hans": "移除的项目会先隔离，误报可随时还原"
+ },
+ "移除系統垃圾、快取與不需要的檔案，釋放儲存空間。": {
+  "en": "Remove system junk, caches and unneeded files to free up storage.",
+  "ja": "システムジャンク、キャッシュ、不要なファイルを削除してストレージを解放します。",
+  "zh-Hans": "移除系统垃圾、缓存与不需要的文件，释放存储空间。"
+ },
+ "移除系統垃圾與不需要的檔案": {
+  "en": "Remove system junk and unneeded files",
+  "ja": "システムジャンクと不要なファイルを削除",
+  "zh-Hans": "移除系统垃圾与不需要的文件"
+ },
+ "移除系統隔離標記": {
+  "en": "Removes the system quarantine flag",
+  "ja": "システムの隔離属性を削除",
+  "zh-Hans": "移除系统隔离标记"
+ },
+ "移除選取的網路（需要管理員密碼）": {
+  "en": "Remove selected networks (requires administrator password)",
+  "ja": "選択したネットワークを削除（管理者パスワードが必要）",
+  "zh-Hans": "移除所选网络（需要管理员密码）"
+ },
+ "移除選取的項目（{}）": {
+  "en": "Remove selected items ({})",
+  "ja": "選択した項目を削除（{}）",
+  "zh-Hans": "移除所选项目（{}）"
+ },
+ "程式名稱": {
+  "en": "App name",
+  "ja": "アプリ名",
+  "zh-Hans": "程序名称"
+ },
+ "程式藏在隱藏資料夾中，常見於惡意軟體": {
+  "en": "A program hidden in a hidden folder, common with malware",
+  "ja": "隠しフォルダ内に置かれたプログラムです。マルウェアによく見られます",
+  "zh-Hans": "程序藏在隐藏文件夹中，常见于恶意软件"
+ },
+ "空間地圖": {
+  "en": "Disk Map",
+  "ja": "ディスクマップ",
+  "zh-Hans": "空间地图"
+ },
+ "立即更新": {
+  "en": "Update now",
+  "ja": "今すぐ更新",
+  "zh-Hans": "立即更新"
+ },
+ "立即檢查": {
+  "en": "Check now",
+  "ja": "今すぐ確認",
+  "zh-Hans": "立即检查"
+ },
+ "立即深度清理": {
+  "en": "Deep clean now",
+  "ja": "今すぐディープクリーン",
+  "zh-Hans": "立即深度清理"
+ },
+ "符合 Apple 內建的惡意軟體特徵": {
+  "en": "Matches Apple’s built-in malware signatures",
+  "ja": "Apple 内蔵のマルウェア定義と一致します",
+  "zh-Hans": "符合 Apple 内置的恶意软件特征"
+ },
+ "符合已知威脅的檔案位置": {
+  "en": "Matches the location of a known threat",
+  "ja": "既知の脅威のファイルの場所と一致します",
+  "zh-Hans": "符合已知威胁的文件位置"
+ },
+ "符合已知威脅的資料夾": {
+  "en": "Matches a known threat’s folder",
+  "ja": "既知の脅威のフォルダと一致します",
+  "zh-Hans": "符合已知威胁的文件夹"
+ },
+ "第 {} 級": {
+  "en": "Level {}",
+  "ja": "レベル {}",
+  "zh-Hans": "第 {} 级"
+ },
+ "第一次讀取需要幾秒鐘": {
+  "en": "The first reading takes a few seconds",
+  "ja": "初回の読み込みには数秒かかります",
+  "zh-Hans": "首次读取需要几秒钟"
+ },
+ "精簡「時間機器」快照": {
+  "en": "Thin Time Machine snapshots",
+  "ja": "Time Machine のスナップショットを整理",
+  "zh-Hans": "精简“时间机器”快照"
+ },
+ "系統垃圾": {
+  "en": "System junk",
+  "ja": "システムジャンク",
+  "zh-Hans": "系统垃圾"
+ },
+ "系統總覽": {
+  "en": "Overview",
+  "ja": "概要",
+  "zh-Hans": "系统总览"
+ },
+ "系統背景項目": {
+  "en": "System background item",
+  "ja": "システムのバックグラウンド項目",
+  "zh-Hans": "系统后台项目"
+ },
+ "結束": {
+  "en": "Quit",
+  "ja": "終了",
+  "zh-Hans": "退出"
+ },
+ "經過混淆的程式碼": {
+  "en": "Obfuscated code",
+  "ja": "難読化されたコード",
+  "zh-Hans": "经过混淆的代码"
+ },
+ "經過混淆的腳本": {
+  "en": "Obfuscated script",
+  "ja": "難読化されたスクリプト",
+  "zh-Hans": "经过混淆的脚本"
+ },
+ "維護任務": {
+  "en": "Maintenance Tasks",
+  "ja": "メンテナンス",
+  "zh-Hans": "维护任务"
+ },
+ "網路": {
+  "en": "Network",
+  "ja": "ネットワーク",
+  "zh-Hans": "网络"
+ },
+ "編譯產生的衍生資料、舊的裝置支援檔與模擬器快取。": {
+  "en": "Derived data from builds, old device support files and simulator caches.",
+  "ja": "ビルドで生成された派生データ、古いデバイスサポートファイル、シミュレータのキャッシュです。",
+  "zh-Hans": "编译生成的派生数据、旧的设备支持文件与模拟器缓存。"
+ },
+ "總量": {
+  "en": "Total",
+  "ja": "合計",
+  "zh-Hans": "总量"
+ },
+ "自動化": {
+  "en": "Automation",
+  "ja": "オートメーション",
+  "zh-Hans": "自动化"
+ },
+ "自動填寫的值": {
+  "en": "Autofill values",
+  "ja": "自動入力の値",
+  "zh-Hans": "自动填充的值"
+ },
+ "自訂掃描": {
+  "en": "Custom scan",
+  "ja": "カスタムスキャン",
+  "zh-Hans": "自定义扫描"
+ },
+ "自訂病毒碼": {
+  "en": "Custom signatures",
+  "ja": "カスタム定義",
+  "zh-Hans": "自定义病毒库"
+ },
+ "良好": {
+  "en": "Good",
+  "ja": "良好",
+  "zh-Hans": "良好"
+ },
+ "藍牙": {
+  "en": "Bluetooth",
+  "ja": "Bluetooth",
+  "zh-Hans": "蓝牙"
+ },
+ "處理器 {}%　記憶體壓力 {}%": {
+  "en": "CPU {}%  Memory pressure {}%",
+  "ja": "CPU {}%　メモリプレッシャー {}%",
+  "zh-Hans": "处理器 {}%　内存压力 {}%"
+ },
+ "處理器 –　記憶體 –": {
+  "en": "CPU –  Memory –",
+  "ja": "CPU –　メモリ –",
+  "zh-Hans": "处理器 –　内存 –"
+ },
+ "處理器負載很高": {
+  "en": "CPU load is very high",
+  "ja": "CPU 負荷が非常に高い",
+  "zh-Hans": "CPU 负载很高"
+ },
+ "虛擬機器（例如 Docker Desktop、UTM）佔用了 {}，即使閒置也會保留，不用時結束它就能釋放。": {
+  "en": "Virtual machines (such as Docker Desktop or UTM) are using {}. They keep it even when idle; quit them when not in use to free it.",
+  "ja": "仮想マシン（Docker Desktop、UTM など）が {} を使用しています。アイドル中も確保されたままなので、使わないときは終了すると解放されます。",
+  "zh-Hans": "虚拟机（例如 Docker Desktop、UTM）占用了 {}，即使闲置也会保留，不用时退出即可释放。"
+ },
+ "螢幕錄製": {
+  "en": "Screen Recording",
+  "ja": "画面収録",
+  "zh-Hans": "屏幕录制"
+ },
+ "行事曆": {
+  "en": "Calendars",
+  "ja": "カレンダー",
+  "zh-Hans": "日历"
+ },
+ "行為推測": {
+  "en": "Heuristics",
+  "ja": "ヒューリスティック",
+  "zh-Hans": "启发式检测"
+ },
+ "裝置": {
+  "en": "Device",
+  "ja": "デバイス",
+  "zh-Hans": "设备"
+ },
+ "裝置管理 (MDM)": {
+  "en": "Device management (MDM)",
+  "ja": "デバイス管理 (MDM)",
+  "zh-Hans": "设备管理 (MDM)"
+ },
+ "複製：{}": {
+  "en": "Copy: {}",
+  "ja": "コピー：{}",
+  "zh-Hans": "复制：{}"
+ },
+ "解除安裝": {
+  "en": "Uninstall",
+  "ja": "アンインストール",
+  "zh-Hans": "卸载"
+ },
+ "解除安裝程式": {
+  "en": "Uninstaller",
+  "ja": "アンインストーラ",
+  "zh-Hans": "卸载程序"
+ },
+ "記憶體吃緊": {
+  "en": "Memory is tight",
+  "ja": "メモリ不足気味",
+  "zh-Hans": "内存吃紧"
+ },
+ "記憶體壓力": {
+  "en": "Memory pressure",
+  "ja": "メモリプレッシャー",
+  "zh-Hans": "内存压力"
+ },
+ "記憶體壓力偏高": {
+  "en": "Memory pressure is high",
+  "ja": "メモリプレッシャーが高め",
+  "zh-Hans": "内存压力偏高"
+ },
+ "記憶體壓力嚴重": {
+  "en": "Memory pressure is critical",
+  "ja": "メモリプレッシャーが深刻",
+  "zh-Hans": "内存压力严重"
+ },
+ "記憶體用量很高": {
+  "en": "Memory usage is very high",
+  "ja": "メモリ使用量が非常に多い",
+  "zh-Hans": "内存占用很高"
+ },
+ "記憶體診斷": {
+  "en": "Memory diagnosis",
+  "ja": "メモリ診断",
+  "zh-Hans": "内存诊断"
+ },
+ "記憶體負載與分佈": {
+  "en": "Memory load and breakdown",
+  "ja": "メモリの負荷と内訳",
+  "zh-Hans": "内存负载与分布"
+ },
+ "設定": {
+  "en": "Settings",
+  "ja": "設定",
+  "zh-Hans": "设置"
+ },
+ "語言": {
+  "en": "Language",
+  "ja": "言語",
+  "zh-Hans": "语言"
+ },
+ "請先勾選要移除的項目": {
+  "en": "Select the items to remove first",
+  "ja": "先に削除する項目を選択してください",
+  "zh-Hans": "请先勾选要移除的项目"
+ },
+ "請先貼上金鑰": {
+  "en": "Paste a key first",
+  "ja": "先にキーを貼り付けてください",
+  "zh-Hans": "请先粘贴密钥"
+ },
+ "請稍候": {
+  "en": "Please wait",
+  "ja": "お待ちください",
+  "zh-Hans": "请稍候"
+ },
+ "請輸入完整名稱「{}」確認：": {
+  "en": "Type the full name “{}” to confirm:",
+  "ja": "確認のため、完全な名前「{}」を入力してください：",
+  "zh-Hans": "请输入完整名称“{}”以确认："
+ },
+ "請這個應用程式正常結束（會提示儲存文件）": {
+  "en": "Ask this app to quit normally (it will prompt to save documents)",
+  "ja": "このアプリに通常の終了を要求します（書類の保存を確認されます）",
+  "zh-Hans": "请求此应用正常退出（会提示保存文档）"
+ },
+ "讀取相依清單": {
+  "en": "Reads dependency files",
+  "ja": "依存関係ファイルを読み込み",
+  "zh-Hans": "读取依赖清单"
+ },
+ "讀取鑰匙圈密碼": {
+  "en": "Reads Keychain passwords",
+  "ja": "キーチェーンのパスワードを読み取る",
+  "zh-Hans": "读取钥匙串密码"
+ },
+ "貼上您的免費金鑰": {
+  "en": "Paste your free key",
+  "ja": "無料キーを貼り付けてください",
+  "zh-Hans": "粘贴您的免费密钥"
+ },
+ "資料夾大小一覽": {
+  "en": "Folder sizes at a glance",
+  "ja": "フォルダサイズの一覧",
+  "zh-Hans": "文件夹大小一览"
+ },
+ "資料庫回應無法解讀：{}": {
+  "en": "Can’t read the database response: {}",
+  "ja": "データベースの応答を解析できません：{}",
+  "zh-Hans": "无法解析数据库响应：{}"
+ },
+ "資料庫最佳化": {
+  "en": "Optimize databases",
+  "ja": "データベースを最適化",
+  "zh-Hans": "数据库优化"
+ },
+ "跟隨系統（{}）": {
+  "en": "Use system language ({})",
+  "ja": "システムに合わせる（{}）",
+  "zh-Hans": "跟随系统（{}）"
+ },
+ "載入中": {
+  "en": "Loading",
+  "ja": "読み込み中",
+  "zh-Hans": "加载中"
+ },
+ "載入中…": {
+  "en": "Loading…",
+  "ja": "読み込み中…",
+  "zh-Hans": "加载中…"
+ },
+ "輔助使用": {
+  "en": "Accessibility",
+  "ja": "アクセシビリティ",
+  "zh-Hans": "辅助功能"
+ },
+ "輸入監控": {
+  "en": "Input Monitoring",
+  "ja": "入力監視",
+  "zh-Hans": "输入监控"
+ },
+ "透過 macOS 的雲端資料夾管理": {
+  "en": "Managed through macOS cloud folders",
+  "ja": "macOS のクラウドフォルダ経由で管理",
+  "zh-Hans": "通过 macOS 的云端文件夹管理"
+ },
+ "逐層深入": {
+  "en": "Drill down",
+  "ja": "階層をたどる",
+  "zh-Hans": "逐层深入"
+ },
+ "這些位置不會被掃描": {
+  "en": "These locations are not scanned",
+  "ja": "これらの場所はスキャンされません",
+  "zh-Hans": "这些位置不会被扫描"
+ },
+ "這些檔案的名稱不屬於任何已安裝的應用程式。請確認後再勾選，移除的項目會放到廢紙簍。": {
+  "en": "These file names don't belong to any installed app. Check before selecting; removed items go to the Trash.",
+  "ja": "これらのファイル名は、インストール済みのどのアプリにも該当しません。確認してから選択してください。削除した項目はゴミ箱に入ります。",
+  "zh-Hans": "这些文件的名称不属于任何已安装的应用程序。请确认后再勾选，移除的项目会放入废纸篓。"
+ },
+ "這個資料夾裡沒有找到可檢查的相依套件清單。": {
+  "en": "No dependency files to check were found in this folder.",
+  "ja": "このフォルダにはチェックできる依存関係ファイルが見つかりませんでした。",
+  "zh-Hans": "此文件夹中没有找到可检查的依赖清单。"
+ },
+ "這台 Mac 受描述檔管理：{}（若不是公司或學校安裝，請到「系統設定 > 一般 > 裝置管理」檢查）": {
+  "en": "This Mac is managed by profiles: {} (if your company or school didn't install them, check System Settings > General > Device Management)",
+  "ja": "この Mac はプロファイルで管理されています：{}（会社や学校がインストールしたものでない場合は、「システム設定 > 一般 > デバイス管理」を確認してください）",
+  "zh-Hans": "这台 Mac 受描述文件管理：{}（如果不是公司或学校安装的，请到“系统设置 > 通用 > 设备管理”检查）"
+ },
+ "這台 Mac 找不到": {
+  "en": "Not found on this Mac",
+  "ja": "この Mac に見つかりません",
+  "zh-Hans": "这台 Mac 上找不到"
+ },
+ "這是 Docker 的資料（全部映像檔、容器與資料庫 volume），丟掉就救不回來。請改用「Docker 清理」，由 Docker 自己刪除不需要的項目。": {
+  "en": "This is Docker's data (all images, containers and database volumes). Once deleted it can't be recovered. Use Docker Cleanup instead so Docker removes what isn't needed itself.",
+  "ja": "これは Docker のデータ（すべてのイメージ、コンテナ、データベースのボリューム）です。削除すると元に戻せません。「Docker クリーンアップ」を使い、不要な項目を Docker 自身に削除させてください。",
+  "zh-Hans": "这是 Docker 的数据（全部镜像、容器与数据库卷），删掉就无法恢复。请改用“Docker 清理”，由 Docker 自己删除不需要的项目。"
+ },
+ "這是虛擬機器或磁碟映像檔，裡面是整個系統或資料，刪除後無法復原。請在建立它的程式（Docker、UTM、Parallels、VMware、磁碟工具程式）裡處理。": {
+  "en": "This is a virtual machine or disk image holding a whole system or data. Deleting it can't be undone. Manage it in the app that created it (Docker, UTM, Parallels, VMware, Disk Utility).",
+  "ja": "これは仮想マシンまたはディスクイメージで、システム全体やデータが入っています。削除すると元に戻せません。作成したアプリ（Docker、UTM、Parallels、VMware、ディスクユーティリティ）で操作してください。",
+  "zh-Hans": "这是虚拟机或磁盘映像，里面是整个系统或数据，删除后无法恢复。请在创建它的程序（Docker、UTM、Parallels、VMware、磁盘工具）中处理。"
+ },
+ "通訊錄": {
+  "en": "Contacts",
+  "ja": "連絡先",
+  "zh-Hans": "通讯录"
+ },
+ "速度：{}　{}": {
+  "en": "Speed: {}   {}",
+  "ja": "速度：{}　{}",
+  "zh-Hans": "速度：{}　{}"
+ },
+ "速度：{}　深度：{}": {
+  "en": "Speed: {}   Depth: {}",
+  "ja": "速度：{}　深さ：{}",
+  "zh-Hans": "速度：{}　深度：{}"
+ },
+ "連同支援檔案一起移除應用程式": {
+  "en": "Remove apps along with their support files",
+  "ja": "サポートファイルごとアプリを削除",
+  "zh-Hans": "连同支持文件一起移除应用程序"
+ },
+ "運作中": {
+  "en": "Running",
+  "ja": "実行中",
+  "zh-Hans": "运行中"
+ },
+ "過時的應用程式可能有安全漏洞": {
+  "en": "Outdated apps may have security vulnerabilities",
+  "ja": "古いアプリにはセキュリティ上の脆弱性があるかもしれません",
+  "zh-Hans": "过时的应用程序可能有安全漏洞"
+ },
+ "還原": {
+  "en": "Restore",
+  "ja": "復元",
+  "zh-Hans": "还原"
+ },
+ "還有 {} 個項目…": {
+  "en": "{} more items…",
+  "ja": "ほかに {} 項目…",
+  "zh-Hans": "还有 {} 个项目…"
+ },
+ "還沒有掃描記錄。": {
+  "en": "No scans yet.",
+  "ja": "スキャン履歴はまだありません。",
+  "zh-Hans": "还没有扫描记录。"
+ },
+ "郵件下載的附件副本": {
+  "en": "Copies of attachments downloaded by Mail",
+  "ja": "メールでダウンロードした添付ファイルのコピー",
+  "zh-Hans": "邮件下载的附件副本"
+ },
+ "郵件附件": {
+  "en": "Mail attachments",
+  "ja": "メールの添付ファイル",
+  "zh-Hans": "邮件附件"
+ },
+ "釋放空間 →": {
+  "en": "Free up space →",
+  "ja": "空き容量を増やす →",
+  "zh-Hans": "释放空间 →"
+ },
+ "重建「快速查看」縮圖快取，修正顯示錯誤或過期的預覽圖。": {
+  "en": "Rebuilds the Quick Look thumbnail cache to fix wrong or outdated previews.",
+  "ja": "クイックルックのサムネールキャッシュを再構築し、誤った表示や古いプレビューを修正します。",
+  "zh-Hans": "重建“快速查看”缩略图缓存，修正显示错误或过期的预览图。"
+ },
+ "重建搜尋索引，搜尋變慢或找不到檔案時使用（需要一段時間）。": {
+  "en": "Rebuilds the search index. Use it when search is slow or can't find files (takes a while).",
+  "ja": "検索インデックスを再構築します。検索が遅いときやファイルが見つからないときに使います（時間がかかります）。",
+  "zh-Hans": "重建搜索索引，在搜索变慢或找不到文件时使用（需要一段时间）。"
+ },
+ "重新掃描": {
+  "en": "Scan again",
+  "ja": "再スキャン",
+  "zh-Hans": "重新扫描"
+ },
+ "重新掃描專案": {
+  "en": "Rescan project",
+  "ja": "プロジェクトを再スキャン",
+  "zh-Hans": "重新扫描项目"
+ },
+ "重新整理": {
+  "en": "Refresh",
+  "ja": "更新",
+  "zh-Hans": "刷新"
+ },
+ "重新整理 Finder 快取": {
+  "en": "Refresh Finder cache",
+  "ja": "Finder のキャッシュを更新",
+  "zh-Hans": "刷新访达缓存"
+ },
+ "重新整理網路連線": {
+  "en": "Refresh network connections",
+  "ja": "ネットワーク接続を更新",
+  "zh-Hans": "刷新网络连接"
+ },
+ "重新索引「聚焦」": {
+  "en": "Reindex Spotlight",
+  "ja": "Spotlight のインデックスを再作成",
+  "zh-Hans": "重建“聚焦”索引"
+ },
+ "重新讀取": {
+  "en": "Reload",
+  "ja": "再読み込み",
+  "zh-Hans": "重新读取"
+ },
+ "重新載入病毒碼": {
+  "en": "Reload signatures",
+  "ja": "マルウェア定義を再読み込み",
+  "zh-Hans": "重新加载病毒库"
+ },
+ "重新開始": {
+  "en": "Start over",
+  "ja": "最初から",
+  "zh-Hans": "重新开始"
+ },
+ "重複檔案": {
+  "en": "Duplicates",
+  "ja": "重複ファイル",
+  "zh-Hans": "重复文件"
+ },
+ "重設您個人資料夾中檔案的擁有權與權限。": {
+  "en": "Resets ownership and permissions of files in your home folder.",
+  "ja": "ホームフォルダ内のファイルの所有権とアクセス権をリセットします。",
+  "zh-Hans": "重置您个人文件夹中文件的所有权与权限。"
+ },
+ "金鑰只存在這台 Mac 的鑰匙圈，只會傳給 abuse.ch。": {
+  "en": "The key is stored only in this Mac's Keychain and is sent only to abuse.ch.",
+  "ja": "キーはこの Mac のキーチェーンにのみ保存され、abuse.ch にのみ送信されます。",
+  "zh-Hans": "密钥只保存在这台 Mac 的钥匙串中，只会发送给 abuse.ch。"
+ },
+ "開啟 Docker": {
+  "en": "Open Docker",
+  "ja": "Docker を起動",
+  "zh-Hans": "打开 Docker"
+ },
+ "開啟 Docker 才能看明細": {
+  "en": "Open Docker to see details",
+  "ja": "詳細を見るには Docker を起動してください",
+  "zh-Hans": "打开 Docker 才能查看明细"
+ },
+ "開啟即時防護": {
+  "en": "Turn on real-time protection",
+  "ja": "リアルタイム保護をオンにする",
+  "zh-Hans": "开启实时防护"
+ },
+ "開啟安全防護": {
+  "en": "Open Protection",
+  "ja": "セキュリティ保護を開く",
+  "zh-Hans": "打开安全防护"
+ },
+ "開機時自動執行的程式": {
+  "en": "Programs that run automatically at startup",
+  "ja": "起動時に自動で実行されるプログラム",
+  "zh-Hans": "开机时自动运行的程序"
+ },
+ "開發工具快取": {
+  "en": "Developer tool caches",
+  "ja": "開発ツールのキャッシュ",
+  "zh-Hans": "开发工具缓存"
+ },
+ "開發與 AI 工具留下的大型暫存": {
+  "en": "Large temporary files left by dev and AI tools",
+  "ja": "開発ツールや AI ツールが残した大きな一時ファイル",
+  "zh-Hans": "开发与 AI 工具留下的大型临时文件"
+ },
+ "關閉即時防護": {
+  "en": "Turn off real-time protection",
+  "ja": "リアルタイム保護をオフにする",
+  "zh-Hans": "关闭实时防护"
+ },
+ "防毒測試用的標準檔案，無害": {
+  "en": "Standard antivirus test file, harmless",
+  "ja": "ウイルス対策テスト用の標準ファイルです。無害です",
+  "zh-Hans": "用于杀毒测试的标准文件，无害"
+ },
+ "防護記錄": {
+  "en": "Protection log",
+  "ja": "保護ログ",
+  "zh-Hans": "防护记录"
+ },
+ "限制：檔案指紋只抓得到一模一樣的檔案，惡意軟體稍微修改過就抓不到。": {
+  "en": "Limitation: fingerprints only catch identical files. Malware that has been changed even slightly gets through.",
+  "ja": "制限：フィンガープリントで検出できるのはまったく同じファイルだけです。少しでも改変されたマルウェアは検出できません。",
+  "zh-Hans": "限制：文件指纹只能检出完全相同的文件，恶意软件稍加修改就检测不到。"
+ },
+ "除了易受攻擊的區域，也檢查個人資料夾與已安裝的應用程式。": {
+  "en": "Also checks your home folder and installed apps, in addition to vulnerable areas.",
+  "ja": "攻撃されやすい場所に加え、ホームフォルダとインストール済みのアプリも調べます。",
+  "zh-Hans": "除了易受攻击的区域，也检查个人文件夹与已安装的应用程序。"
+ },
+ "隔離區": {
+  "en": "Quarantine",
+  "ja": "隔離領域",
+  "zh-Hans": "隔离区"
+ },
+ "隔離區威脅項目": {
+  "en": "Threats in Quarantine",
+  "ja": "隔離領域の脅威",
+  "zh-Hans": "隔离区威胁项目"
+ },
+ "隔離區已清空": {
+  "en": "Quarantine emptied",
+  "ja": "隔離領域を空にしました",
+  "zh-Hans": "隔离区已清空"
+ },
+ "隔離區是空的。": {
+  "en": "Quarantine is empty.",
+  "ja": "隔離領域は空です。",
+  "zh-Hans": "隔离区是空的。"
+ },
+ "隔離區（{}）": {
+  "en": "Quarantine ({})",
+  "ja": "隔離領域（{}）",
+  "zh-Hans": "隔离区（{}）"
+ },
+ "隔離的檔案無法執行，可以還原或永久刪除": {
+  "en": "Quarantined files can't run. You can restore or permanently delete them",
+  "ja": "隔離されたファイルは実行できません。復元または完全に削除できます",
+  "zh-Hans": "隔离的文件无法运行，可以还原或永久删除"
+ },
+ "隔離與還原": {
+  "en": "Quarantine and restore",
+  "ja": "隔離と復元",
+  "zh-Hans": "隔离与还原"
+ },
+ "隱私": {
+  "en": "Privacy",
+  "ja": "プライバシー",
+  "zh-Hans": "隐私"
+ },
+ "隱藏位置中的執行檔": {
+  "en": "Program in a hidden location",
+  "ja": "隠れた場所にある実行ファイル",
+  "zh-Hans": "隐藏位置中的可执行文件"
+ },
+ "雲端檔案": {
+  "en": "Cloud Files",
+  "ja": "クラウドファイル",
+  "zh-Hans": "云端文件"
+ },
+ "雲端資料夾": {
+  "en": "Cloud Folders",
+  "ja": "クラウドフォルダ",
+  "zh-Hans": "云端文件夹"
+ },
+ "電量 {}% · {}": {
+  "en": "Charge {}% · {}",
+  "ja": "残量 {}% · {}",
+  "zh-Hans": "电量 {}% · {}"
+ },
+ "需要免費金鑰": {
+  "en": "Free key required",
+  "ja": "無料キーが必要",
+  "zh-Hans": "需要免费密钥"
+ },
+ "需要注意": {
+  "en": "Needs attention",
+  "ja": "要注意",
+  "zh-Hans": "需要注意"
+ },
+ "需要管理員密碼": {
+  "en": "Needs administrator password",
+  "ja": "管理者パスワードが必要",
+  "zh-Hans": "需要管理员密码"
+ },
+ "須立即處理": {
+  "en": "Fix immediately",
+  "ja": "直ちに対処が必要",
+  "zh-Hans": "须立即处理"
+ },
+ "預估剩餘 約 {}": {
+  "en": "About {} left",
+  "ja": "残り約 {}",
+  "zh-Hans": "预计剩余约 {}"
+ },
+ "預估時間": {
+  "en": "Time estimate",
+  "ja": "予想時間",
+  "zh-Hans": "预计时间"
+ },
+ "預估時間依上次掃描結果或抽樣估計，會隨進度越來越準。": {
+  "en": "The estimate is based on the last scan or a sample, and gets more accurate as the scan goes on.",
+  "ja": "予想時間は前回のスキャン結果またはサンプリングに基づき、進むにつれて正確になります。",
+  "zh-Hans": "预计时间根据上次扫描结果或抽样估算，会随进度越来越准。"
+ },
+ "預設不清，只能逐項確認": {
+  "en": "Not cleaned by default; confirm each item",
+  "ja": "既定では削除せず、1 件ずつ確認",
+  "zh-Hans": "默认不清理，只能逐项确认"
+ },
+ "類別": {
+  "en": "Type",
+  "ja": "種類",
+  "zh-Hans": "类别"
+ },
+ "顯示": {
+  "en": "Show",
+  "ja": "表示",
+  "zh-Hans": "显示"
+ },
+ "風險較低": {
+  "en": "Lower risk",
+  "ja": "リスクは低め",
+  "zh-Hans": "风险较低"
+ },
+ "高": {
+  "en": "High",
+  "ja": "高",
+  "zh-Hans": "高"
+ },
+ "高權限": {
+  "en": "High access",
+  "ja": "高い権限",
+  "zh-Hans": "高权限"
+ },
+ "麥克風": {
+  "en": "Microphone",
+  "ja": "マイク",
+  "zh-Hans": "麦克风"
+ },
+ "點一下卡片可查看詳細內容。按「執行」會清理垃圾檔案並隔離發現的威脅（都可以復原）。": {
+  "en": "Click a card for details. \"Run\" cleans up junk files and quarantines the threats found (both can be undone).",
+  "ja": "カードをクリックすると詳細を表示します。「実行」でジャンクファイルをクリーンアップし、見つかった脅威を隔離します（どちらも元に戻せます）。",
+  "zh-Hans": "点击卡片可查看详细内容。按“运行”会清理垃圾文件并隔离发现的威胁（均可恢复）。"
+ },
+ "點選資料夾進入下一層": {
+  "en": "Click a folder to go one level deeper",
+  "ja": "フォルダをクリックして下の階層へ",
+  "zh-Hans": "点击文件夹进入下一层"
+ },
+ "（請先結束瀏覽器再移除）": {
+  "en": " (quit the browser before removing)",
+  "ja": "（削除する前にブラウザを終了してください）",
+  "zh-Hans": "（请先退出浏览器再移除）"
+ },
+ "，{} 個項目無法移除（請先結束瀏覽器或授予完整磁碟取用權限）": {
+  "en": "; {} items could not be removed (quit the browser first or grant Full Disk Access)",
+  "ja": "。{} 個の項目は削除できませんでした（先にブラウザを終了するか、フルディスクアクセスを許可してください）",
+  "zh-Hans": "，{} 个项目无法移除（请先退出浏览器或授予完全磁盘访问权限）"
+ },
+ "，已自動隔離": {
+  "en": "; quarantined automatically",
+  "ja": "、自動的に隔離しました",
+  "zh-Hans": "，已自动隔离"
+ },
+ "，隔離失敗：{}": {
+  "en": "; quarantine failed: {}",
+  "ja": "、隔離に失敗しました：{}",
+  "zh-Hans": "，隔离失败：{}"
+ },
+ "；": {
+  "en": "; ",
+  "ja": "；",
+  "zh-Hans": "；"
+ }
+}

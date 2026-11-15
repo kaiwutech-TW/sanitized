@@ -35,32 +35,37 @@ pub enum ScanMode {
 }
 
 impl ScanMode {
+    /// The mode's name in the current language.
     pub fn title(self) -> &'static str {
+        crate::i18n::tr(self.title_source())
+    }
+    /// The mode's name as zh-Hant source text (for records saved to disk; show it with `tr`).
+    pub fn title_source(self) -> &'static str {
         match self {
-            ScanMode::Quick => "快速掃描",
-            ScanMode::Balanced => "平衡掃描",
-            ScanMode::Deep => "深度掃描",
+            ScanMode::Quick => n!("快速掃描"),
+            ScanMode::Balanced => n!("平衡掃描"),
+            ScanMode::Deep => n!("深度掃描"),
         }
     }
     pub fn speed(self) -> &'static str {
         match self {
-            ScanMode::Quick => "最快",
-            ScanMode::Balanced => "中等",
-            ScanMode::Deep => "最慢",
+            ScanMode::Quick => t!("最快"),
+            ScanMode::Balanced => t!("中等"),
+            ScanMode::Deep => t!("最慢"),
         }
     }
     pub fn depth(self) -> &'static str {
         match self {
-            ScanMode::Quick => "最易受攻擊的位置",
-            ScanMode::Balanced => "中等",
-            ScanMode::Deep => "全面",
+            ScanMode::Quick => t!("最易受攻擊的位置"),
+            ScanMode::Balanced => t!("中等"),
+            ScanMode::Deep => t!("全面"),
         }
     }
     pub fn purpose(self) -> &'static str {
         match self {
-            ScanMode::Quick => "檢查系統中最容易被攻擊的區域，找出眼前的威脅。適合日常檢查或時間不多時使用。",
-            ScanMode::Balanced => "除了易受攻擊的區域，也檢查個人資料夾與已安裝的應用程式。",
-            ScanMode::Deep => "深入每一個檔案與資料夾，完整檢查整個系統。懷疑中毒或需要最高安全性時使用。",
+            ScanMode::Quick => t!("檢查系統中最容易被攻擊的區域，找出眼前的威脅。適合日常檢查或時間不多時使用。"),
+            ScanMode::Balanced => t!("除了易受攻擊的區域，也檢查個人資料夾與已安裝的應用程式。"),
+            ScanMode::Deep => t!("深入每一個檔案與資料夾，完整檢查整個系統。懷疑中毒或需要最高安全性時使用。"),
         }
     }
 }
@@ -171,10 +176,10 @@ pub enum ThreatKind {
 impl ThreatKind {
     pub fn label(self) -> &'static str {
         match self {
-            ThreatKind::Malware => "惡意軟體",
-            ThreatKind::Adware => "廣告軟體",
-            ThreatKind::Suspicious => "可疑項目",
-            ThreatKind::TestFile => "測試檔案",
+            ThreatKind::Malware => t!("惡意軟體"),
+            ThreatKind::Adware => t!("廣告軟體"),
+            ThreatKind::Suspicious => t!("可疑項目"),
+            ThreatKind::TestFile => t!("測試檔案"),
         }
     }
     pub fn rank(self) -> u8 {
@@ -201,13 +206,13 @@ pub enum Engine {
 impl Engine {
     pub fn label(self) -> &'static str {
         match self {
-            Engine::HashSize => "病毒碼 (SHA-256)",
-            Engine::PathRule => "已知路徑規則",
-            Engine::LaunchAgent => "啟動項目檢查",
-            Engine::Pattern => "特徵碼比對",
-            Engine::Archive => "壓縮檔內容",
-            Engine::Heuristic => "行為推測",
-            Engine::Yara => "Apple 惡意軟體規則 (YARA)",
+            Engine::HashSize => t!("病毒碼 (SHA-256)"),
+            Engine::PathRule => t!("已知路徑規則"),
+            Engine::LaunchAgent => t!("啟動項目檢查"),
+            Engine::Pattern => t!("特徵碼比對"),
+            Engine::Archive => t!("壓縮檔內容"),
+            Engine::Heuristic => t!("行為推測"),
+            Engine::Yara => t!("Apple 惡意軟體規則 (YARA)"),
         }
     }
 }
@@ -312,25 +317,25 @@ impl RuleSet {
             per_source: HashMap::new(),
         };
         // The standard antivirus test file (68 bytes).
-        r.add_hash(68, "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f", "EICAR 測試檔案", ThreatKind::TestFile, Source::Builtin);
+        r.add_hash(68, "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f", n!("EICAR 測試檔案"), ThreatKind::TestFile, Source::Builtin);
 
         // Known adware / malware family artefacts by path (a small built-in sample set).
         let fams: &[(&str, &str, ThreatKind)] = &[
-            (r"(?i)/(\.)?mshelper(/|$)", "MShelper 挖礦程式", ThreatKind::Malware),
-            (r"(?i)pirrit", "Pirrit 廣告軟體", ThreatKind::Adware),
-            (r"(?i)genieo", "Genieo 廣告軟體", ThreatKind::Adware),
-            (r"(?i)vsearch", "VSearch 廣告軟體", ThreatKind::Adware),
-            (r"(?i)bundlore", "Bundlore 廣告軟體", ThreatKind::Adware),
-            (r"(?i)shlayer", "Shlayer 木馬", ThreatKind::Malware),
-            (r"(?i)adload", "Adload 廣告軟體", ThreatKind::Adware),
-            (r"(?i)searchmine", "SearchMine 瀏覽器綁架", ThreatKind::Adware),
-            (r"(?i)searchbaron", "SearchBaron 瀏覽器綁架", ThreatKind::Adware),
-            (r"(?i)safefinder", "SafeFinder 瀏覽器綁架", ThreatKind::Adware),
-            (r"(?i)crossrider", "Crossrider 廣告軟體", ThreatKind::Adware),
-            (r"(?i)installcore", "InstallCore 綑綁安裝程式", ThreatKind::Adware),
-            (r"(?i)mughthesec", "Mughthesec 廣告軟體", ThreatKind::Adware),
-            (r"(?i)chumsearch", "ChumSearch 瀏覽器綁架", ThreatKind::Adware),
-            (r"(?i)operatorpro", "OperatorPro 廣告軟體", ThreatKind::Adware),
+            (r"(?i)/(\.)?mshelper(/|$)", n!("MShelper 挖礦程式"), ThreatKind::Malware),
+            (r"(?i)pirrit", n!("Pirrit 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)genieo", n!("Genieo 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)vsearch", n!("VSearch 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)bundlore", n!("Bundlore 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)shlayer", n!("Shlayer 木馬"), ThreatKind::Malware),
+            (r"(?i)adload", n!("Adload 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)searchmine", n!("SearchMine 瀏覽器綁架"), ThreatKind::Adware),
+            (r"(?i)searchbaron", n!("SearchBaron 瀏覽器綁架"), ThreatKind::Adware),
+            (r"(?i)safefinder", n!("SafeFinder 瀏覽器綁架"), ThreatKind::Adware),
+            (r"(?i)crossrider", n!("Crossrider 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)installcore", n!("InstallCore 綑綁安裝程式"), ThreatKind::Adware),
+            (r"(?i)mughthesec", n!("Mughthesec 廣告軟體"), ThreatKind::Adware),
+            (r"(?i)chumsearch", n!("ChumSearch 瀏覽器綁架"), ThreatKind::Adware),
+            (r"(?i)operatorpro", n!("OperatorPro 廣告軟體"), ThreatKind::Adware),
         ];
         for (re, name, kind) in fams {
             if let Ok(re) = Regex::new(re) {
@@ -341,14 +346,14 @@ impl RuleSet {
 
         // Pattern rules (our own).
         let pats: &[(&str, &str, ThreatKind, &'static [FileClass])] = &[
-            (r"(?i)(curl|wget)[^\n|;]{0,240}\|\s*(sudo\s+)?(ba|z)?sh\b", "下載後直接執行的腳本", ThreatKind::Suspicious, &[FileClass::Script, FileClass::Plist]),
-            (r"(?i)base64\s+(-d|-D|--decode)[^\n]{0,160}\|\s*(ba|z)?sh\b", "經過混淆的腳本", ThreatKind::Suspicious, &[FileClass::Script, FileClass::Plist]),
-            (r"eval\s*\(\s*(atob|base64_decode|unescape|gzinflate)\s*\(", "經過混淆的程式碼", ThreatKind::Suspicious, &[FileClass::Script]),
-            (r"(?i)display dialog[^\n]{0,200}with hidden answer", "假冒密碼視窗（竊密程式特徵）", ThreatKind::Malware, &[FileClass::Script, FileClass::MachO]),
-            (r"(?i)(dump-keychain|find-generic-password[^\n]{0,80}-w)", "讀取鑰匙圈密碼", ThreatKind::Malware, &[FileClass::Script]),
-            (r"stratum\+(tcp|ssl)://", "加密貨幣挖礦程式", ThreatKind::Malware, &[FileClass::Script, FileClass::MachO, FileClass::Plist]),
-            (r"(?i)(ba)?sh\s+-i\s*>&\s*/dev/tcp/", "反向連線後門", ThreatKind::Malware, &[FileClass::Script, FileClass::Plist]),
-            (r"(?i)xattr\s+-[a-z]*[dc][a-z]*\s+[^\n]{0,40}com\.apple\.quarantine", "移除系統隔離標記", ThreatKind::Suspicious, &[FileClass::Script]),
+            (r"(?i)(curl|wget)[^\n|;]{0,240}\|\s*(sudo\s+)?(ba|z)?sh\b", n!("下載後直接執行的腳本"), ThreatKind::Suspicious, &[FileClass::Script, FileClass::Plist]),
+            (r"(?i)base64\s+(-d|-D|--decode)[^\n]{0,160}\|\s*(ba|z)?sh\b", n!("經過混淆的腳本"), ThreatKind::Suspicious, &[FileClass::Script, FileClass::Plist]),
+            (r"eval\s*\(\s*(atob|base64_decode|unescape|gzinflate)\s*\(", n!("經過混淆的程式碼"), ThreatKind::Suspicious, &[FileClass::Script]),
+            (r"(?i)display dialog[^\n]{0,200}with hidden answer", n!("假冒密碼視窗（竊密程式特徵）"), ThreatKind::Malware, &[FileClass::Script, FileClass::MachO]),
+            (r"(?i)(dump-keychain|find-generic-password[^\n]{0,80}-w)", n!("讀取鑰匙圈密碼"), ThreatKind::Malware, &[FileClass::Script]),
+            (r"stratum\+(tcp|ssl)://", n!("加密貨幣挖礦程式"), ThreatKind::Malware, &[FileClass::Script, FileClass::MachO, FileClass::Plist]),
+            (r"(?i)(ba)?sh\s+-i\s*>&\s*/dev/tcp/", n!("反向連線後門"), ThreatKind::Malware, &[FileClass::Script, FileClass::Plist]),
+            (r"(?i)xattr\s+-[a-z]*[dc][a-z]*\s+[^\n]{0,40}com\.apple\.quarantine", n!("移除系統隔離標記"), ThreatKind::Suspicious, &[FileClass::Script]),
         ];
         for (re, name, kind, classes) in pats {
             if let Ok(re) = BRegex::new(re) {
@@ -396,7 +401,7 @@ impl RuleSet {
         for (re, fam, malware) in sources::OBJECTIVE_SEE_ARTIFACTS {
             if let Ok(re) = Regex::new(re) {
                 let kind = if *malware { ThreatKind::Malware } else { ThreatKind::Adware };
-                r.names.push(NameRule { re, name: format!("{} 惡意軟體", fam), kind, source: Source::ObjectiveSee });
+                r.names.push(NameRule { re, name: tf!("{} 惡意軟體", fam), kind, source: Source::ObjectiveSee });
             }
         }
         // MalwareBazaar: hashes downloaded with the person's free abuse.ch key.
@@ -405,7 +410,7 @@ impl RuleSet {
                 let parts: Vec<&str> = line.splitn(3, ' ').collect();
                 if parts.len() == 3 && parts[0].len() == 64 {
                     if let Ok(size) = parts[1].parse::<u64>() {
-                        r.add_hash(size, parts[0], &format!("{}（MalwareBazaar 樣本）", parts[2]), ThreatKind::Malware, Source::MalwareBazaar);
+                        r.add_hash(size, parts[0], &tf!("{}（MalwareBazaar 樣本）", parts[2]), ThreatKind::Malware, Source::MalwareBazaar);
                     }
                 }
             }
@@ -427,8 +432,8 @@ impl RuleSet {
         }
         r.count = per.values().sum();
         r.per_source = per;
-        let xp = r.xprotect.as_ref().map(|x| format!("Apple XProtect {} 版", x.version)).unwrap_or_else(|| "Apple XProtect 載入中或無法使用".into());
-        r.version = format!("{} · 內建與 Objective-See 規則 · {} 條自訂病毒碼", xp, extra);
+        let xp = r.xprotect.as_ref().map(|x| tf!("Apple XProtect {} 版", x.version)).unwrap_or_else(|| t!("Apple XProtect 載入中或無法使用").into());
+        r.version = tf!("{} · 內建與 Objective-See 規則 · {} 條自訂病毒碼", xp, extra);
         r
     }
 
@@ -538,13 +543,13 @@ impl<'a> Checker<'a> {
         if (68..=128).contains(&size) {
             let head = read_head(p, 128);
             if head.starts_with(&self.rules.eicar) {
-                return Some(mk("EICAR 測試檔案".into(), ThreatKind::TestFile, Engine::Pattern, "防毒測試用的標準檔案，無害".into(), Source::Builtin));
+                return Some(mk(n!("EICAR 測試檔案").into(), ThreatKind::TestFile, Engine::Pattern, t!("防毒測試用的標準檔案，無害").into(), Source::Builtin));
             }
         }
         // 2. path rules
         for r in &self.rules.names {
             if r.re.is_match(&path_s) {
-                return Some(mk(r.name.clone(), r.kind, Engine::PathRule, "符合已知威脅的檔案位置".into(), r.source));
+                return Some(mk(r.name.clone(), r.kind, Engine::PathRule, t!("符合已知威脅的檔案位置").into(), r.source));
             }
         }
         // 3. patterns (only small files)
@@ -557,20 +562,20 @@ impl<'a> Checker<'a> {
                     if let Ok(data) = fs::read(p) {
                         for r in &self.rules.patterns {
                             if r.classes.contains(&class) && r.re.is_match(&data) {
-                                return Some(mk(r.name.clone(), r.kind, Engine::Pattern, "檔案內容符合惡意特徵".into(), r.source));
+                                return Some(mk(r.name.clone(), r.kind, Engine::Pattern, t!("檔案內容符合惡意特徵").into(), r.source));
                             }
                         }
                         // Apple XProtect rules (Mach-O programs and scripts).
                         if class != FileClass::Plist {
                             if let Some(n) = self.check_xprotect(&data) {
-                                return Some(mk(format!("XProtect：{}", n), ThreatKind::Malware, Engine::Yara, "符合 Apple 內建的惡意軟體特徵".into(), Source::XProtect));
+                                return Some(mk(tf!("XProtect：{}", n), ThreatKind::Malware, Engine::Yara, t!("符合 Apple 內建的惡意軟體特徵").into(), Source::XProtect));
                             }
                         }
                     }
                 }
                 // 4. heuristic: a program hidden in a dot-folder where malware likes to live
                 if class == FileClass::MachO && in_hidden_folder(p) && persistence_area(p) {
-                    return Some(mk("隱藏位置中的執行檔".into(), ThreatKind::Suspicious, Engine::Heuristic, "程式藏在隱藏資料夾中，常見於惡意軟體".into(), Source::Builtin));
+                    return Some(mk(n!("隱藏位置中的執行檔").into(), ThreatKind::Suspicious, Engine::Heuristic, t!("程式藏在隱藏資料夾中，常見於惡意軟體").into(), Source::Builtin));
                 }
             }
         }
@@ -598,7 +603,7 @@ impl<'a> Checker<'a> {
             let esize = e.size();
             for r in &self.rules.names {
                 if r.re.is_match(&name) {
-                    return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: format!("壓縮檔內：{}", name), size, source: r.source, selected: true });
+                    return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: tf!("壓縮檔內：{}", name), size, source: r.source, selected: true });
                 }
             }
             let hashed = self.rules.hash.contains_key(&esize);
@@ -610,16 +615,16 @@ impl<'a> Checker<'a> {
                 if hashed {
                     let h = hex(&Sha256::digest(&data));
                     if let Some(r) = self.rules.hash[&esize].iter().find(|r| r.sha256 == h) {
-                        return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: format!("壓縮檔內：{}", name), size, source: r.source, selected: true });
+                        return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: tf!("壓縮檔內：{}", name), size, source: r.source, selected: true });
                     }
                 }
                 if data.starts_with(&self.rules.eicar) {
-                    return Some(Threat { path: p.to_path_buf(), name: "EICAR 測試檔案".into(), kind: ThreatKind::TestFile, engine: Engine::Archive, detail: format!("壓縮檔內：{}", name), size, source: Source::Builtin, selected: true });
+                    return Some(Threat { path: p.to_path_buf(), name: n!("EICAR 測試檔案").into(), kind: ThreatKind::TestFile, engine: Engine::Archive, detail: tf!("壓縮檔內：{}", name), size, source: Source::Builtin, selected: true });
                 }
                 if data.starts_with(b"#!") {
                     for r in &self.rules.patterns {
                         if r.classes.contains(&FileClass::Script) && r.re.is_match(&data) {
-                            return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: format!("壓縮檔內：{}", name), size, source: r.source, selected: true });
+                            return Some(Threat { path: p.to_path_buf(), name: r.name.clone(), kind: r.kind, engine: Engine::Archive, detail: tf!("壓縮檔內：{}", name), size, source: r.source, selected: true });
                         }
                     }
                 }
@@ -651,25 +656,25 @@ impl<'a> Checker<'a> {
         let mk = |name: &str, kind, detail: String, source: Source| Threat { path: p.to_path_buf(), name: name.to_string(), kind, engine: Engine::LaunchAgent, detail, size, source, selected: true };
         for r in &self.rules.agents {
             if r.re.is_match(&joined) {
-                return Some(mk(&r.name, r.kind, format!("啟動項目：{}", label), r.source));
+                return Some(mk(&r.name, r.kind, tf!("啟動項目：{}", label), r.source));
             }
         }
         let cmd_text = cmd.join(" ");
         for r in &self.rules.patterns {
             if r.classes.contains(&FileClass::Plist) && r.re.is_match(cmd_text.as_bytes()) {
-                return Some(mk(&r.name, r.kind, format!("啟動項目會執行：{}", short(&cmd_text)), r.source));
+                return Some(mk(&r.name, r.kind, tf!("啟動項目會執行：{}", short(&cmd_text)), r.source));
             }
         }
         if let Some(exe) = cmd.first() {
             let ep = Path::new(exe);
             if ep.is_absolute() && (in_hidden_folder(ep) || exe.starts_with("/tmp") || exe.starts_with("/private/tmp") || exe.starts_with("/Users/Shared")) {
-                return Some(mk("從隱藏或暫存位置自動啟動的程式", ThreatKind::Suspicious, format!("會在開機時執行 {}", collapse(ep)), Source::Builtin));
+                return Some(mk(n!("從隱藏或暫存位置自動啟動的程式"), ThreatKind::Suspicious, tf!("會在開機時執行 {}", collapse(ep)), Source::Builtin));
             }
             if ep.is_absolute() && ep.exists() {
                 if let Ok(md) = fs::metadata(ep) {
                     if md.is_file() {
                         if let Some(t) = self.check_file(ep, md.len()) {
-                            return Some(mk(&t.name, t.kind, format!("會自動啟動已知威脅 {}", collapse(ep)), t.source));
+                            return Some(mk(&t.name, t.kind, tf!("會自動啟動已知威脅 {}", collapse(ep)), t.source));
                         }
                     }
                 }
@@ -760,7 +765,7 @@ pub fn start_scan(opts: ScanOptions, rules: Arc<RuleSet>, safe: Vec<PathBuf>, cu
                     if let Some(r) = checker.rules.names.iter().find(|r| r.re.is_match(&p.to_string_lossy())) {
                         if found.insert(p.clone()) {
                             let size = util::tree_size(&p, 20_000);
-                            hh.progress.lock().unwrap().threats.push(Threat { path: p.clone(), name: r.name.clone(), kind: r.kind, engine: Engine::PathRule, detail: "符合已知威脅的資料夾".into(), size, source: r.source, selected: true });
+                            hh.progress.lock().unwrap().threats.push(Threat { path: p.clone(), name: r.name.clone(), kind: r.kind, engine: Engine::PathRule, detail: t!("符合已知威脅的資料夾").into(), size, source: r.source, selected: true });
                         }
                         continue;
                     }
@@ -888,7 +893,7 @@ pub fn managed_profiles() -> Vec<String> {
     let mut out = Vec::new();
     let status = util::run("profiles", &["status", "-type", "enrollment"]);
     if status.lines().any(|l| l.contains("MDM enrollment: Yes")) {
-        out.push("裝置管理 (MDM)".to_string());
+        out.push(t!("裝置管理 (MDM)").to_string());
     }
     for l in util::run("profiles", &["list"]).lines() {
         if let Some(id) = l.split("profileIdentifier:").nth(1) {
@@ -940,14 +945,14 @@ fn move_path(from: &Path, to: &Path) -> Result<(), String> {
         fs::copy(from, to).map_err(|e| e.to_string())?;
         fs::remove_file(from).map_err(|e| e.to_string())
     } else {
-        Err("無法搬移資料夾到隔離區（位於其他磁碟）".into())
+        Err(t!("無法搬移資料夾到隔離區（位於其他磁碟）").into())
     }
 }
 
 /// Put a threat in quarantine: launch items are unloaded first, files lose their execute bit.
 pub fn quarantine(t: &Threat, list: &mut Vec<QItem>) -> Result<(), String> {
     if !t.path.exists() {
-        return Err("檔案已不存在".into());
+        return Err(t!("檔案已不存在").into());
     }
     if t.engine == Engine::LaunchAgent {
         let _ = std::process::Command::new("launchctl").arg("unload").arg(&t.path).output();
@@ -957,7 +962,7 @@ pub fn quarantine(t: &Threat, list: &mut Vec<QItem>) -> Result<(), String> {
     let dir = quarantine_dir().join(id.to_string());
     fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
     let stored = dir.join(file_name(&t.path));
-    move_path(&t.path, &stored).map_err(|e| format!("{}（可能需要管理員權限）", e))?;
+    move_path(&t.path, &stored).map_err(|e| tf!("{}（可能需要管理員權限）", e))?;
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
@@ -972,7 +977,7 @@ pub fn quarantine(t: &Threat, list: &mut Vec<QItem>) -> Result<(), String> {
 
 pub fn restore(q: &QItem) -> Result<(), String> {
     if q.original.exists() {
-        return Err("原位置已有同名檔案".into());
+        return Err(t!("原位置已有同名檔案").into());
     }
     if let Some(par) = q.original.parent() {
         let _ = fs::create_dir_all(par);
@@ -987,7 +992,7 @@ pub fn restore(q: &QItem) -> Result<(), String> {
 pub fn delete_quarantined(q: &QItem) -> Result<(), String> {
     match q.stored.parent() {
         Some(d) => fs::remove_dir_all(d).map_err(|e| e.to_string()),
-        None => Err("找不到隔離檔案".into()),
+        None => Err(t!("找不到隔離檔案").into()),
     }
 }
 
@@ -1074,7 +1079,7 @@ impl Monitor {
         let events = self.events.clone();
         let checks = self.checks.clone();
         let last = self.last.clone();
-        events.lock().unwrap().push(MonitorEvent { when: util::now_secs(), text: "即時防護已啟動".into(), threat: None });
+        events.lock().unwrap().push(MonitorEvent { when: util::now_secs(), text: t!("即時防護已啟動").into(), threat: None });
         std::thread::spawn(move || {
             let folders = watched_folders();
             let mut prev = snapshot(&folders);
@@ -1100,20 +1105,20 @@ impl Monitor {
                     let mut ev = events.lock().unwrap();
                     match t {
                         Some(t) => {
-                            let mut text = format!("發現{}：{}（{}，來源：{}）", t.kind.label(), t.name, collapse(&t.path), t.source.label());
+                            let mut text = tf!("發現{}：{}（{}，來源：{}）", t.kind.label(), crate::i18n::tr(&t.name), collapse(&t.path), t.source.label());
                             if auto_q.load(Ordering::Relaxed) {
                                 let mut ql = quarantine_list.lock().unwrap();
                                 match quarantine(&t, &mut ql) {
-                                    Ok(()) => text.push_str("，已自動隔離"),
-                                    Err(e) => text.push_str(&format!("，隔離失敗：{}", e)),
+                                    Ok(()) => text.push_str(t!("，已自動隔離")),
+                                    Err(e) => text.push_str(&tf!("，隔離失敗：{}", e)),
                                 }
                             }
-                            notify("偵測到威脅", &text);
+                            notify(t!("偵測到威脅"), &text);
                             ev.push(MonitorEvent { when: util::now_secs(), text, threat: Some(t) });
                         }
                         None => {
                             if launch {
-                                ev.push(MonitorEvent { when: util::now_secs(), text: format!("新的啟動項目已檢查，安全：{}", collapse(p)), threat: None });
+                                ev.push(MonitorEvent { when: util::now_secs(), text: tf!("新的啟動項目已檢查，安全：{}", collapse(p)), threat: None });
                             }
                         }
                     }
@@ -1129,7 +1134,7 @@ impl Monitor {
 
     pub fn stop(&self) {
         if self.running.swap(false, Ordering::Relaxed) {
-            self.events.lock().unwrap().push(MonitorEvent { when: util::now_secs(), text: "即時防護已關閉".into(), threat: None });
+            self.events.lock().unwrap().push(MonitorEvent { when: util::now_secs(), text: t!("即時防護已關閉").into(), threat: None });
         }
     }
 }

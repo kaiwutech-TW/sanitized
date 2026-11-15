@@ -54,14 +54,14 @@ fn logo_icon() -> Option<Icon> {
 
 impl Tray {
     pub fn new() -> Option<Tray> {
-        let health = MenuItem::new("Mac 健康度：讀取中…", false, None);
-        let cpu_mem = MenuItem::new("處理器 –　記憶體 –", false, None);
-        let disk = MenuItem::new("磁碟可用 –", false, None);
-        let protect = MenuItem::new("即時防護 –", false, None);
-        let open = MenuItem::new("打開 Sanitized", true, None);
-        let status = MenuItem::new("查看 Mac 狀態", true, None);
-        let smart = MenuItem::new("一鍵健檢…", true, None);
-        let quit = MenuItem::new("結束", true, None);
+        let health = MenuItem::new(t!("Mac 健康度：讀取中…"), false, None);
+        let cpu_mem = MenuItem::new(t!("處理器 –　記憶體 –"), false, None);
+        let disk = MenuItem::new(t!("磁碟可用 –"), false, None);
+        let protect = MenuItem::new(t!("即時防護 –"), false, None);
+        let open = MenuItem::new(t!("打開 Sanitized"), true, None);
+        let status = MenuItem::new(t!("查看 Mac 狀態"), true, None);
+        let smart = MenuItem::new(t!("一鍵健檢…"), true, None);
+        let quit = MenuItem::new(t!("結束"), true, None);
         let menu = Menu::new();
         menu.append_items(&[&health, &cpu_mem, &disk, &protect, &PredefinedMenuItem::separator(), &status, &smart, &open, &PredefinedMenuItem::separator(), &quit]).ok()?;
         let icon = TrayIconBuilder::new()
@@ -83,12 +83,17 @@ impl MacApp {
             let s = self.sampler.get();
             if s.ready {
                 let pressure = (100.0 - s.mem_free_pct).clamp(0.0, 100.0);
-                tray.health.set_text(format!("Mac 健康度：{}（{} 分）", s.health_label(), s.health));
-                tray.cpu_mem.set_text(format!("處理器 {:.0}%　記憶體壓力 {:.0}%", s.cpu_pct, pressure));
-                tray.disk.set_text(format!("磁碟可用 {}", fmt_bytes(s.disk_free)));
+                tray.health.set_text(tf!("Mac 健康度：{}（{} 分）", s.health_label(), s.health));
+                tray.cpu_mem.set_text(tf!("處理器 {}%　記憶體壓力 {}%", format!("{:.0}", s.cpu_pct), format!("{:.0}", pressure)));
+                tray.disk.set_text(tf!("磁碟可用 {}", fmt_bytes(s.disk_free)));
                 tray.icon.set_title(Some(format!("{:.0}%", pressure)));
             }
-            tray.protect.set_text(if self.monitor.is_running() { "即時防護：開啟" } else { "即時防護：關閉" });
+            tray.protect.set_text(if self.monitor.is_running() { t!("即時防護：開啟") } else { t!("即時防護：關閉") });
+            // Fixed items follow a language change made in Settings.
+            tray.open.set_text(t!("打開 Sanitized"));
+            tray.status.set_text(t!("查看 Mac 狀態"));
+            tray.smart.set_text(t!("一鍵健檢…"));
+            tray.quit.set_text(t!("結束"));
         }
         let mut show: Option<Page> = None;
         let mut quit = false;

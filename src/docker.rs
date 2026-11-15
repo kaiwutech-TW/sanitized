@@ -38,7 +38,7 @@ pub fn raw_used() -> Option<u64> {
 
 /// Run docker with separate arguments (no shell). Ok(stdout) or Err(stderr).
 fn docker(args: &[&str]) -> Result<String, String> {
-    let bin = docker_bin().ok_or("找不到 docker 指令")?;
+    let bin = docker_bin().ok_or(t!("找不到 docker 指令"))?;
     let out = std::process::Command::new(bin).args(args).output().map_err(|e| e.to_string())?;
     if out.status.success() {
         Ok(String::from_utf8_lossy(&out.stdout).to_string())
@@ -231,7 +231,7 @@ pub fn load() -> Info {
             let tags: Vec<String> = i.get("RepoTags").and_then(|v| v.as_array()).into_iter().flatten().filter_map(|t| t.as_str().map(String::from)).collect();
             let digests = i.get("RepoDigests").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0);
             let labels = labels_of(i.pointer("/Config/Labels").unwrap_or(&Value::Null));
-            let name = tags.first().cloned().unwrap_or_else(|| format!("<無名稱> {}", &id.trim_start_matches("sha256:")[..12.min(id.len())]));
+            let name = tags.first().cloned().unwrap_or_else(|| tf!("<無名稱> {}", &id.trim_start_matches("sha256:")[..12.min(id.len())]));
             let (size, unique) = img_size.get(&id).copied().unwrap_or((i.get("Size").and_then(|v| v.as_u64()).unwrap_or(0), 0));
             let used_by: Vec<String> = info.containers.iter().filter(|c| c.image == id).map(|c| c.name.clone()).collect();
             let repo = tags.first().map(|t| t.rsplit_once(':').map(|(r, _)| r.to_string()).unwrap_or(t.clone())).unwrap_or_else(|| name.clone());
@@ -319,11 +319,11 @@ pub struct Report {
 pub fn level1_steps(info: &Info) -> Vec<Step> {
     let mut v = Vec::new();
     if info.build_cache_reclaimable > 0 {
-        v.push(Step { title: "清除建置快取（下次建置會比較慢）".into(), args: vec!["builder".into(), "prune".into(), "--force".into()], items: vec![format!("建置快取，可釋放約 {}", util::fmt_bytes(info.build_cache_reclaimable))] });
+        v.push(Step { title: t!("清除建置快取（下次建置會比較慢）").into(), args: vec!["builder".into(), "prune".into(), "--force".into()], items: vec![tf!("建置快取，可釋放約 {}", util::fmt_bytes(info.build_cache_reclaimable))] });
     }
     let d = info.dangling();
     if !d.is_empty() {
-        v.push(Step { title: "清除沒有名稱的殘留映像檔".into(), args: vec!["image".into(), "prune".into(), "--force".into()], items: d.iter().map(|i| i.name.clone()).collect() });
+        v.push(Step { title: t!("清除沒有名稱的殘留映像檔").into(), args: vec!["image".into(), "prune".into(), "--force".into()], items: d.iter().map(|i| i.name.clone()).collect() });
     }
     v
 }
@@ -335,33 +335,33 @@ pub fn level2_steps(info: &Info) -> Vec<Step> {
     if !c.is_empty() {
         let mut args = vec!["container".to_string(), "rm".to_string()];
         args.extend(c.iter().map(|c| c.id.clone()));
-        v.push(Step { title: "刪除已停止的容器".into(), args, items: c.iter().map(|c| c.name.clone()).collect() });
+        v.push(Step { title: t!("刪除已停止的容器").into(), args, items: c.iter().map(|c| c.name.clone()).collect() });
     }
     let i: Vec<&Image> = info.images.iter().filter(|i| i.selected && i.used_by.is_empty()).collect();
     if !i.is_empty() {
         let mut args = vec!["image".to_string(), "rm".to_string()];
         args.extend(i.iter().map(|i| i.id.clone()));
-        v.push(Step { title: "刪除沒有容器使用的映像檔".into(), args, items: i.iter().map(|i| i.name.clone()).collect() });
+        v.push(Step { title: t!("刪除沒有容器使用的映像檔").into(), args, items: i.iter().map(|i| i.name.clone()).collect() });
     }
     let n: Vec<&Network> = info.networks.iter().filter(|n| n.selected).collect();
     if !n.is_empty() {
         let mut args = vec!["network".to_string(), "rm".to_string()];
         args.extend(n.iter().map(|n| n.id.clone()));
-        v.push(Step { title: "刪除沒在用的網路".into(), args, items: n.iter().map(|n| n.name.clone()).collect() });
+        v.push(Step { title: t!("刪除沒在用的網路").into(), args, items: n.iter().map(|n| n.name.clone()).collect() });
     }
     v
 }
 
 /// Level 3: one volume (exact name) — never `volume prune` or `system prune --volumes`.
 pub fn volume_step(name: &str) -> Step {
-    Step { title: format!("刪除 volume「{}」（無法復原）", name), args: vec!["volume".into(), "rm".into(), name.to_string()], items: vec![name.to_string()] }
+    Step { title: tf!("刪除 volume「{}」（無法復原）", name), args: vec!["volume".into(), "rm".into(), name.to_string()], items: vec![name.to_string()] }
 }
 
 /// Level 3: stop then remove one running container (full ID).
 pub fn running_container_steps(c: &Container) -> Vec<Step> {
     vec![
-        Step { title: format!("停止容器「{}」", c.name), args: vec!["container".into(), "stop".into(), c.id.clone()], items: vec![c.name.clone()] },
-        Step { title: format!("刪除容器「{}」", c.name), args: vec!["container".into(), "rm".into(), c.id.clone()], items: vec![c.name.clone()] },
+        Step { title: tf!("停止容器「{}」", c.name), args: vec!["container".into(), "stop".into(), c.id.clone()], items: vec![c.name.clone()] },
+        Step { title: tf!("刪除容器「{}」", c.name), args: vec!["container".into(), "rm".into(), c.id.clone()], items: vec![c.name.clone()] },
     ]
 }
 
@@ -380,14 +380,14 @@ pub fn run(steps: &[Step]) -> Report {
     let deleting: HashSet<String> = steps.iter().filter(|s| s.args.get(1).map(|a| a == "stop").unwrap_or(false)).flat_map(|s| s.items.clone()).collect();
     for s in steps {
         let args: Vec<&str> = s.args.iter().map(|a| a.as_str()).collect();
-        log(&format!("RUN docker {} | 項目：{}", s.args.join(" "), s.items.join("、")));
+        log(&format!("RUN docker {} | 項目：{}", s.args.join(" "), s.items.join("、"))); // i18n-ignore
         match docker(&args) {
             Ok(_) => {
-                r.lines.push(format!("完成：{}（{} 項）", s.title, s.items.len()));
+                r.lines.push(format!("✓ {}", tf!("{}（{} 項）", s.title, s.items.len())));
                 log("OK");
             }
             Err(e) => {
-                r.lines.push(format!("失敗：{}：{}。後面的步驟已停止。", s.title, e));
+                r.lines.push(tf!("失敗：{}：{}。後面的步驟已停止。", s.title, e));
                 log(&format!("FAIL {}", e));
                 r.failed = true;
                 break;
@@ -397,6 +397,6 @@ pub fn run(steps: &[Step]) -> Report {
     let running_after: HashSet<String> = docker(&["ps", "--format", "{{.Names}}"]).unwrap_or_default().lines().map(String::from).collect();
     r.stopped_unexpectedly = running_before.into_iter().filter(|n| !running_after.contains(n) && !deleting.contains(n)).collect();
     r.after = raw_used();
-    log(&format!("Docker.raw 實際佔用 前 {:?} 後 {:?}", r.before, r.after));
+    log(&format!("Docker.raw 實際佔用 前 {:?} 後 {:?}", r.before, r.after)); // i18n-ignore
     r
 }

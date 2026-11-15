@@ -1,6 +1,6 @@
 # Sanitized
 
-A Mac cleanup and maintenance tool written in Rust (egui). The interface is in Traditional Chinese.
+A Mac cleanup and maintenance tool written in Rust (egui). The interface is available in Traditional Chinese, Simplified Chinese, English and Japanese: it follows the Mac's language, and you can change it in Settings (gear icon, top right).
 
 Website: https://sanitized.kaiwu.com.tw
 
@@ -20,6 +20,15 @@ Website: https://sanitized.kaiwu.com.tw
 
 Files are moved to the Trash or the quarantine. Nothing is deleted permanently without asking.
 
+## Network use
+
+Sanitized has no account, tracking or analytics. It connects to the internet only to:
+
+- check github.com once a day for a newer Sanitized version (turn it off in Settings; it never downloads or installs anything by itself),
+- look up known vulnerabilities on [OSV.dev](https://osv.dev) when you run a vulnerability check (package names and versions only),
+- download MalwareBazaar fingerprints, only if you enter your own abuse.ch key,
+- read other apps' own update feeds when you check them for updates.
+
 ## Install
 
 1. Download `Sanitized-x.y.z-arm64.dmg` from [Releases](../../releases). Apple Silicon only.
@@ -38,6 +47,10 @@ scripts/build-dmg.sh         # build dist/Sanitized.app and dist/Sanitized-<vers
 `notarytool` keychain profile named `sanitized` exists (override with `SIGN_ID` / `NOTARY_PROFILE`). Without them it makes an ad-hoc signed build.
 
 Requires Rust 1.80+ and the Xcode command-line tools.
+
+## Translations
+
+Interface text lives in `src/i18n/strings.json`, keyed by the Traditional Chinese source text. Terms and style are in `i18n/GLOSSARY.md`. After changing text, run `python3 scripts/i18n.py check`: it lists any text without a translation.
 
 ## Malware rule sources
 

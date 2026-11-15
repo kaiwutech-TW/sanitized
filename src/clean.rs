@@ -98,7 +98,7 @@ fn broken_prefs() -> Vec<Item> {
         .filter(|p| fs::metadata(p).map(|m| m.len() > 0).unwrap_or(false) && plist::Value::from_file(p).is_err())
         .map(|p| {
             let size = util::file_size_on_disk(&p);
-            Item { label: file_name(&p), path: p, size, selected: true, note: "無法讀取的偏好設定檔".into() }
+            Item { label: file_name(&p), path: p, size, selected: true, note: t!("無法讀取的偏好設定檔").into() }
         })
         .collect()
 }
@@ -107,62 +107,62 @@ pub fn scan_junk(status: &Mutex<String>) -> Vec<Group> {
     let h = util::home();
     let say = |s: &str| *status.lock().unwrap() = s.to_string();
     let mut g = Vec::new();
-    say("正在查找使用者快取檔案…");
-    g.push(group("使用者快取檔案", "應用程式為了加快速度而暫存的資料，刪除後會在需要時重新產生。", kids_as_items(&h.join("Library/Caches"), true, 1)));
-    say("正在查找記錄檔…");
-    g.push(group("使用者記錄檔", "應用程式與系統服務的活動記錄，通常只在排除問題時用到。", kids_as_items(&h.join("Library/Logs"), true, 1)));
-    say("正在查找損壞的偏好設定…");
-    g.push(group("損壞的偏好設定檔", "格式已損壞、應用程式無法再讀取的設定檔。", broken_prefs()));
-    say("正在查找 Xcode 垃圾…");
+    say(t!("正在查找使用者快取檔案…"));
+    g.push(group(t!("使用者快取檔案"), t!("應用程式為了加快速度而暫存的資料，刪除後會在需要時重新產生。"), kids_as_items(&h.join("Library/Caches"), true, 1)));
+    say(t!("正在查找記錄檔…"));
+    g.push(group(t!("使用者記錄檔"), t!("應用程式與系統服務的活動記錄，通常只在排除問題時用到。"), kids_as_items(&h.join("Library/Logs"), true, 1)));
+    say(t!("正在查找損壞的偏好設定…"));
+    g.push(group(t!("損壞的偏好設定檔"), t!("格式已損壞、應用程式無法再讀取的設定檔。"), broken_prefs()));
+    say(t!("正在查找 Xcode 垃圾…"));
     let mut x = kids_as_items(&h.join("Library/Developer/Xcode/DerivedData"), true, 1);
     x.extend(kids_as_items(&h.join("Library/Developer/Xcode/iOS DeviceSupport"), false, 1));
     x.extend(kids_as_items(&h.join("Library/Developer/CoreSimulator/Caches"), true, 1));
-    g.push(group("Xcode 垃圾", "編譯產生的衍生資料、舊的裝置支援檔與模擬器快取。", x));
-    say("正在查找 iOS 裝置備份…");
-    g.push(group("iOS 裝置備份", "iPhone 或 iPad 的舊備份。刪除前請確認不再需要。", kids_as_items(&h.join("Library/Application Support/MobileSync/Backup"), false, 1)));
-    say("正在查找郵件附件…");
+    g.push(group(t!("Xcode 垃圾"), t!("編譯產生的衍生資料、舊的裝置支援檔與模擬器快取。"), x));
+    say(t!("正在查找 iOS 裝置備份…"));
+    g.push(group(t!("iOS 裝置備份"), t!("iPhone 或 iPad 的舊備份。刪除前請確認不再需要。"), kids_as_items(&h.join("Library/Application Support/MobileSync/Backup"), false, 1)));
+    say(t!("正在查找郵件附件…"));
     let mut mail = kids_as_items(&h.join("Library/Containers/com.apple.mail/Data/Library/Mail Downloads"), true, 1);
     mail.extend(kids_as_items(&h.join("Library/Mail Downloads"), true, 1));
-    g.push(group("郵件附件", "在「郵件」中開啟過的附件副本，原始郵件不受影響。", mail));
-    say("正在查找 AI 雜亂檔案…");
+    g.push(group(t!("郵件附件"), t!("在「郵件」中開啟過的附件副本，原始郵件不受影響。"), mail));
+    say(t!("正在查找 AI 雜亂檔案…"));
     let mut ai = Vec::new();
     for p in [".cache/huggingface", ".ollama/models", ".cache/lm-studio", ".lmstudio/models", ".cache/torch", "Library/Caches/pip"] {
         let full = h.join(p);
         if full.exists() {
             let size = util::tree_size(&full, 200_000);
             if size > 0 {
-                ai.push(Item { label: p.to_string(), path: full, size, selected: false, note: "本機 AI 模型或快取".into() });
+                ai.push(Item { label: p.to_string(), path: full, size, selected: false, note: t!("本機 AI 模型或快取").into() });
             }
         }
     }
-    g.push(group("AI 雜亂檔案", "本機 AI 工具下載的模型與快取。刪除本機模型可能影響您的專案。", ai));
-    say("正在查找開發工具快取…");
+    g.push(group(t!("AI 雜亂檔案"), t!("本機 AI 工具下載的模型與快取。刪除本機模型可能影響您的專案。"), ai));
+    say(t!("正在查找開發工具快取…"));
     // Package-manager download caches outside ~/Library/Caches (after Mole lib/clean/dev.sh).
     // They are re-downloaded when needed; installed projects keep working.
     let mut dev = Vec::new();
     for (p, label) in [
-        (".npm/_cacache", "npm 下載快取"),
-        ("Library/pnpm/store", "pnpm 套件庫"),
-        (".bun/install/cache", "Bun 下載快取"),
-        (".cache/yarn", "Yarn 下載快取"),
-        (".cargo/registry/cache", "Rust Cargo 下載快取"),
-        (".cargo/git/checkouts", "Rust Cargo Git 快取"),
-        (".gradle/caches", "Gradle 快取"),
-        (".cache/pre-commit", "pre-commit 快取"),
-        (".cache/node-gyp", "node-gyp 快取"),
+        (".npm/_cacache", t!("npm 下載快取")),
+        ("Library/pnpm/store", t!("pnpm 套件庫")),
+        (".bun/install/cache", t!("Bun 下載快取")),
+        (".cache/yarn", t!("Yarn 下載快取")),
+        (".cargo/registry/cache", t!("Rust Cargo 下載快取")),
+        (".cargo/git/checkouts", t!("Rust Cargo Git 快取")),
+        (".gradle/caches", t!("Gradle 快取")),
+        (".cache/pre-commit", t!("pre-commit 快取")),
+        (".cache/node-gyp", t!("node-gyp 快取")),
     ] {
         let full = h.join(p);
         if full.exists() {
             let size = util::tree_size(&full, 300_000);
             if size > 0 {
-                dev.push(Item { label: label.to_string(), path: full, size, selected: true, note: format!("~/{}，需要時會重新下載", p) });
+                dev.push(Item { label: label.to_string(), path: full, size, selected: true, note: tf!("~/{}，需要時會重新下載", p) });
             }
         }
     }
     dev.sort_by(|a, b| b.size.cmp(&a.size));
-    g.push(group("開發工具快取", "npm、pnpm、Cargo、Gradle 等套件管理工具的下載快取，刪除後需要時會自動重新下載。", dev));
-    say("正在查找廢紙簍…");
-    let mut t = group("廢紙簍", "廢紙簍裡的項目會被永久刪除。", kids_as_items(&h.join(".Trash"), true, 1));
+    g.push(group(t!("開發工具快取"), t!("npm、pnpm、Cargo、Gradle 等套件管理工具的下載快取，刪除後需要時會自動重新下載。"), dev));
+    say(t!("正在查找廢紙簍…"));
+    let mut t = group(t!("廢紙簍"), t!("廢紙簍裡的項目會被永久刪除。"), kids_as_items(&h.join(".Trash"), true, 1));
     t.permanent = true;
     g.push(t);
     g.retain(|g| !g.items.is_empty());
@@ -181,7 +181,7 @@ pub fn clean_groups(groups: &mut Vec<Group>) -> (u64, Vec<String>) {
                 continue;
             }
             if let Some(why) = util::protected_reason(&it.path) {
-                errs.push(format!("{}：{}", it.label, why));
+                errs.push(tf!("{}：{}", it.label, why));
                 keep.push(it);
                 continue;
             }
@@ -193,7 +193,7 @@ pub fn clean_groups(groups: &mut Vec<Group>) -> (u64, Vec<String>) {
             match r {
                 Ok(()) => freed += it.size,
                 Err(e) => {
-                    errs.push(format!("{}：{}", it.label, e));
+                    errs.push(tf!("{}：{}", it.label, e));
                     keep.push(it);
                 }
             }
@@ -231,53 +231,53 @@ pub fn scan_privacy(_s: &Mutex<String>) -> Vec<Group> {
             }
             let pn = file_name(&prof);
             for (f, label, sel) in [
-                ("History", "瀏覽歷史記錄與下載記錄", true),
+                ("History", t!("瀏覽歷史記錄與下載記錄"), true),
                 ("Cookies", "Cookie", true),
-                ("Web Data", "自動填寫的值", true),
-                ("Sessions", "上次工作階段的分頁", true),
-                ("Top Sites", "常用網站", true),
-                ("Login Data", "已儲存的密碼", false),
+                ("Web Data", t!("自動填寫的值"), true),
+                ("Sessions", t!("上次工作階段的分頁"), true),
+                ("Top Sites", t!("常用網站"), true),
+                ("Login Data", t!("已儲存的密碼"), false),
             ] {
-                if let Some(mut it) = file_item(prof.join(f), &format!("{}（{}）", label, pn), sel) {
+                if let Some(mut it) = file_item(prof.join(f), &tf!("{}（{}）", label, pn), sel) {
                     if f == "Login Data" {
-                        it.note = "刪除後需重新登入各網站".into();
+                        it.note = t!("刪除後需重新登入各網站").into();
                     }
                     items.push(it);
                 }
             }
         }
         if !items.is_empty() {
-            let mut g = group(bname, &format!("移除使用 {} 後留在本機的瀏覽資料。", bname), items);
+            let mut g = group(bname, &tf!("移除使用 {} 後留在本機的瀏覽資料。", bname), items);
             if browser_running(proc_name) {
-                g.desc.push_str("（請先結束瀏覽器再移除）");
+                g.desc.push_str(t!("（請先結束瀏覽器再移除）"));
             }
             out.push(g);
         }
     }
     // Safari (protected: needs Full Disk Access to read).
     let mut safari = Vec::new();
-    for (f, label) in [("Library/Safari/History.db", "瀏覽歷史記錄"), ("Library/Safari/Downloads.plist", "下載記錄"), ("Library/Safari/LastSession.plist", "上次工作階段的分頁"), ("Library/Safari/Form Values", "自動填寫的值")] {
+    for (f, label) in [("Library/Safari/History.db", t!("瀏覽歷史記錄")), ("Library/Safari/Downloads.plist", t!("下載記錄")), ("Library/Safari/LastSession.plist", t!("上次工作階段的分頁")), ("Library/Safari/Form Values", t!("自動填寫的值"))] {
         if let Some(it) = file_item(h.join(f), label, true) {
             safari.push(it);
         }
     }
-    if let Some(it) = file_item(h.join("Library/Containers/com.apple.Safari/Data/Library/Caches"), "HTML5 本機儲存與快取", true) {
+    if let Some(it) = file_item(h.join("Library/Containers/com.apple.Safari/Data/Library/Caches"), t!("HTML5 本機儲存與快取"), true) {
         safari.push(it);
     }
     if !safari.is_empty() {
-        out.push(group("Safari", "移除使用 Safari 後留在本機的瀏覽資料。部分項目需要「完整磁碟取用權限」。", safari));
+        out.push(group("Safari", t!("移除使用 Safari 後留在本機的瀏覽資料。部分項目需要「完整磁碟取用權限」。"), safari));
     }
     // Firefox.
     let mut ff = Vec::new();
     for prof in util::children(&h.join("Library/Application Support/Firefox/Profiles")) {
-        for (f, label) in [("places.sqlite", "瀏覽與下載記錄"), ("cookies.sqlite", "Cookie"), ("formhistory.sqlite", "自動填寫的值"), ("sessionstore.jsonlz4", "上次工作階段的分頁")] {
-            if let Some(it) = file_item(prof.join(f), &format!("{}（{}）", label, file_name(&prof)), true) {
+        for (f, label) in [("places.sqlite", t!("瀏覽與下載記錄")), ("cookies.sqlite", "Cookie"), ("formhistory.sqlite", t!("自動填寫的值")), ("sessionstore.jsonlz4", t!("上次工作階段的分頁"))] {
+            if let Some(it) = file_item(prof.join(f), &tf!("{}（{}）", label, file_name(&prof)), true) {
                 ff.push(it);
             }
         }
     }
     if !ff.is_empty() {
-        out.push(group("Firefox", "移除使用 Firefox 後留在本機的瀏覽資料。", ff));
+        out.push(group("Firefox", t!("移除使用 Firefox 後留在本機的瀏覽資料。"), ff));
     }
     // Recent items lists.
     let recent: Vec<Item> = util::children(&h.join("Library/Application Support/com.apple.sharedfilelist"))
@@ -285,12 +285,12 @@ pub fn scan_privacy(_s: &Mutex<String>) -> Vec<Group> {
         .filter(|p| file_name(p).contains("Recent"))
         .filter_map(|p| {
             let n = file_name(&p);
-            let label = if n.contains("Application") { "最近使用的應用程式" } else if n.contains("Document") { "最近開啟的文件" } else if n.contains("Server") { "最近連接的伺服器" } else { "最近項目" };
+            let label = if n.contains("Application") { t!("最近使用的應用程式") } else if n.contains("Document") { t!("最近開啟的文件") } else if n.contains("Server") { t!("最近連接的伺服器") } else { t!("最近項目") };
             file_item(p, label, true)
         })
         .collect();
     if !recent.is_empty() {
-        out.push(group("最近項目列表", "Apple 選單「最近使用的項目」中的應用程式、文件與伺服器。", recent));
+        out.push(group(t!("最近項目列表"), t!("Apple 選單「最近使用的項目」中的應用程式、文件與伺服器。"), recent));
     }
     out
 }
@@ -318,16 +318,16 @@ pub fn remove_wifi(dev: &str, names: &[String]) -> Result<(), String> {
 
 /// Privacy & Security panes listed under app permissions.
 pub const PERMISSIONS: &[(&str, &str, &str)] = &[
-    ("完整磁碟取用權限", "允許應用程式讀寫 Mac 磁碟的任何位置。", "Privacy_AllFiles"),
-    ("輔助使用", "允許應用程式控制電腦，可用來模擬點擊與按鍵。", "Privacy_Accessibility"),
-    ("螢幕錄製", "允許應用程式錄下您的螢幕畫面。", "Privacy_ScreenCapture"),
-    ("輸入監控", "允許應用程式記錄您的鍵盤與滑鼠輸入。", "Privacy_ListenEvent"),
-    ("相機", "允許應用程式使用 Mac 的相機。", "Privacy_Camera"),
-    ("麥克風", "允許應用程式使用 Mac 的麥克風。", "Privacy_Microphone"),
-    ("自動化", "允許應用程式控制其他應用程式。", "Privacy_Automation"),
-    ("通訊錄", "允許應用程式讀取您的聯絡人。", "Privacy_Contacts"),
-    ("照片", "允許應用程式讀取您的照片圖庫。", "Privacy_Photos"),
-    ("行事曆", "允許應用程式讀取您的行事曆。", "Privacy_Calendars"),
+    (n!("完整磁碟取用權限"), n!("允許應用程式讀寫 Mac 磁碟的任何位置。"), "Privacy_AllFiles"),
+    (n!("輔助使用"), n!("允許應用程式控制電腦，可用來模擬點擊與按鍵。"), "Privacy_Accessibility"),
+    (n!("螢幕錄製"), n!("允許應用程式錄下您的螢幕畫面。"), "Privacy_ScreenCapture"),
+    (n!("輸入監控"), n!("允許應用程式記錄您的鍵盤與滑鼠輸入。"), "Privacy_ListenEvent"),
+    (n!("相機"), n!("允許應用程式使用 Mac 的相機。"), "Privacy_Camera"),
+    (n!("麥克風"), n!("允許應用程式使用 Mac 的麥克風。"), "Privacy_Microphone"),
+    (n!("自動化"), n!("允許應用程式控制其他應用程式。"), "Privacy_Automation"),
+    (n!("通訊錄"), n!("允許應用程式讀取您的聯絡人。"), "Privacy_Contacts"),
+    (n!("照片"), n!("允許應用程式讀取您的照片圖庫。"), "Privacy_Photos"),
+    (n!("行事曆"), n!("允許應用程式讀取您的行事曆。"), "Privacy_Calendars"),
 ];
 
 pub fn open_privacy_pane(anchor: &str) {
@@ -351,16 +351,16 @@ pub struct Task {
 /// saved-state, quarantine-history, network-stack and database tasks follow Mole's
 /// `mo optimize` catalogue (lib/optimize/catalog.sh).
 pub const TASKS: &[Task] = &[
-    Task { title: "刷新 DNS 快取", desc: "清除網址對應的暫存，解決部分網站無法開啟的問題。", cmd: "dscacheutil -flushcache; killall -HUP mDNSResponder", admin: true, default_on: true },
-    Task { title: "重新整理 Finder 快取", desc: "重建「快速查看」縮圖快取，修正顯示錯誤或過期的預覽圖。", cmd: "qlmanage -r cache >/dev/null 2>&1; qlmanage -r >/dev/null 2>&1; true", admin: false, default_on: true },
-    Task { title: "清除舊的應用程式狀態", desc: "移除 30 天以上沒用過的視窗還原資料（應用程式會自動重新建立）。", cmd: "find ~/Library/'Saved Application State' -maxdepth 1 -name '*.savedState' -mtime +30 -exec rm -rf {} + 2>/dev/null; true", admin: false, default_on: true },
-    Task { title: "清除下載追蹤記錄", desc: "清空系統記錄的「從哪裡下載了哪些檔案」歷史，保護隱私。", cmd: "f=~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2; [ -f \"$f\" ] && sqlite3 \"$f\" 'DELETE FROM LSQuarantineEvent; VACUUM;'; true", admin: false, default_on: true },
-    Task { title: "資料庫最佳化", desc: "壓縮「郵件」、Safari 與「訊息」的資料庫，讓搜尋與捲動更流暢（正在使用的應用程式會略過）。", cmd: "pgrep -x Mail >/dev/null || for f in ~/Library/Mail/V*/MailData/Envelope\\ Index; do [ -f \"$f\" ] && sqlite3 \"$f\" vacuum; done; pgrep -x Safari >/dev/null || { [ -f ~/Library/Safari/History.db ] && sqlite3 ~/Library/Safari/History.db vacuum; }; pgrep -x Messages >/dev/null || { [ -f ~/Library/Messages/chat.db ] && sqlite3 ~/Library/Messages/chat.db vacuum; }", admin: false, default_on: true },
-    Task { title: "精簡「時間機器」快照", desc: "移除本機的時間機器快照，釋放可清除的空間。", cmd: "tmutil thinlocalsnapshots / 999999999999 4", admin: true, default_on: true },
-    Task { title: "執行定期維護腳本", desc: "執行系統每日、每週與每月的維護腳本。", cmd: "periodic daily weekly monthly", admin: true, default_on: true },
-    Task { title: "重新整理網路連線", desc: "清除路由表與 ARP 快取，解決網路卡住或連不上的問題（網路會短暫中斷）。", cmd: "route -n flush >/dev/null; arp -a -d >/dev/null", admin: true, default_on: false },
-    Task { title: "重新索引「聚焦」", desc: "重建搜尋索引，搜尋變慢或找不到檔案時使用（需要一段時間）。", cmd: "mdutil -E /", admin: true, default_on: false },
-    Task { title: "修復磁碟權限", desc: "重設您個人資料夾中檔案的擁有權與權限。", cmd: "diskutil resetUserPermissions / $(stat -f %u /dev/console)", admin: true, default_on: false },
+    Task { title: n!("刷新 DNS 快取"), desc: n!("清除網址對應的暫存，解決部分網站無法開啟的問題。"), cmd: "dscacheutil -flushcache; killall -HUP mDNSResponder", admin: true, default_on: true },
+    Task { title: n!("重新整理 Finder 快取"), desc: n!("重建「快速查看」縮圖快取，修正顯示錯誤或過期的預覽圖。"), cmd: "qlmanage -r cache >/dev/null 2>&1; qlmanage -r >/dev/null 2>&1; true", admin: false, default_on: true },
+    Task { title: n!("清除舊的應用程式狀態"), desc: n!("移除 30 天以上沒用過的視窗還原資料（應用程式會自動重新建立）。"), cmd: "find ~/Library/'Saved Application State' -maxdepth 1 -name '*.savedState' -mtime +30 -exec rm -rf {} + 2>/dev/null; true", admin: false, default_on: true },
+    Task { title: n!("清除下載追蹤記錄"), desc: n!("清空系統記錄的「從哪裡下載了哪些檔案」歷史，保護隱私。"), cmd: "f=~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2; [ -f \"$f\" ] && sqlite3 \"$f\" 'DELETE FROM LSQuarantineEvent; VACUUM;'; true", admin: false, default_on: true },
+    Task { title: n!("資料庫最佳化"), desc: n!("壓縮「郵件」、Safari 與「訊息」的資料庫，讓搜尋與捲動更流暢（正在使用的應用程式會略過）。"), cmd: "pgrep -x Mail >/dev/null || for f in ~/Library/Mail/V*/MailData/Envelope\\ Index; do [ -f \"$f\" ] && sqlite3 \"$f\" vacuum; done; pgrep -x Safari >/dev/null || { [ -f ~/Library/Safari/History.db ] && sqlite3 ~/Library/Safari/History.db vacuum; }; pgrep -x Messages >/dev/null || { [ -f ~/Library/Messages/chat.db ] && sqlite3 ~/Library/Messages/chat.db vacuum; }", admin: false, default_on: true },
+    Task { title: n!("精簡「時間機器」快照"), desc: n!("移除本機的時間機器快照，釋放可清除的空間。"), cmd: "tmutil thinlocalsnapshots / 999999999999 4", admin: true, default_on: true },
+    Task { title: n!("執行定期維護腳本"), desc: n!("執行系統每日、每週與每月的維護腳本。"), cmd: "periodic daily weekly monthly", admin: true, default_on: true },
+    Task { title: n!("重新整理網路連線"), desc: n!("清除路由表與 ARP 快取，解決網路卡住或連不上的問題（網路會短暫中斷）。"), cmd: "route -n flush >/dev/null; arp -a -d >/dev/null", admin: true, default_on: false },
+    Task { title: n!("重新索引「聚焦」"), desc: n!("重建搜尋索引，搜尋變慢或找不到檔案時使用（需要一段時間）。"), cmd: "mdutil -E /", admin: true, default_on: false },
+    Task { title: n!("修復磁碟權限"), desc: n!("重設您個人資料夾中檔案的擁有權與權限。"), cmd: "diskutil resetUserPermissions / $(stat -f %u /dev/console)", admin: true, default_on: false },
 ];
 
 /// Run the chosen maintenance tasks; admin tasks share one password prompt.
@@ -370,16 +370,16 @@ pub fn run_tasks(sel: &[bool]) -> Vec<String> {
     if !admin.is_empty() {
         let cmd = admin.iter().map(|t| t.cmd).collect::<Vec<_>>().join("; ");
         match util::run_admin(&cmd) {
-            Ok(()) => msgs.extend(admin.iter().map(|t| format!("完成：{}", t.title))),
-            Err(e) => msgs.push(format!("未完成：系統任務未執行：{}", e)),
+            Ok(()) => msgs.extend(admin.iter().map(|t| format!("✓ {}", crate::i18n::tr(t.title)))),
+            Err(e) => msgs.push(tf!("未完成：系統任務未執行：{}", e)),
         }
     }
     for (t, s) in TASKS.iter().zip(sel) {
         if *s && !t.admin {
             let out = std::process::Command::new("sh").args(["-c", t.cmd]).output();
             match out {
-                Ok(o) if o.status.success() => msgs.push(format!("完成：{}", t.title)),
-                _ => msgs.push(format!("未完成：{}：部分資料需要給本程式「完整磁碟取用權限」，或請先結束相關應用程式", t.title)),
+                Ok(o) if o.status.success() => msgs.push(format!("✓ {}", crate::i18n::tr(t.title))),
+                _ => msgs.push(tf!("未完成：{}：部分資料需要給本程式「完整磁碟取用權限」，或請先結束相關應用程式", t.title)),
             }
         }
     }
@@ -428,16 +428,16 @@ pub fn remove_launch_items(items: &[LaunchItem]) -> Vec<String> {
         }
         let _ = std::process::Command::new("launchctl").arg("unload").arg(&it.path).output();
         match util::move_to_trash(&it.path) {
-            Ok(()) => msgs.push(format!("完成：已移除 {}", it.label)),
-            Err(e) => msgs.push(format!("未完成：{}：{}", it.label, e)),
+            Ok(()) => msgs.push(format!("✓ {}", tf!("已移除 {}", it.label))),
+            Err(e) => msgs.push(tf!("未完成：{}：{}", it.label, e)),
         }
     }
     if !sys.is_empty() {
         let trash = util::home().join(".Trash");
         let cmd: Vec<String> = sys.iter().map(|i| format!("launchctl unload '{0}'; mv '{0}' '{1}/'", i.path.display(), trash.display())).collect();
         match util::run_admin(&cmd.join("; ")) {
-            Ok(()) => msgs.extend(sys.iter().map(|i| format!("完成：已移除 {}", i.label))),
-            Err(e) => msgs.push(format!("未完成：系統背景項目未移除：{}", e)),
+            Ok(()) => msgs.extend(sys.iter().map(|i| format!("✓ {}", tf!("已移除 {}", i.label)))),
+            Err(e) => msgs.push(tf!("未完成：系統背景項目未移除：{}", e)),
         }
     }
     msgs
@@ -465,7 +465,7 @@ pub fn list_apps(status: &Mutex<String>) -> Vec<App> {
             if p.extension().map(|e| e != "app").unwrap_or(true) {
                 continue;
             }
-            *status.lock().unwrap() = format!("正在讀取 {}…", file_name(&p));
+            *status.lock().unwrap() = tf!("正在讀取 {}…", file_name(&p));
             let info = plist::Value::from_file(p.join("Contents/Info.plist")).ok();
             let d = info.as_ref().and_then(|v| v.as_dictionary());
             let get = |k: &str| d.and_then(|d| d.get(k)).and_then(|x| x.as_string()).map(String::from);
@@ -518,12 +518,12 @@ pub fn uninstall(app: &App) -> Vec<String> {
     let _ = std::process::Command::new("osascript").args(["-e", &format!("tell application id \"{}\" to quit", app.bundle_id)]).output();
     for it in app_leftovers(app) {
         if let Err(e) = util::move_to_trash(&it.path) {
-            msgs.push(format!("未完成：{}：{}", it.label, e));
+            msgs.push(tf!("未完成：{}：{}", it.label, e));
         }
     }
     match util::move_to_trash(&app.path) {
-        Ok(()) => msgs.push(format!("完成：已解除安裝 {}", app.name)),
-        Err(e) => msgs.push(format!("未完成：{}：{}（系統應用程式或需要管理員權限）", app.name, e)),
+        Ok(()) => msgs.push(format!("✓ {}", tf!("已解除安裝 {}", app.name))),
+        Err(e) => msgs.push(tf!("未完成：{}：{}（系統應用程式或需要管理員權限）", app.name, e)),
     }
     msgs
 }
@@ -546,7 +546,7 @@ pub fn orphan_leftovers(apps: &[App]) -> Vec<Item> {
                 continue;
             }
             let size = util::tree_size(&p, 20_000);
-            out.push(Item { label: format!("{}（{}）", n, dir), path: p, size, selected: false, note: "找不到對應的應用程式".into() });
+            out.push(Item { label: tf!("{}（{}）", n, dir), path: p, size, selected: false, note: t!("找不到對應的應用程式").into() });
         }
     }
     out.sort_by(|a, b| b.size.cmp(&a.size));
@@ -562,7 +562,7 @@ pub fn check_updates(apps: &mut [App], status: &Mutex<String>) {
         if !feed.starts_with("https://") {
             continue;
         }
-        *status.lock().unwrap() = format!("正在檢查 {} 的更新…", a.name);
+        *status.lock().unwrap() = tf!("正在檢查 {} 的更新…", a.name);
         let xml = util::run("curl", &["-sSL", "--max-time", "15", &feed]);
         let mut best: Option<String> = None;
         for c in re.captures_iter(&xml).chain(re2.captures_iter(&xml)) {
@@ -585,7 +585,7 @@ pub fn unused_installers() -> Vec<Item> {
         .filter(|p| p.extension().map(|e| e == "dmg" || e == "pkg").unwrap_or(false))
         .filter_map(|p| {
             let md = fs::metadata(&p).ok()?;
-            Some(Item { label: file_name(&p), size: util::alloc_size(&md), note: format!("{} 天前下載", util::age_days(&md)), path: p, selected: true })
+            Some(Item { label: file_name(&p), size: util::alloc_size(&md), note: tf!("{} 天前下載", util::age_days(&md)), path: p, selected: true })
         })
         .collect();
     v.sort_by(|a, b| b.size.cmp(&a.size));
@@ -622,13 +622,13 @@ fn clutter_roots() -> Vec<PathBuf> {
 }
 
 pub fn large_files(status: &Mutex<String>) -> Vec<Item> {
-    *status.lock().unwrap() = "正在查找大型檔案…".into();
+    *status.lock().unwrap() = t!("正在查找大型檔案…").into();
     let mut v = Vec::new();
     walk_files(&clutter_roots(), 10, |p, md| {
         // Real disk usage, so a sparse file that only claims a big size isn't listed.
         let used = util::alloc_size(md);
         if used >= LARGE_FILE_BYTES {
-            v.push(Item { path: p.to_path_buf(), label: file_name(p), size: used, selected: false, note: format!("{} · {} 天未修改", collapse(p.parent().unwrap_or(p)), util::age_days(md)) });
+            v.push(Item { path: p.to_path_buf(), label: file_name(p), size: used, selected: false, note: tf!("{} · {} 天未修改", collapse(p.parent().unwrap_or(p)), util::age_days(md)) });
         }
     });
     v.sort_by(|a, b| b.size.cmp(&a.size));
@@ -637,7 +637,7 @@ pub fn large_files(status: &Mutex<String>) -> Vec<Item> {
 
 /// Duplicate groups: same size, then same SHA-256. The newest copy stays unselected.
 pub fn duplicates(status: &Mutex<String>) -> Vec<Group> {
-    *status.lock().unwrap() = "正在比對重複檔案…".into();
+    *status.lock().unwrap() = t!("正在比對重複檔案…").into();
     let mut by_size: HashMap<u64, Vec<(PathBuf, std::time::SystemTime)>> = HashMap::new();
     walk_files(&clutter_roots(), 10, |p, md| {
         // Grouped by exact length (copies have equal length); the size shown is disk usage.
@@ -667,12 +667,12 @@ pub fn duplicates(status: &Mutex<String>) -> Vec<Group> {
         for (_, mut same) in by_hash.into_iter().filter(|(_, v)| v.len() > 1) {
             same.sort_by(|a, b| b.1.cmp(&a.1));
             let title = file_name(&same[0].0);
-            let items = same.into_iter().enumerate().map(|(i, (p, _))| Item { label: collapse(&p), size: util::file_size_on_disk(&p), path: p, selected: i > 0, note: if i == 0 { "保留最新的副本".into() } else { String::new() } }).collect();
+            let items = same.into_iter().enumerate().map(|(i, (p, _))| Item { label: collapse(&p), size: util::file_size_on_disk(&p), path: p, selected: i > 0, note: if i == 0 { t!("保留最新的副本").into() } else { String::new() } }).collect();
             groups.push(Group { title, desc: String::new(), items, open: false, permanent: false });
         }
     }
     for g in groups.iter_mut() {
-        g.desc = format!("{} 個相同的檔案，每個 {}", g.items.len(), fmt_bytes(g.items[0].size));
+        g.desc = tf!("{} 個相同的檔案，每個 {}", g.items.len(), fmt_bytes(g.items[0].size));
     }
     groups.sort_by(|a, b| b.size().cmp(&a.size()));
     groups
@@ -1055,11 +1055,11 @@ impl LensScan {
 pub fn fmt_duration(secs: f64) -> String {
     let s = secs.round() as u64;
     if s < 60 {
-        format!("{} 秒", s.max(1))
+        tf!("{} 秒", s.max(1))
     } else if s < 3600 {
-        format!("{} 分 {} 秒", s / 60, s % 60)
+        tf!("{} 分 {} 秒", s / 60, s % 60)
     } else {
-        format!("{} 小時 {} 分", s / 3600, (s / 60) % 60)
+        tf!("{} 小時 {} 分", s / 3600, (s / 60) % 60)
     }
 }
 
@@ -1081,10 +1081,10 @@ pub fn cloud_folders(status: &Mutex<String>) -> Vec<Group> {
     let mut roots: Vec<(String, PathBuf)> = util::children(&h.join("Library/CloudStorage")).into_iter().map(|p| (file_name(&p), p)).collect();
     let icloud = h.join("Library/Mobile Documents/com~apple~CloudDocs");
     if icloud.exists() {
-        roots.push(("iCloud 雲碟".into(), icloud));
+        roots.push((t!("iCloud 雲碟").into(), icloud));
     }
     for (name, root) in roots {
-        *status.lock().unwrap() = format!("正在查看 {}…", name);
+        *status.lock().unwrap() = tf!("正在查看 {}…", name);
         let mut items = Vec::new();
         walk_files(&[root.clone()], 8, |p, md| {
             // Only files actually stored on this Mac take space (blocks > 0).
@@ -1100,7 +1100,7 @@ pub fn cloud_folders(status: &Mutex<String>) -> Vec<Group> {
             }
         });
         items.sort_by(|a, b| b.size.cmp(&a.size));
-        out.push(group(&name, "已下載到這台 Mac 的大型雲端檔案。「移除下載」只刪本機副本，雲端上的檔案保留。", items));
+        out.push(group(&name, t!("已下載到這台 Mac 的大型雲端檔案。「移除下載」只刪本機副本，雲端上的檔案保留。"), items));
     }
     out
 }
@@ -1115,7 +1115,11 @@ pub fn evict(items: &[Item]) -> Vec<String> {
         } else {
             std::process::Command::new("fileproviderctl").arg("evict").arg(&it.path).status().map(|s| s.success()).unwrap_or(false)
         };
-        msgs.push(if ok { format!("完成：已移除本機副本：{}", it.label) } else { format!("未完成：無法移除本機副本：{}", it.label) });
+        msgs.push(if ok {
+            format!("✓ {}", tf!("已移除本機副本：{}", it.label))
+        } else {
+            tf!("未完成：無法移除本機副本：{}", it.label)
+        });
     }
     msgs
 }

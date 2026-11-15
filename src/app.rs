@@ -4,6 +4,7 @@
 mod docker_page;
 mod pages;
 mod protect;
+mod settings_page;
 mod sources_page;
 pub(crate) mod status_page;
 #[cfg(target_os = "macos")]
@@ -21,6 +22,18 @@ use std::sync::{Arc, Mutex};
 // ---------------------------------------------------------------- style & fonts
 
 pub fn setup_style(ctx: &egui::Context) {
+    let lang = crate::prefs::Prefs::load().effective_lang();
+    crate::i18n::set(lang);
+    apply_fonts(ctx, lang);
+    style_rest(ctx);
+}
+
+/// Vertical nudge for the Japanese font, as a share of the font size.
+const JA_Y_OFFSET: f32 = 0.15;
+
+/// Fonts for the interface language: SF Pro / SF Mono, then a CJK font (a Japanese one for
+/// Japanese, so kanji use Japanese glyph shapes).
+pub fn apply_fonts(ctx: &egui::Context, lang: crate::i18n::Lang) {
     let mut fonts = egui::FontDefinitions::default();
     // Design fonts: a clean sans for text and a monospace for labels and numbers (SF Pro /
     // SF Mono stand in for the design's Plus Jakarta Sans / JetBrains Mono), then a CJK font.
@@ -51,7 +64,34 @@ pub fn setup_style(ctx: &egui::Context) {
             break;
         }
     }
+    // Second CJK fallback for characters the first font lacks (e.g. some kana and symbols).
+    if let Ok(bytes) = std::fs::read("/System/Library/Fonts/Hiragino Sans GB.ttc") {
+        if !fonts.font_data.contains_key("cjk2") {
+            fonts.font_data.insert("cjk2".into(), egui::FontData::from_owned(bytes));
+            for fam in [FontFamily::Proportional, FontFamily::Monospace] {
+                fonts.families.entry(fam).or_default().push("cjk2".into());
+            }
+        }
+    }
+    if lang == crate::i18n::Lang::Ja {
+        for path in ["/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc", "/System/Library/Fonts/Hiragino Sans W3.ttc", "/System/Library/Fonts/Hiragino Sans GB.ttc"] { // i18n-ignore (font file names; GB has kanji and kana in one font)
+            if let Ok(bytes) = std::fs::read(path) {
+                // Hiragino's glyphs sit higher than SF Pro's; nudge them down to share a baseline.
+                let tweak = egui::FontTweak { y_offset_factor: JA_Y_OFFSET, ..Default::default() };
+                fonts.font_data.insert("ja".into(), egui::FontData::from_owned(bytes).tweak(tweak));
+                for fam in [FontFamily::Proportional, FontFamily::Monospace] {
+                    let list = fonts.families.entry(fam).or_default();
+                    let at = list.iter().position(|f| f == "cjk").unwrap_or(list.len().min(2));
+                    list.insert(at, "ja".into());
+                }
+                break;
+            }
+        }
+    }
     ctx.set_fonts(fonts);
+}
+
+fn style_rest(ctx: &egui::Context) {
     let mut st = (*ctx.style()).clone();
     st.visuals = egui::Visuals::dark();
     st.visuals.override_text_color = Some(TEXT);
@@ -102,22 +142,24 @@ pub enum Page {
     Cloud,
     Vulnerability,
     Docker,
+    Settings,
 }
 
 impl Page {
     fn title(self) -> &'static str {
         match self {
-            Page::Status => "Mac 狀態",
-            Page::QuickCheck => "一鍵健檢",
-            Page::Cleanup => "垃圾清理",
-            Page::Protection => "安全防護",
-            Page::Performance => "效能最佳化",
-            Page::Applications => "應用程式",
-            Page::Clutter => "整理雜亂",
-            Page::DiskMap => "空間地圖",
-            Page::Cloud => "雲端檔案",
-            Page::Vulnerability => "漏洞檢查",
-            Page::Docker => "Docker 清理",
+            Page::Status => t!("Mac 狀態"),
+            Page::QuickCheck => t!("一鍵健檢"),
+            Page::Cleanup => t!("垃圾清理"),
+            Page::Protection => t!("安全防護"),
+            Page::Performance => t!("效能最佳化"),
+            Page::Applications => t!("應用程式"),
+            Page::Clutter => t!("整理雜亂"),
+            Page::DiskMap => t!("空間地圖"),
+            Page::Cloud => t!("雲端檔案"),
+            Page::Vulnerability => t!("漏洞檢查"),
+            Page::Docker => t!("Docker 清理"),
+            Page::Settings => t!("設定"),
         }
     }
     fn palette(self) -> Palette {
@@ -134,6 +176,7 @@ impl Page {
             Page::Cloud => pal([14, 52, 92], [30, 104, 160], [50, 150, 230], [140, 210, 255]),
             Page::Docker => pal([14, 36, 92], [26, 80, 160], [40, 120, 240], [120, 190, 255]),
             Page::Vulnerability => pal([46, 14, 52], [118, 28, 58], [220, 60, 80], [255, 150, 120]),
+            Page::Settings => pal([30, 32, 44], [52, 56, 74], [110, 118, 150], [180, 188, 214]),
         }
     }
     fn eyebrow(self) -> &'static str {
@@ -149,6 +192,7 @@ impl Page {
             Page::Cloud => "CLOUD STORAGE",
             Page::Vulnerability => "CVE SCANNER · OSV.DEV",
             Page::Docker => "DOCKER · DISK USAGE",
+            Page::Settings => "SETTINGS · PREFERENCES",
         }
     }
     fn glyph(self) -> Glyph {
@@ -164,14 +208,15 @@ impl Page {
             Page::Cloud => Glyph::Cloud,
             Page::Vulnerability => Glyph::Bug,
             Page::Docker => Glyph::Grid,
+            Page::Settings => Glyph::Gear,
         }
     }
 }
 
 const SIDEBAR: &[(&str, &[Page])] = &[
     ("", &[Page::Status, Page::QuickCheck]),
-    ("模組", &[Page::Cleanup, Page::Protection, Page::Performance, Page::Applications, Page::Clutter]),
-    ("工具", &[Page::DiskMap, Page::Cloud, Page::Docker, Page::Vulnerability]),
+    (n!("模組"), &[Page::Cleanup, Page::Protection, Page::Performance, Page::Applications, Page::Clutter]),
+    (n!("工具"), &[Page::DiskMap, Page::Cloud, Page::Docker, Page::Vulnerability]),
 ];
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -316,6 +361,12 @@ pub struct MacApp {
     #[cfg(target_os = "macos")]
     tray: Option<tray::Tray>,
     tray_updated: f64,
+
+    // settings: language and new-version check
+    prefs: crate::prefs::Prefs,
+    ver_job: Option<Job<Result<String, String>>>,
+    /// Result of the last check (newest version, or the error), shown in Settings.
+    ver_msg: Option<Result<String, String>>,
 }
 
 impl MacApp {
@@ -326,7 +377,7 @@ impl MacApp {
         let mb_job: Option<Job<Result<usize, String>>> = if mb_has_key && crate::sources::mb_due() && !shooting {
             Some(Job::spawn(|_| match crate::sources::mb_key() {
                 Some(k) => crate::sources::update_malwarebazaar(&k),
-                None => Err("沒有金鑰".into()),
+                None => Err(t!("沒有金鑰").into()),
             }))
         } else {
             None
@@ -339,6 +390,10 @@ impl MacApp {
         if monitor_on && !shooting {
             monitor.start(rules.clone(), safe.clone(), quarantine.clone());
         }
+        let prefs = crate::prefs::Prefs::load();
+        crate::i18n::set(prefs.effective_lang());
+        let ver_due = util::now_secs().saturating_sub(prefs.last_update_check) >= crate::update::CHECK_EVERY_SECS;
+        let ver_job = if prefs.check_updates && ver_due && !shooting { Some(Job::spawn(|_| crate::update::fetch_latest())) } else { None };
         let default_proj = ["Projects", "Developer", "Documents/GitHub", "code", "src"].iter().map(|p| util::home().join(p)).find(|p| p.exists()).unwrap_or_else(util::home);
         // Developer switch for checking one page: MCG_PAGE=status|performance.
         let start = match std::env::var("MCG_PAGE").unwrap_or_default().as_str() {
@@ -348,6 +403,7 @@ impl MacApp {
             "vuln" => Page::Vulnerability,
             "lens" => Page::DiskMap,
             "docker" => Page::Docker,
+            "settings" => Page::Settings,
             _ => Page::QuickCheck,
         };
         MacApp {
@@ -431,6 +487,9 @@ impl MacApp {
             #[cfg(target_os = "macos")]
             tray: if shooting { None } else { tray::Tray::new() },
             tray_updated: -10.0,
+            prefs,
+            ver_job,
+            ver_msg: None,
         }
     }
 
@@ -494,6 +553,7 @@ impl MacApp {
                 Page::Cloud => self.page_cloud(ui),
                 Page::Vulnerability => self.page_vuln(ui),
                 Page::Docker => self.page_docker(ui),
+                Page::Settings => self.page_settings(ui),
             });
             self.draw_toast(ui, rect);
         });
@@ -518,7 +578,7 @@ impl MacApp {
                     if self.rules_job.is_none() {
                         self.rules_job = Some(Job::spawn(|_| RuleSet::load()));
                     }
-                    format!("已從 MalwareBazaar 下載 {} 筆 Mac 惡意軟體指紋", n)
+                    format!("✓ {}", tf!("已從 MalwareBazaar 下載 {} 筆 Mac 惡意軟體指紋", n))
                 }
                 Err(e) => e,
             });
@@ -530,7 +590,7 @@ impl MacApp {
                 let secs = pr.finished.saturating_sub(pr.started);
                 self.threats = Some(pr.threats.clone());
                 self.scan_summary = Some((pr.scanned, secs));
-                let rec = ScanRecord { when: util::now_secs(), mode: if self.scan_custom { "自訂掃描".into() } else { self.opts.mode.title().into() }, scanned: pr.scanned, threats: pr.threats.len(), seconds: secs };
+                let rec = ScanRecord { when: util::now_secs(), mode: if self.scan_custom { n!("自訂掃描").into() } else { self.opts.mode.title_source().into() }, scanned: pr.scanned, threats: pr.threats.len(), seconds: secs };
                 drop(pr);
                 self.history.insert(0, rec);
                 self.history.truncate(50);
@@ -580,9 +640,9 @@ impl MacApp {
                 let g = l.progress.lock().unwrap_or_else(|e| e.into_inner());
                 self.lens = Some(g.nodes.clone());
                 self.lens_note = if g.failed {
-                    Some("掃描時發生錯誤而中止，以下為已算完的部分結果。".to_string())
+                    Some(t!("掃描時發生錯誤而中止，以下為已算完的部分結果。").to_string())
                 } else if g.cancelled {
-                    Some(format!("已停止：只算完 {} / {} 個項目，以下為部分結果。", g.done_children, g.total_children))
+                    Some(tf!("已停止：只算完 {} / {} 個項目，以下為部分結果。", g.done_children, g.total_children))
                 } else {
                     None
                 };
@@ -619,6 +679,18 @@ impl MacApp {
                 self.smart_threats = Some(pr.threats.clone());
                 drop(pr);
                 self.smart_scan = None;
+            }
+        }
+        if let Some(r) = self.ver_job.as_ref().and_then(|j| j.take()) {
+            self.ver_job = None;
+            match r {
+                Ok(v) => {
+                    self.prefs.last_update_check = util::now_secs();
+                    self.prefs.latest_version = Some(v.clone());
+                    self.prefs.save();
+                    self.ver_msg = Some(Ok(v));
+                }
+                Err(e) => self.ver_msg = Some(Err(e)),
             }
         }
         if let Some((_, until)) = &self.toast {
@@ -672,14 +744,35 @@ impl MacApp {
             ui.label(RichText::new(self.page.title()).monospace().color(theme::PRIMARY));
             ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
                 ui.add_space(20.0);
-                let btn = egui::Button::new(RichText::new("快速清理").color(Color32::WHITE).size(13.5)).fill(theme::PRIMARY_BTN).stroke(egui::Stroke::NONE).rounding(6.0).min_size(Vec2::new(96.0, 30.0));
-                if ui.add(btn).on_hover_text("執行一鍵健檢").clicked() {
+                let btn = egui::Button::new(RichText::new(t!("快速清理")).color(Color32::WHITE).size(13.5)).fill(theme::PRIMARY_BTN).stroke(egui::Stroke::NONE).rounding(6.0).min_size(Vec2::new(96.0, 30.0));
+                if ui.add(btn).on_hover_text(t!("執行一鍵健檢")).clicked() {
                     self.page = Page::QuickCheck;
                 }
                 ui.add_space(6.0);
+                // Settings (gear)
+                let (gr, gresp) = ui.allocate_exact_size(Vec2::splat(30.0), egui::Sense::click());
+                let on_settings = self.page == Page::Settings;
+                if gresp.hovered() || on_settings {
+                    ui.painter().rect_filled(gr, 6.0, theme::SURFACE_HI);
+                }
+                theme::icon(ui.painter(), gr.center(), 16.0, Glyph::Gear, if on_settings { theme::PRIMARY } else { SUBTLE });
+                if gresp.on_hover_text(t!("設定")).clicked() {
+                    self.page = Page::Settings;
+                }
+                ui.add_space(8.0);
+                // New version available (only when checking is on)
+                let newer = self.prefs.latest_version.clone().filter(|v| self.prefs.check_updates && crate::update::is_newer(v));
+                if let Some(v) = newer {
+                    let txt = tf!("新版本 v{} →", v);
+                    let resp = ui.add(egui::Button::new(RichText::new(txt).monospace().size(11.5).color(GOOD)).fill(alpha(GOOD, 22)).stroke(egui::Stroke::new(1.0_f32, alpha(GOOD, 120))).rounding(5.0));
+                    if resp.on_hover_text(t!("在 GitHub 查看並下載新版本")).clicked() {
+                        util::open_url(crate::update::RELEASES_PAGE);
+                    }
+                    ui.add_space(8.0);
+                }
                 let on = self.monitor.is_running() || self.shooting;
-                let xp = self.rules.xprotect.as_ref().map(|x| format!("XProtect v{}", x.version)).unwrap_or_else(|| "XProtect 載入中".into());
-                let (dot, txt) = if on { (GOOD, format!("{} · 即時防護開啟", xp)) } else { (WARN, format!("{} · 即時防護關閉", xp)) };
+                let xp = self.rules.xprotect.as_ref().map(|x| format!("XProtect v{}", x.version)).unwrap_or_else(|| t!("XProtect 載入中").into());
+                let (dot, txt) = if on { (GOOD, tf!("{} · 即時防護開啟", xp)) } else { (WARN, tf!("{} · 即時防護關閉", xp)) };
                 ui.label(RichText::new(txt).monospace().size(11.5).color(SUBTLE));
                 let (r, _) = ui.allocate_exact_size(Vec2::splat(10.0), egui::Sense::hover());
                 ui.painter().circle_filled(r.center(), 3.5, dot);
@@ -736,7 +829,7 @@ impl MacApp {
             ui.add_space(10.0);
             ui.horizontal(|ui| {
                 ui.add_space(24.0);
-                let h = if head.is_empty() { "系統總覽" } else { head };
+                let h = if head.is_empty() { t!("系統總覽") } else { crate::i18n::tr(head) };
                 ui.label(RichText::new(h).size(11.0).color(FAINT));
             });
             for pg in *pages {
@@ -758,7 +851,7 @@ impl MacApp {
                     Page::Protection => Some(("0".into(), GOOD)),
                     Page::DiskMap if snap.ready => Some((format!("{}G", snap.disk_free / 1_000_000_000), FAINT)),
                     Page::Applications => self.apps.as_ref().map(|a| (a.len().to_string(), FAINT)),
-                    Page::Vulnerability => Some(("新".into(), WARN)),
+                    Page::Vulnerability => Some((t!("新").into(), WARN)),
                     _ => None,
                 };
                 if let Some((m, c)) = metric {
@@ -776,7 +869,7 @@ impl MacApp {
         let top = rect.bottom() - 92.0;
         ui.painter().line_segment([Pos2::new(rect.left() + 14.0, top), Pos2::new(rect.right() - 14.0, top)], egui::Stroke::new(1.0_f32, theme::OUTLINE));
         let on = self.monitor.is_running() || self.shooting;
-        let xp = self.rules.xprotect.as_ref().map(|x| format!("v{}", x.version)).unwrap_or_else(|| "載入中".into());
+        let xp = self.rules.xprotect.as_ref().map(|x| format!("v{}", x.version)).unwrap_or_else(|| t!("載入中").into());
         let up = snap.uptime_secs;
         let rows = [
             ("XPROTECT ENGINE", xp, SUBTLE),
@@ -929,7 +1022,7 @@ fn sev_color(s: Severity) -> Color32 {
 
 fn items_ui(ui: &mut egui::Ui, items: &mut [Item]) {
     if items.is_empty() {
-        ui.label(RichText::new("沒有找到項目。").color(FAINT));
+        ui.label(RichText::new(t!("沒有找到項目。")).color(FAINT));
     }
     for it in items.iter_mut() {
         item_row(ui, it);
@@ -941,20 +1034,20 @@ fn item_row(ui: &mut egui::Ui, it: &mut Item) {
         match util::protected_reason(&it.path) {
             Some(why) => {
                 it.selected = false;
-                ui.label(RichText::new("受保護").monospace().size(11.0).color(WARN)).on_hover_text(why);
+                ui.label(RichText::new(t!("受保護")).monospace().size(11.0).color(WARN)).on_hover_text(crate::i18n::tr(&why));
             }
             None => {
                 ui.checkbox(&mut it.selected, "");
             }
         }
         ui.vertical(|ui| {
-            ui.label(RichText::new(short(&it.label, 70)).size(13.5));
+            ui.label(RichText::new(short(crate::i18n::tr(&it.label), 70)).size(13.5));
             if !it.note.is_empty() {
-                ui.label(RichText::new(short(&it.note, 90)).size(11.5).color(FAINT));
+                ui.label(RichText::new(short(crate::i18n::tr(&it.note), 90)).size(11.5).color(FAINT));
             }
         });
         ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-            if ui.small_button("顯示").clicked() {
+            if ui.small_button(t!("顯示")).clicked() {
                 util::reveal(&it.path);
             }
             ui.label(RichText::new(fmt_bytes(it.size)).color(SUBTLE));
@@ -973,22 +1066,22 @@ fn groups_ui(ui: &mut egui::Ui, groups: &mut [Group], salt: &str) {
                     }
                 }
                 let arrow = if g.open { "▼" } else { "▶" };
-                if ui.add(egui::Label::new(RichText::new(format!("{} {}", arrow, g.title)).size(15.0).strong()).sense(egui::Sense::click())).clicked() {
+                if ui.add(egui::Label::new(RichText::new(format!("{} {}", arrow, crate::i18n::tr(&g.title))).size(15.0).strong()).sense(egui::Sense::click())).clicked() {
                     g.open = !g.open;
                 }
                 ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
                     ui.label(RichText::new(format!("{} / {}", fmt_bytes(g.selected_size()), fmt_bytes(g.size()))).color(SUBTLE));
-                    ui.label(RichText::new(format!("{} 個項目", g.items.len())).size(12.0).color(FAINT));
+                    ui.label(RichText::new(tf!("{} 個項目", g.items.len())).size(12.0).color(FAINT));
                 });
             });
-            ui.label(RichText::new(&g.desc).size(12.0).color(SUBTLE));
+            ui.label(RichText::new(crate::i18n::tr(&g.desc)).size(12.0).color(SUBTLE));
             if g.open {
                 ui.push_id((salt, gi), |ui| {
                     for it in g.items.iter_mut().take(300) {
                         item_row(ui, it);
                     }
                     if g.items.len() > 300 {
-                        ui.label(RichText::new(format!("還有 {} 個項目…", g.items.len() - 300)).color(FAINT));
+                        ui.label(RichText::new(tf!("還有 {} 個項目…", g.items.len() - 300)).color(FAINT));
                     }
                 });
             }

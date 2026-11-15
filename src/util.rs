@@ -185,7 +185,7 @@ pub fn volume_capacity(p: &Path) -> u64 {
 pub fn checked_size(p: &Path, size: u64) -> u64 {
     let cap = volume_capacity(p);
     if cap > 0 && size > cap {
-        let line = format!("{} {} 計算出 {} 位元組，超過所在磁碟容量 {}\n", now_secs(), p.display(), size, cap);
+        let line = format!("{} {} 計算出 {} 位元組，超過所在磁碟容量 {}\n", now_secs(), p.display(), size, cap); // i18n-ignore
         if let Ok(mut f) = fs::OpenOptions::new().create(true).append(true).open(data_dir().join("size_warnings.log")) {
             use std::io::Write;
             let _ = f.write_all(line.as_bytes());
@@ -206,11 +206,11 @@ pub fn tree_size(p: &Path, limit: usize) -> u64 {
 pub fn protected_reason(p: &Path) -> Option<&'static str> {
     let s = p.to_string_lossy();
     if s.contains("/Library/Containers/com.docker.docker") || s.contains("/Library/Group Containers/group.com.docker") {
-        return Some("這是 Docker 的資料（全部映像檔、容器與資料庫 volume），丟掉就救不回來。請改用「Docker 清理」，由 Docker 自己刪除不需要的項目。");
+        return Some(t!("這是 Docker 的資料（全部映像檔、容器與資料庫 volume），丟掉就救不回來。請改用「Docker 清理」，由 Docker 自己刪除不需要的項目。"));
     }
     let ext = p.extension().map(|e| e.to_string_lossy().to_lowercase()).unwrap_or_default();
     if matches!(ext.as_str(), "raw" | "qcow2" | "vmdk" | "vdi" | "vhd" | "vhdx" | "sparseimage" | "sparsebundle" | "utm" | "pvm" | "vmwarevm") {
-        return Some("這是虛擬機器或磁碟映像檔，裡面是整個系統或資料，刪除後無法復原。請在建立它的程式（Docker、UTM、Parallels、VMware、磁碟工具程式）裡處理。");
+        return Some(t!("這是虛擬機器或磁碟映像檔，裡面是整個系統或資料，刪除後無法復原。請在建立它的程式（Docker、UTM、Parallels、VMware、磁碟工具程式）裡處理。"));
     }
     None
 }

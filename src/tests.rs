@@ -326,3 +326,57 @@ fn memory_bar_stays_inside_when_swap_exceeds_ram() {
     let w = crate::app::status_page::seg_widths(200.0, &[(0.50, Color32::GREEN), (0.10, Color32::BLUE)]);
     assert_eq!(w, vec![100.0, 20.0]);
 }
+
+#[test]
+fn language_tags_map_to_the_right_language() {
+    use crate::i18n::Lang;
+    assert_eq!(Lang::from_tag("zh-Hant-TW"), Lang::ZhHant);
+    assert_eq!(Lang::from_tag("zh-HK"), Lang::ZhHant);
+    assert_eq!(Lang::from_tag("zh-Hans-CN"), Lang::ZhHans);
+    assert_eq!(Lang::from_tag("zh-CN"), Lang::ZhHans);
+    assert_eq!(Lang::from_tag("ja-JP"), Lang::Ja);
+    assert_eq!(Lang::from_tag("en-US"), Lang::En);
+    assert_eq!(Lang::from_tag("fr-FR"), Lang::En, "other languages fall back to English");
+}
+
+#[test]
+fn fill_places_arguments() {
+    use crate::i18n::fill;
+    assert_eq!(fill("已用 {} 秒", &["3".into()]), "已用 3 秒");
+    assert_eq!(fill("{} / {} items", &["2".into(), "5".into()]), "2 / 5 items");
+    assert_eq!(fill("{1} の {0}", &["A".into(), "B".into()]), "B の A");
+    assert_eq!(fill("{{literal}} {}", &["x".into()]), "{literal} x");
+}
+
+#[test]
+fn every_translation_has_all_languages_and_placeholders() {
+    let all: std::collections::HashMap<String, std::collections::HashMap<String, String>> =
+        serde_json::from_str(include_str!("i18n/strings.json")).expect("strings.json parses");
+    assert!(all.len() > 500, "only {} entries", all.len());
+    for (k, e) in &all {
+        for lang in ["en", "ja", "zh-Hans"] {
+            let v = e.get(lang).unwrap_or_else(|| panic!("{lang} missing for {k:?}"));
+            assert!(!v.trim().is_empty(), "{lang} empty for {k:?}");
+            assert_eq!(crate::i18n::placeholders(v), crate::i18n::placeholders(k), "{lang} placeholders differ for {k:?}");
+        }
+    }
+}
+
+#[test]
+fn update_check_reads_version_from_redirect() {
+    use crate::update::version_from_redirect;
+    assert_eq!(version_from_redirect("302 https://github.com/kaiwutech-TW/sanitized/releases/tag/v0.1.3").as_deref(), Some("0.1.3"));
+    assert_eq!(version_from_redirect("302 https://github.com/o/r/releases/tag/0.2.0\n").as_deref(), Some("0.2.0"));
+    assert_eq!(version_from_redirect("404 "), None);
+    assert_eq!(version_from_redirect("302 https://github.com/o/r/releases"), None);
+    assert!(crate::vuln::cmp_ver("0.1.10", "0.1.9").is_gt());
+    assert!(crate::vuln::cmp_ver("0.1.2", "0.1.3").is_lt());
+}
+
+#[test]
+#[ignore]
+fn update_check_live() {
+    let v = crate::update::fetch_latest().expect("GitHub reachable");
+    eprintln!("latest release: {v}");
+    assert!(v.contains('.'));
+}

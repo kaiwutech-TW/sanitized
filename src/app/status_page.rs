@@ -119,7 +119,7 @@ impl MacApp {
         let s = self.sampler.get();
         let mut goto: Option<(Page, Option<PerfTab>)> = None;
         if !s.ready {
-            self.progress_view(ui, "正在讀取系統狀態…", "第一次讀取需要幾秒鐘");
+            self.progress_view(ui, t!("正在讀取系統狀態…"), t!("第一次讀取需要幾秒鐘"));
             return;
         }
         let now = ui.input(|i| i.time);
@@ -148,7 +148,7 @@ impl MacApp {
             // ---- score
             ui.horizontal(|ui| {
                 ui.label(RichText::new("CORE TELEMETRY REPORT").monospace().size(11.0).color(SUBTLE).extra_letter_spacing(1.5));
-                let (msg, c) = if s.issues.is_empty() { ("● 系統各項指標均處於良好狀態", GOOD) } else { ("● 有需要留意的項目", WARN) };
+                let (msg, c) = if s.issues.is_empty() { (t!("● 系統各項指標均處於良好狀態"), GOOD) } else { (t!("● 有需要留意的項目"), WARN) };
                 ui.label(RichText::new(msg).size(12.0).color(c));
             });
             ui.columns(2, |c| {
@@ -158,39 +158,54 @@ impl MacApp {
                     ui.label(RichText::new("/100").font(FontId::proportional(34.0)).color(FAINT));
                 });
                 ui.horizontal(|ui| {
-                    ui.label(RichText::new("健康狀態：").size(18.0));
+                    ui.label(RichText::new(t!("健康狀態：")).size(18.0));
                     ui.label(RichText::new(s.health_label()).size(18.0).color(hcol));
                 });
                 let days = s.uptime_secs / 86400;
-                ui.label(RichText::new(format!("{} · {} 核心 · 已開機 {} 天 · 分數計算參考 Mole", s.model, s.cores, days)).size(12.0).color(SUBTLE));
+                ui.label(RichText::new(tf!("{} · {} 核心 · 已開機 {} 天 · 分數計算參考 Mole", s.model, s.cores, days)).size(12.0).color(SUBTLE));
                 if !s.issues.is_empty() {
                     ui.horizontal_wrapped(|ui| {
                         for i in &s.issues {
-                            pill(ui, i, WARN);
+                            pill(ui, crate::i18n::tr(i), WARN);
                         }
                     });
                 }
                 let ui = &mut c[1];
                 ui.add_space(26.0);
                 card(ui, |ui| {
+                    // One row when the figures and the button fit, else the button goes under them
+                    // (longer translations, narrow windows).
+                    let free = fmt_bytes(s.disk_free);
+                    let pressure = format!("{:.0}%", (100.0 - s.mem_free_pct).clamp(0.0, 100.0));
+                    let w = |txt: &str, size: f32| ui.fonts(|f| f.layout_no_wrap(txt.to_string(), egui::FontId::monospace(size), Color32::WHITE).size().x);
+                    let figures = w(t!("可用空間"), 10.5).max(w(&free, 13.0)) + 20.0 + w(t!("記憶體壓力"), 10.5).max(w(&pressure, 13.0));
+                    let btn_w = (ui.fonts(|f| f.layout_no_wrap(t!("立即深度清理").to_string(), egui::FontId::proportional(14.0), Color32::WHITE).size().x) + 24.0).max(120.0);
+                    let one_row = figures + 24.0 + btn_w <= ui.available_width();
+                    let mut button = |ui: &mut egui::Ui| {
+                        let btn = egui::Button::new(RichText::new(t!("立即深度清理")).color(Color32::WHITE)).fill(theme::PRIMARY_BTN).stroke(Stroke::NONE).rounding(6.0).min_size(Vec2::new(120.0, 34.0));
+                        if ui.add(btn).clicked() {
+                            goto = Some((Page::QuickCheck, None));
+                        }
+                    };
                     ui.horizontal(|ui| {
-                        stat(ui, "可用空間", &fmt_bytes(s.disk_free), PRIMARY);
-                        ui.add_space(24.0);
-                        stat(ui, "記憶體壓力", &format!("{:.0}%", (100.0 - s.mem_free_pct).clamp(0.0, 100.0)), PRIMARY);
-                        ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                            let btn = egui::Button::new(RichText::new("立即深度清理").color(Color32::WHITE)).fill(theme::PRIMARY_BTN).stroke(Stroke::NONE).rounding(6.0).min_size(Vec2::new(120.0, 34.0));
-                            if ui.add(btn).clicked() {
-                                goto = Some((Page::QuickCheck, None));
-                            }
-                        });
+                        stat(ui, t!("可用空間"), &free, PRIMARY);
+                        ui.add_space(20.0);
+                        stat(ui, t!("記憶體壓力"), &pressure, PRIMARY);
+                        if one_row {
+                            ui.with_layout(Layout::right_to_left(Align::Center), |ui| button(ui));
+                        }
                     });
+                    if !one_row {
+                        ui.add_space(6.0);
+                        button(ui);
+                    }
                 });
             });
             ui.add_space(6.0);
             // ---- summary strip
             let on = self.monitor.is_running();
             let qn = self.quarantine.lock().unwrap().len();
-            let xp = self.rules.xprotect.as_ref().map(|x| format!("v{}", x.version)).unwrap_or_else(|| "載入中".into());
+            let xp = self.rules.xprotect.as_ref().map(|x| format!("v{}", x.version)).unwrap_or_else(|| t!("載入中").into());
             card(ui, |ui| {
                 ui.columns(3, |c| {
                     let row = |ui: &mut egui::Ui, k: &str, v: String, col: Color32| {
@@ -199,27 +214,27 @@ impl MacApp {
                             ui.with_layout(Layout::right_to_left(Align::Center), |ui| ui.label(RichText::new(v).monospace().color(col)));
                         });
                     };
-                    row(&mut c[0], "即時防護", if on { "已啟用".into() } else { "已關閉".into() }, if on { GOOD } else { WARN });
-                    row(&mut c[1], "隔離區", format!("{} 個項目", qn), if qn > 0 { WARN } else { GOOD });
-                    row(&mut c[2], "XProtect 引擎", xp, PRIMARY);
+                    row(&mut c[0], t!("即時防護"), if on { t!("已啟用").into() } else { t!("已關閉").into() }, if on { GOOD } else { WARN });
+                    row(&mut c[1], t!("隔離區"), tf!("{} 個項目", qn), if qn > 0 { WARN } else { GOOD });
+                    row(&mut c[2], t!("XProtect 引擎"), xp, PRIMARY);
                 });
             });
             // ---- storage & memory
             ui.columns(2, |c| {
                 let du = s.disk_used_pct();
-                panel(&mut c[0], "STORAGE ALLOCATION · APFS", Some(("釋放空間 →", PRIMARY)), |ui| {
-                    ui.label(RichText::new("Macintosh HD 磁碟空間").size(15.0).strong());
-                    big_number(ui, &format!("{:.1}", s.disk_free as f64 / 1e9), "GB 可用", TEXT);
+                panel(&mut c[0], "STORAGE ALLOCATION · APFS", Some((t!("釋放空間 →"), PRIMARY)), |ui| {
+                    ui.label(RichText::new(t!("Macintosh HD 磁碟空間")).size(15.0).strong());
+                    big_number(ui, &format!("{:.1}", s.disk_free as f64 / 1e9), t!("GB 可用"), TEXT);
                     seg_bar(ui, &[(du / 100.0, level_color(du, 80.0, 93.0)), (1.0 - du / 100.0, Color32::TRANSPARENT)]);
                     ui.horizontal(|ui| {
-                        stat(ui, "總量", &fmt_bytes(s.disk_total), TEXT);
+                        stat(ui, t!("總量"), &fmt_bytes(s.disk_total), TEXT);
                         ui.add_space(18.0);
-                        stat(ui, "已使用", &format!("{:.1}%", du), level_color(du, 80.0, 93.0));
+                        stat(ui, t!("已使用"), &format!("{:.1}%", du), level_color(du, 80.0, 93.0));
                         ui.add_space(18.0);
-                        stat(ui, "可用", &fmt_bytes(s.disk_free), TEXT);
+                        stat(ui, t!("可用"), &fmt_bytes(s.disk_free), TEXT);
                     });
                     ui.horizontal(|ui| {
-                        if ui.small_button("前往垃圾清理").clicked() {
+                        if ui.small_button(t!("前往垃圾清理")).clicked() {
                             goto = Some((Page::Cleanup, None));
                         }
                     });
@@ -230,22 +245,22 @@ impl MacApp {
                     "warn" => WARN,
                     _ => GOOD,
                 };
-                panel(&mut c[1], &format!("UNIFIED MEMORY · {} TOTAL", fmt_bytes(s.mem_total)), Some(("活動監視器 →", PRIMARY)), |ui| {
-                    ui.label(RichText::new("記憶體負載與分佈").size(15.0).strong());
-                    big_number(ui, &format!("{:.1}", s.mem_used as f64 / 1e9), "GB 已使用", TEXT);
-                    ui.label(RichText::new(format!("● 壓力{} {:.0}%", s.pressure_label(), pressure)).monospace().size(12.0).color(pcol));
+                panel(&mut c[1], &format!("UNIFIED MEMORY · {} TOTAL", fmt_bytes(s.mem_total)), Some((t!("活動監視器 →"), PRIMARY)), |ui| {
+                    ui.label(RichText::new(t!("記憶體負載與分佈")).size(15.0).strong());
+                    big_number(ui, &format!("{:.1}", s.mem_used as f64 / 1e9), t!("GB 已使用"), TEXT);
+                    ui.label(RichText::new(tf!("● 壓力{} {}%", s.pressure_label(), format!("{:.0}", pressure))).monospace().size(12.0).color(pcol));
                     let used = s.mem_used_pct / 100.0;
                     let swap = if s.mem_total > 0 { s.swap_used as f32 / s.mem_total as f32 } else { 0.0 };
                     seg_bar(ui, &[(used, GOOD), (swap, PURPLE)]);
                     ui.horizontal(|ui| {
-                        stat(ui, "已使用", &format!("{:.0}%", s.mem_used_pct), TEXT);
+                        stat(ui, t!("已使用"), &format!("{:.0}%", s.mem_used_pct), TEXT);
                         ui.add_space(18.0);
-                        stat(ui, "可用", &format!("{:.0}%", s.mem_free_pct), TEXT);
+                        stat(ui, t!("可用"), &format!("{:.0}%", s.mem_free_pct), TEXT);
                         ui.add_space(18.0);
-                        stat(ui, "SWAP 虛擬記憶體", &fmt_bytes(s.swap_used), TEXT);
+                        stat(ui, t!("SWAP 虛擬記憶體"), &fmt_bytes(s.swap_used), TEXT);
                     });
                     ui.horizontal(|ui| {
-                        if ui.small_button("記憶體診斷").clicked() {
+                        if ui.small_button(t!("記憶體診斷")).clicked() {
                             goto = Some((Page::Performance, Some(PerfTab::Tasks)));
                         }
                     });
@@ -253,29 +268,29 @@ impl MacApp {
             });
             // ---- cpu, network, security
             ui.columns(3, |c| {
-                panel(&mut c[0], &format!("CPU · {} CORES", s.cores), Some((&format!("{:.0}% 負載", s.cpu_pct), level_color(s.cpu_pct, 50.0, 85.0))), |ui| {
-                    ui.label(RichText::new(format!("平均負載：{:.2} · {:.2} · {:.2}", s.load[0], s.load[1], s.load[2])).monospace().size(12.0).color(SUBTLE));
+                panel(&mut c[0], &format!("CPU · {} CORES", s.cores), Some((&tf!("{}% 負載", format!("{:.0}", s.cpu_pct)), level_color(s.cpu_pct, 50.0, 85.0))), |ui| {
+                    ui.label(RichText::new(tf!("平均負載：{} · {} · {}", format!("{:.2}", s.load[0]), format!("{:.2}", s.load[1]), format!("{:.2}", s.load[2]))).monospace().size(12.0).color(SUBTLE));
                     ui.add_space(4.0);
                     bars(ui, &cpu_hist, 46.0);
                     let top = s.top_mem.first().map(|p| p.name.clone()).unwrap_or_default();
-                    ui.label(RichText::new(format!("最佔記憶體：{}", short(&top, 26))).monospace().size(11.0).color(FAINT));
+                    ui.label(RichText::new(tf!("最佔記憶體：{}", short(&top, 26))).monospace().size(11.0).color(FAINT));
                 });
                 panel(&mut c[1], "NETWORK THROUGHPUT", Some((&s.net_iface, SUBTLE)), |ui| {
                     ui.horizontal(|ui| {
-                        stat(ui, "上傳 (TX)", &status::fmt_rate(s.net_up), TEXT);
+                        stat(ui, t!("上傳 (TX)"), &status::fmt_rate(s.net_up), TEXT);
                         ui.add_space(20.0);
-                        stat(ui, "下載 (RX)", &status::fmt_rate(s.net_down), TEXT);
+                        stat(ui, t!("下載 (RX)"), &status::fmt_rate(s.net_down), TEXT);
                     });
                     ui.add_space(4.0);
                     sparkline(ui, &net_hist, 44.0, GOOD);
                 });
-                panel(&mut c[2], "SECURITY SUBSYSTEM", Some((if on { "已保護" } else { "未保護" }, if on { GOOD } else { WARN })), |ui| {
+                panel(&mut c[2], "SECURITY SUBSYSTEM", Some((if on { t!("已保護") } else { t!("未保護") }, if on { GOOD } else { WARN })), |ui| {
                     let last = self.monitor.last.lock().unwrap().clone();
                     for (k, v) in [
-                        ("XProtect 引擎", self.rules.xprotect.as_ref().map(|x| format!("{} 條規則", x.loaded)).unwrap_or_else(|| "載入中".into())),
-                        ("隔離區威脅項目", format!("{} 個項目", qn)),
-                        ("即時監控", if on { "運作中".into() } else { "已關閉".into() }),
-                        ("最後檢查", if last.is_empty() { "—".into() } else { short(&last, 18) }),
+                        (t!("XProtect 引擎"), self.rules.xprotect.as_ref().map(|x| tf!("{} 條規則", x.loaded)).unwrap_or_else(|| t!("載入中").into())),
+                        (t!("隔離區威脅項目"), tf!("{} 個項目", qn)),
+                        (t!("即時監控"), if on { t!("運作中").into() } else { t!("已關閉").into() }),
+                        (t!("最後檢查"), if last.is_empty() { "—".into() } else { short(&last, 18) }),
                     ] {
                         ui.horizontal(|ui| {
                             ui.label(RichText::new(k).size(12.5).color(SUBTLE));
@@ -283,7 +298,7 @@ impl MacApp {
                         });
                     }
                     ui.horizontal(|ui| {
-                        if ui.small_button("開啟安全防護").clicked() {
+                        if ui.small_button(t!("開啟安全防護")).clicked() {
                             goto = Some((Page::Protection, None));
                         }
                     });
@@ -291,27 +306,27 @@ impl MacApp {
             });
             // ---- devices
             panel(ui, "ATTACHED HARDWARE & DEVICES", None, |ui| {
-                ui.label(RichText::new("已連接周邊裝置").size(15.0).strong());
+                ui.label(RichText::new(t!("已連接周邊裝置")).size(15.0).strong());
                 let mut rows: Vec<(String, String)> = s.devices.iter().map(|d| {
-                    let (k, n) = d.split_once('：').unwrap_or(("裝置", d.as_str()));
+                    let (k, n) = d.split_once('：').unwrap_or((n!("裝置"), d.as_str()));
                     (n.to_string(), k.to_string())
                 }).collect();
                 if let Some((pct, st)) = &s.battery {
-                    rows.push(("內建電池".into(), format!("電量 {}% · {}", pct, st)));
+                    rows.push((t!("內建電池").into(), tf!("電量 {}% · {}", pct, crate::i18n::tr(st))));
                 }
                 if rows.is_empty() {
-                    ui.label(RichText::new("沒有連接裝置").color(SUBTLE));
+                    ui.label(RichText::new(t!("沒有連接裝置")).color(SUBTLE));
                 }
                 for (i, (name, kind)) in rows.iter().enumerate() {
                     if i > 0 {
                         ui.separator();
                     }
                     ui.horizontal(|ui| {
-                        let g = if kind.contains("藍牙") { theme::Glyph::Pulse } else { theme::Glyph::Folders };
+                        let g = if kind.contains("藍牙") { theme::Glyph::Pulse } else { theme::Glyph::Folders }; // i18n-ignore (kind tag from status.rs)
                         let (r, _) = ui.allocate_exact_size(Vec2::splat(20.0), egui::Sense::hover());
                         theme::icon(ui.painter(), r.center(), 16.0, g, PRIMARY);
                         ui.label(RichText::new(name).size(13.5));
-                        ui.with_layout(Layout::right_to_left(Align::Center), |ui| ui.label(RichText::new(kind).monospace().size(11.5).color(SUBTLE)));
+                        ui.with_layout(Layout::right_to_left(Align::Center), |ui| ui.label(RichText::new(crate::i18n::tr(kind)).monospace().size(11.5).color(SUBTLE)));
                     });
                 }
             });
@@ -333,34 +348,34 @@ impl MacApp {
         card(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.label(RichText::new("MEMORY DIAGNOSIS").monospace().size(10.5).color(SUBTLE).extra_letter_spacing(1.2));
-                ui.label(RichText::new("記憶體診斷").size(15.0).strong());
+                ui.label(RichText::new(t!("記憶體診斷")).size(15.0).strong());
                 if s.ready {
-                    let (t, c) = if s.memory_tight() { ("記憶體吃緊", WARN) } else { ("狀況良好", GOOD) };
+                    let (t, c) = if s.memory_tight() { (t!("記憶體吃緊"), WARN) } else { (t!("狀況良好"), GOOD) };
                     pill(ui, t, c);
                 }
             });
             if !s.ready {
-                ui.label(RichText::new("正在讀取…").color(SUBTLE));
+                ui.label(RichText::new(t!("正在讀取…")).color(SUBTLE));
                 return;
             }
-            ui.label(RichText::new(format!(
-                "壓力 {} · 可用 {:.0}% · SWAP {} / {}（{:.0}%）",
+            ui.label(RichText::new(tf!(
+                "壓力 {} · 可用 {}% · SWAP {} / {}（{}%）",
                 s.pressure_label(),
-                s.mem_free_pct,
+                format!("{:.0}", s.mem_free_pct),
                 fmt_bytes(s.swap_used),
                 fmt_bytes(s.swap_total),
-                s.swap_pct()
+                format!("{:.0}", s.swap_pct())
             )).monospace().size(12.5));
-            ui.label(RichText::new("macOS 會把閒置的記憶體拿來當快取，強制「釋放記憶體」只會清掉這些快取、幾秒後又被填滿，所以不提供這個按鈕。有效的做法是結束佔用最多記憶體的應用程式：").size(12.0).color(SUBTLE));
+            ui.label(RichText::new(t!("macOS 會把閒置的記憶體拿來當快取，強制「釋放記憶體」只會清掉這些快取、幾秒後又被填滿，所以不提供這個按鈕。有效的做法是結束佔用最多記憶體的應用程式：")).size(12.0).color(SUBTLE));
             if s.vm_rss > 2_000_000_000 {
-                ui.label(RichText::new(format!("虛擬機器（例如 Docker Desktop、UTM）佔用了 {}，即使閒置也會保留，不用時結束它就能釋放。", fmt_bytes(s.vm_rss))).size(12.5).color(WARN));
+                ui.label(RichText::new(tf!("虛擬機器（例如 Docker Desktop、UTM）佔用了 {}，即使閒置也會保留，不用時結束它就能釋放。", fmt_bytes(s.vm_rss))).size(12.5).color(WARN));
             }
             ui.add_space(2.0);
             ui.horizontal(|ui| {
-                ui.label(RichText::new("程式名稱").monospace().size(10.5).color(FAINT));
+                ui.label(RichText::new(t!("程式名稱")).monospace().size(10.5).color(FAINT));
                 ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
                     ui.add_space(58.0);
-                    ui.label(RichText::new("實體 RAM 佔用").monospace().size(10.5).color(FAINT));
+                    ui.label(RichText::new(t!("實體 RAM 佔用")).monospace().size(10.5).color(FAINT));
                 });
             });
             for p in s.top_mem.iter().take(6) {
@@ -371,8 +386,8 @@ impl MacApp {
                     ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
                         match &p.app_name {
                             Some(app) => {
-                                let b = egui::Button::new(RichText::new("結束").size(12.0).color(BAD)).fill(alpha(BAD, 20)).stroke(Stroke::new(1.0_f32, alpha(BAD, 120)));
-                                if ui.add(b).on_hover_text("請這個應用程式正常結束（會提示儲存文件）").clicked() {
+                                let b = egui::Button::new(RichText::new(t!("結束")).size(12.0).color(BAD)).fill(alpha(BAD, 20)).stroke(Stroke::new(1.0_f32, alpha(BAD, 120)));
+                                if ui.add(b).on_hover_text(t!("請這個應用程式正常結束（會提示儲存文件）")).clicked() {
                                     quit = Some(app.clone());
                                 }
                             }
@@ -385,15 +400,15 @@ impl MacApp {
                         let mut f = r;
                         f.set_width(r.width() * (frac * 4.0).clamp(0.02, 1.0));
                         ui.painter().rect_filled(f, 2.0, if frac > 0.1 { BAD } else { PRIMARY });
-                        ui.label(RichText::new(format!("{}（{:.1}%）", fmt_bytes(p.rss), frac * 100.0)).monospace().size(12.5));
+                        ui.label(RichText::new(tf!("{}（{}%）", fmt_bytes(p.rss), format!("{:.1}", frac * 100.0))).monospace().size(12.5));
                     });
                 });
             }
         });
         if let Some(a) = quit {
             let m = match status::quit_app(&a) {
-                Ok(()) => format!("已要求 {} 結束", a),
-                Err(e) => format!("無法結束 {}：{}", a, e),
+                Ok(()) => tf!("已要求 {} 結束", a),
+                Err(e) => tf!("無法結束 {}：{}", a, e),
             };
             self.say(ui.ctx(), m);
         }

@@ -23,11 +23,11 @@ pub enum Source {
 impl Source {
     pub fn label(self) -> &'static str {
         match self {
-            Source::Builtin => "內建規則",
+            Source::Builtin => t!("內建規則"),
             Source::XProtect => "Apple XProtect",
-            Source::MalwareBazaar => "MalwareBazaar（abuse.ch）",
+            Source::MalwareBazaar => t!("MalwareBazaar（abuse.ch）"),
             Source::ObjectiveSee => "Objective-See",
-            Source::User => "自訂病毒碼",
+            Source::User => t!("自訂病毒碼"),
         }
     }
     pub fn url(self) -> &'static str {
@@ -192,17 +192,17 @@ fn mb_query(key: &str, file_type: &str) -> Result<serde_json::Value, String> {
     child.stdin.take().ok_or("stdin")?.write_all(format!("header = \"Auth-Key: {}\"\n", key.replace('"', "")).as_bytes()).map_err(|e| e.to_string())?;
     let out = child.wait_with_output().map_err(|e| e.to_string())?;
     if !out.status.success() {
-        return Err(format!("無法連線到 MalwareBazaar：{}", String::from_utf8_lossy(&out.stderr).trim()));
+        return Err(tf!("無法連線到 MalwareBazaar：{}", String::from_utf8_lossy(&out.stderr).trim()));
     }
-    let j: serde_json::Value = serde_json::from_slice(&out.stdout).map_err(|_| "MalwareBazaar 回應無法解讀".to_string())?;
+    let j: serde_json::Value = serde_json::from_slice(&out.stdout).map_err(|_| t!("MalwareBazaar 回應無法解讀").to_string())?;
     if j.get("error").is_some() {
-        return Err("MalwareBazaar 拒絕了金鑰，請確認金鑰是否正確".into());
+        return Err(t!("MalwareBazaar 拒絕了金鑰，請確認金鑰是否正確").into());
     }
     match j.get("query_status").and_then(|s| s.as_str()) {
         Some("ok") | Some("no_results") => Ok(j),
-        Some("unknown_auth_key") | Some("illegal_auth_key") => Err("MalwareBazaar 金鑰無效，請重新確認".into()),
-        Some(s) => Err(format!("MalwareBazaar 回覆：{}", s)),
-        None => Err("MalwareBazaar 回應格式不符".into()),
+        Some("unknown_auth_key") | Some("illegal_auth_key") => Err(t!("MalwareBazaar 金鑰無效，請重新確認").into()),
+        Some(s) => Err(tf!("MalwareBazaar 回覆：{}", s)),
+        None => Err(t!("MalwareBazaar 回應格式不符").into()),
     }
 }
 
