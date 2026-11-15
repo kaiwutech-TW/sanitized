@@ -1,0 +1,231 @@
+# Mac malware families listed by Objective-See (https://github.com/Objective-see/Malware), names only
+AMCleaner
+Activator
+Adwind
+AmnesiaStealer
+AoboKeylogger (Baoba)
+AppleJeus
+AtomicStealer
+BackTrack
+BadBunny
+Banshee
+BeaverTail
+BirdMiner
+BlackHole (Musminim)
+BlueNoroff
+BotKing
+Bundlore
+CDDS
+Calisto
+CallMe
+Careto (Mask)
+ChatZum (Okaz, Zako)
+ChillyHell
+Clapzok
+ClickAgent
+CloudChat
+CloudMensis
+CoinMiner
+CoinThief
+ColdRoot
+Conduit (Trovi, VSearch)
+CookieMiner
+Cosmac (iAdware, Macrocosm)
+Covid
+Cowhand
+CpuMeaner
+CrashStealer
+CrateDepression
+CreativeUpdate
+Crisis (Morcut)
+CrossRAT
+CryptoDrainer
+Cthulhu
+Cuckoo
+DPRK
+Dacls
+DarthMiner
+DazzleSpy
+DevilRobber
+DigitStealer
+Dockster
+Dok
+DoubleFantasy
+Dummy
+Eleanor
+ElectrumStealer
+Elite Keylogger
+EvasivePanda
+EvilEgg
+EvilOSX
+EvilQuest
+FairyTale
+FakeFileOpener
+Ferret
+FileCoder
+FileCoder (FindZip, Patcher)
+FinSpy
+FkCodec (Codecm, Vinstaller)
+Flasfa (FlsplyDp)
+FlashBack
+FlexibleFerret
+FlutterShell
+Frigid
+FruitFly
+FullHouse
+GMERA
+Gaslight
+Geacon
+Genieo (InstallMac)
+GetShell
+Gimmick
+GoPhoto
+GoSorry
+Gopher
+GravityRAT
+GreenLambert
+HZ_RAT
+HeartBreaker
+HellRaiser (Brutal, HellRTS, PinHead)
+HiddenLotus
+HiddenRisk
+Hovdy (AsTHT)
+Hydromac
+IPStorm
+IceFog (PrxlA)
+InletDrift
+Inqtana (Niqtana)
+Insekt
+InstallCap
+InstallCore
+InvisibleFerret
+JSCoreRunner
+Jacksbot (jRAT)
+Janicab
+JaskaGO
+JokerSpy
+KandyKorn
+KeRanger
+KeySteal
+Keydnap
+KitM (FileSteal, HackBack, Kitmos)
+Kitty
+KoiStealer
+Komplex
+KoobFace (Boonana)
+Lamadai (Olyx, PubSab, SabPub)
+LamePyre
+Lamzev (Malez)
+LaoShu
+Leap
+Leverage (FlashyComposer)
+LightSpy
+LockBit
+LoseLose
+MaMi
+Mabouia
+Mac.c
+MacDefender (MacProtector, MacSecurity)
+MacDownloader
+MacHug
+MacInstaller
+MacKeeper
+MacKontrol (MacControl, Tibet)
+MacSpy
+MacStealer
+MacSweeper
+MacSync
+MacVX
+Macarena
+MetaStealer
+MineSteal
+ModStealer
+Mokes
+Mughthesec
+NightPaw
+NokNok
+NotLockBit
+NukeSped
+Nul1Dropper
+OSAMiner
+ObjCShellz
+OceanLotus
+Odyssey
+OpinionSpy (Premier Opinion)
+OverLord
+PPMiner
+PSides
+PamStealer
+Paradox
+PasivRobber
+PerfectKeylog (Blazing Keylogger)
+Phexia
+Phoenix
+PintSized
+PokerStealer (CorPref)
+Poseidon
+Proton
+PureLand
+Pwnet
+PyStealer
+Pymafka
+Qhost (HostMod)
+RNStealer
+RSPlug
+RealTimeSpy
+Renepo
+Revir
+Rubyilyn
+RustBucket
+RustDoor
+RustyAttr
+RustyPages
+SMSSend
+SeaFlower
+SentinelSneak
+ShadeStager
+ShaiHulud
+Shlayer
+Siggen
+SilverSparrow
+SmoothOperator
+Snake
+SniperSpy
+SnowLight
+SpectralBlur
+Spigot
+SysJoker
+Systemd (Demsty)
+TinyShell
+ToDoSwift
+Tored
+Tsunami (Kaiten)
+Turtle
+VSearch (Pirrit)
+Ventir
+WSClient
+WatchCat
+WaveShaper
+WeaponX
+WildPressure
+WindTail
+WindTape
+WireLurker (Machook)
+Wirenet (NetWeirdRC)
+XCSSET
+XLoader
+Xagent
+Xamloader
+XcodeGhost
+XcodeSpy
+XslCmd
+Yontoo
+Yort
+ZuRu
+iWebUpdate
+iWorkServ (iServices, Krowi)
+iWorm
+macRansom
+notnullOSX
+oRAT
+rShell
