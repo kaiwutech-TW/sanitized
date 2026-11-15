@@ -1,0 +1,522 @@
+{
+ "Sanitized — 免費開源的 Mac 清理與防護工具": {
+  "en": "Sanitized — Free, open-source Mac cleaner and protection",
+  "ja": "Sanitized — 無料・オープンソースの Mac クリーンアップ＆保護ツール",
+  "zh-Hans": "Sanitized — 免费开源的 Mac 清理与防护工具"
+ },
+ "Sanitized 是用 Rust 打造的 Mac 清理工具：垃圾清理、惡意軟體掃描、效能維護、空間地圖與專案漏洞檢查。所有刪除都可還原，經 Apple 公證，免費開源。": {
+  "en": "Sanitized is a Mac cleaner built in Rust: junk cleanup, malware scanning, performance maintenance, a disk map and vulnerability checks for your projects. Everything it deletes can be restored. Notarized by Apple, free and open source.",
+  "ja": "Sanitized は Rust で作られた Mac クリーンアップツールです。ジャンク削除、マルウェアスキャン、パフォーマンスのメンテナンス、ディスクマップ、プロジェクトの脆弱性チェックを備えています。削除したものはすべて復元でき、Apple の公証済み。無料のオープンソースです。",
+  "zh-Hans": "Sanitized 是用 Rust 打造的 Mac 清理工具：垃圾清理、恶意软件扫描、性能维护、空间地图与项目漏洞检查。所有删除都可还原，经 Apple 公证，免费开源。"
+ },
+ "垃圾清理、惡意軟體掃描、效能維護、空間地圖與專案漏洞檢查。所有刪除都可還原，經 Apple 公證。": {
+  "en": "Junk cleanup, malware scanning, performance maintenance, a disk map and project vulnerability checks. Everything it deletes can be restored. Notarized by Apple.",
+  "ja": "ジャンク削除、マルウェアスキャン、パフォーマンスのメンテナンス、ディスクマップ、プロジェクトの脆弱性チェック。削除したものはすべて復元できます。Apple の公証済み。",
+  "zh-Hans": "垃圾清理、恶意软件扫描、性能维护、空间地图与项目漏洞检查。所有删除都可还原，经 Apple 公证。"
+ },
+ "主選單": {
+  "en": "Main menu",
+  "ja": "メインメニュー",
+  "zh-Hans": "主菜单"
+ },
+ "語言": {
+  "en": "Language",
+  "ja": "言語",
+  "zh-Hans": "语言"
+ },
+ "功能": {
+  "en": "Features",
+  "ja": "機能",
+  "zh-Hans": "功能"
+ },
+ "安全原則": {
+  "en": "Safety",
+  "ja": "安全の原則",
+  "zh-Hans": "安全原则"
+ },
+ "安裝": {
+  "en": "Install",
+  "ja": "インストール",
+  "zh-Hans": "安装"
+ },
+ "下載": {
+  "en": "Download",
+  "ja": "ダウンロード",
+  "zh-Hans": "下载"
+ },
+ "Mac 清理與防護 · 免費開源": {
+  "en": "Mac cleanup &amp; protection · Free and open source",
+  "ja": "Mac のクリーンアップと保護 · 無料・オープンソース",
+  "zh-Hans": "Mac 清理与防护 · 免费开源"
+ },
+ "讓你的 Mac<br>保持<span class=\"soft\">乾淨、安全</span><br>又輕快。": {
+  "en": "Keep your Mac<br><span class=\"soft\">clean, safe</span><br>and fast.",
+  "ja": "あなたの Mac を<br><span class=\"soft\">クリーンで安全</span>、<br>そして軽快に。",
+  "zh-Hans": "让你的 Mac<br>保持<span class=\"soft\">干净、安全</span><br>又轻快。"
+ },
+ "Sanitized 是用 Rust 打造的原生 Mac 工具。垃圾清理、惡意軟體掃描、效能維護、空間分析，全部在你的電腦上完成。刪掉的東西都先進垃圾桶或隔離區，隨時可以還原。": {
+  "en": "Sanitized is a native Mac app built in Rust. Junk cleanup, malware scanning, maintenance and disk analysis all run on your own computer. Anything it removes goes to the Trash or Quarantine first, so you can always restore it.",
+  "ja": "Sanitized は Rust で作られたネイティブの Mac アプリです。ジャンク削除、マルウェアスキャン、メンテナンス、ディスク分析をすべてお使いの Mac 上で行います。削除したものはまずゴミ箱か隔離領域に移されるので、いつでも復元できます。",
+  "zh-Hans": "Sanitized 是用 Rust 打造的原生 Mac 工具。垃圾清理、恶意软件扫描、性能维护、空间分析，全部在你的电脑上完成。删掉的东西都先进废纸篓或隔离区，随时可以还原。"
+ },
+ "下載 macOS 版": {
+  "en": "Download for macOS",
+  "ja": "macOS 版をダウンロード",
+  "zh-Hans": "下载 macOS 版"
+ },
+ "原始碼": {
+  "en": "Source code",
+  "ja": "ソースコード",
+  "zh-Hans": "源代码"
+ },
+ "macOS 11 以上": {
+  "en": "macOS 11 or later",
+  "ja": "macOS 11 以降",
+  "zh-Hans": "macOS 11 及以上"
+ },
+ "Apple 公證": {
+  "en": "Notarized by Apple",
+  "ja": "Apple 公証済み",
+  "zh-Hans": "Apple 公证"
+ },
+ "Sanitized 圖示：藍色噴霧罐": {
+  "en": "Sanitized icon: a blue spray can",
+  "ja": "Sanitized のアイコン：青いスプレー缶",
+  "zh-Hans": "Sanitized 图标：蓝色喷雾罐"
+ },
+ "Sanitized 的 Mac 狀態頁：健康分數、磁碟、記憶體、CPU 與安全狀態": {
+  "en": "The Mac Status page in Sanitized: health score, disk, memory, CPU and security status",
+  "ja": "Sanitized の「Mac の状態」ページ：ヘルススコア、ディスク、メモリ、CPU、セキュリティの状態",
+  "zh-Hans": "Sanitized 的 Mac 状态页：健康分数、磁盘、内存、CPU 与安全状态"
+ },
+ "一個 app，照顧 Mac 的大小事。": {
+  "en": "One app for everything your Mac needs.",
+  "ja": "Mac のお手入れを、ひとつのアプリで。",
+  "zh-Hans": "一个 app，照顾 Mac 的大小事。"
+ },
+ "從每天的狀態檢查，到深入找出佔空間的資料夾、潛伏的惡意軟體和專案裡過期的套件。": {
+  "en": "From a daily status check to tracking down the folders that eat your space, hidden malware and outdated packages in your projects.",
+  "ja": "毎日の状態チェックから、容量を占めているフォルダ、潜んでいるマルウェア、プロジェクト内の古いパッケージの発見まで。",
+  "zh-Hans": "从每天的状态检查，到深入找出占空间的文件夹、潜伏的恶意软件和项目里过期的软件包。"
+ },
+ "一鍵健檢": {
+  "en": "Quick Checkup",
+  "ja": "クイックチェック",
+  "zh-Hans": "一键体检"
+ },
+ "按一下，整台 Mac 檢查一遍。": {
+  "en": "One click checks your whole Mac.",
+  "ja": "ワンクリックで Mac 全体をチェック。",
+  "zh-Hans": "点一下，整台 Mac 检查一遍。"
+ },
+ "不知道從哪裡開始？一鍵健檢會依序跑完清理、安全、效能和大型檔案檢查，再把結果整理成一張清單，讓你決定要處理哪些。": {
+  "en": "Not sure where to start? Quick Checkup runs the cleanup, security, performance and large-file checks in turn, then puts the results in one list so you can decide what to deal with.",
+  "ja": "どこから始めればいいかわからなくても大丈夫。クイックチェックがクリーンアップ、セキュリティ、パフォーマンス、大きなファイルのチェックを順番に実行し、結果をひとつのリストにまとめます。どれを処理するかはあなたが決めます。",
+  "zh-Hans": "不知道从哪里开始？一键体检会依次跑完清理、安全、性能和大文件检查，再把结果整理成一张清单，让你决定要处理哪些。"
+ },
+ "找出可以安全移除的系統垃圾": {
+  "en": "Finds system junk that is safe to remove",
+  "ja": "安全に削除できるシステムジャンクを検出",
+  "zh-Hans": "找出可以安全移除的系统垃圾"
+ },
+ "掃描惡意軟體和可疑的自動啟動項目": {
+  "en": "Scans for malware and suspicious launch items",
+  "ja": "マルウェアと不審な自動起動項目をスキャン",
+  "zh-Hans": "扫描恶意软件和可疑的自动启动项"
+ },
+ "檢查損壞的背景項目與該做的維護": {
+  "en": "Checks for broken background items and due maintenance",
+  "ja": "壊れたバックグラウンド項目と必要なメンテナンスを確認",
+  "zh-Hans": "检查损坏的后台项目与该做的维护"
+ },
+ "一鍵健檢頁面": {
+  "en": "The Quick Checkup page",
+  "ja": "クイックチェックのページ",
+  "zh-Hans": "一键体检页面"
+ },
+ "安全防護": {
+  "en": "Protection",
+  "ja": "セキュリティ保護",
+  "zh-Hans": "安全防护"
+ },
+ "用 Apple 自己的規則，抓出 Mac 惡意軟體。": {
+  "en": "Catch Mac malware with Apple's own rules.",
+  "ja": "Apple 自身のルールで Mac のマルウェアを検出。",
+  "zh-Hans": "用 Apple 自己的规则，抓出 Mac 恶意软件。"
+ },
+ "直接讀取 macOS 內建 XProtect 的 YARA 規則，再加上公開的惡意軟體資料庫。每個掃描結果都標明是哪個來源抓到的。": {
+  "en": "Sanitized reads the YARA rules of XProtect, which is built into macOS, and adds public malware databases. Every result shows which source found it.",
+  "ja": "macOS に内蔵された XProtect の YARA ルールを直接読み込み、公開されているマルウェアデータベースも併用します。スキャン結果にはそれぞれ検出したソースが表示されます。",
+  "zh-Hans": "直接读取 macOS 内置 XProtect 的 YARA 规则，再加上公开的恶意软件数据库。每个扫描结果都标明是哪个来源发现的。"
+ },
+ "快速、平衡、深度三種掃描模式": {
+  "en": "Quick, Balanced and Deep scan modes",
+  "ja": "クイック、バランス、ディープの 3 つのスキャンモード",
+  "zh-Hans": "快速、平衡、深度三种扫描模式"
+ },
+ "即時監控啟動項目、應用程式和下載資料夾": {
+  "en": "Real-time monitoring of launch items, Applications and Downloads",
+  "ja": "起動項目、アプリケーション、ダウンロードフォルダをリアルタイム監視",
+  "zh-Hans": "实时监控启动项、应用程序和下载文件夹"
+ },
+ "可疑檔案先移到隔離區，可以還原": {
+  "en": "Suspicious files go to Quarantine and can be restored",
+  "ja": "不審なファイルは隔離領域に移され、復元も可能",
+  "zh-Hans": "可疑文件先移到隔离区，可以还原"
+ },
+ "病毒碼來源頁面：Apple XProtect、MalwareBazaar、Objective-See": {
+  "en": "The signature sources page: Apple XProtect, MalwareBazaar, Objective-See",
+  "ja": "定義ソースのページ：Apple XProtect、MalwareBazaar、Objective-See",
+  "zh-Hans": "病毒库来源页面：Apple XProtect、MalwareBazaar、Objective-See"
+ },
+ "空間地圖": {
+  "en": "Disk Map",
+  "ja": "ディスクマップ",
+  "zh-Hans": "空间地图"
+ },
+ "空間都跑去哪了？一層一層點進去看。": {
+  "en": "Where did the space go? Click down, one level at a time.",
+  "ja": "容量はどこに消えた？ 1 階層ずつたどって確認。",
+  "zh-Hans": "空间都去哪了？一层一层点进去看。"
+ },
+ "六個資料夾平行計算，一邊掃描一邊顯示預估剩餘時間。大小用實際佔用的磁碟區塊計算，結果和 <code>du</code> 一致。": {
+  "en": "Six folders are measured in parallel, with an estimate of the time left while it scans. Sizes count the disk blocks actually used, so they match <code>du</code>.",
+  "ja": "6 つのフォルダを並列で計算し、スキャン中は残り時間の目安を表示します。サイズは実際に使用しているディスクブロックで計算するため、<code>du</code> の結果と一致します。",
+  "zh-Hans": "六个文件夹并行计算，一边扫描一边显示预计剩余时间。大小按实际占用的磁盘块计算，结果和 <code>du</code> 一致。"
+ },
+ "硬連結只算一次，Docker 映像檔不會被高估": {
+  "en": "Hard links count once, so Docker images aren't overstated",
+  "ja": "ハードリンクは 1 回だけ数えるので、Docker イメージを過大に見積もりません",
+  "zh-Hans": "硬链接只算一次，Docker 镜像不会被高估"
+ },
+ "不會誤算外接或掛載的磁碟": {
+  "en": "External and mounted disks aren't counted by mistake",
+  "ja": "外付けディスクやマウントしたディスクを誤って数えません",
+  "zh-Hans": "不会误算外接或挂载的磁盘"
+ },
+ "點選資料夾直接深入，或丟進垃圾桶": {
+  "en": "Click a folder to go deeper, or move it to the Trash",
+  "ja": "フォルダをクリックして掘り下げたり、ゴミ箱に入れたり",
+  "zh-Hans": "点击文件夹直接深入，或移到废纸篓"
+ },
+ "空間地圖頁面：依大小排列的資料夾": {
+  "en": "The Disk Map page: folders sorted by size",
+  "ja": "ディスクマップのページ：サイズ順に並んだフォルダ",
+  "zh-Hans": "空间地图页面：按大小排列的文件夹"
+ },
+ "漏洞檢查": {
+  "en": "Vulnerability Check",
+  "ja": "脆弱性チェック",
+  "zh-Hans": "漏洞检查"
+ },
+ "給開發者：專案的套件有沒有已知漏洞？": {
+  "en": "For developers: do your project's packages have known vulnerabilities?",
+  "ja": "開発者向け：プロジェクトのパッケージに既知の脆弱性はある？",
+  "zh-Hans": "给开发者：项目的软件包有没有已知漏洞？"
+ },
+ "選一個資料夾，Sanitized 會找出裡面所有專案的相依套件，向 OSV.dev 查詢已知的 CVE，並告訴你升級到哪一版就能修好。": {
+  "en": "Pick a folder and Sanitized finds the dependencies of every project inside, looks up known CVEs on OSV.dev and tells you which version to upgrade to for a fix.",
+  "ja": "フォルダを選ぶと、Sanitized がその中のすべてのプロジェクトの依存パッケージを見つけ、OSV.dev で既知の CVE を照会し、どのバージョンにアップグレードすれば修正できるかを教えてくれます。",
+  "zh-Hans": "选一个文件夹，Sanitized 会找出里面所有项目的依赖包，向 OSV.dev 查询已知的 CVE，并告诉你升级到哪个版本就能修复。"
+ },
+ "支援 npm、Cargo、PyPI、Go 等常見生態系": {
+  "en": "Supports npm, Cargo, PyPI, Go and other common ecosystems",
+  "ja": "npm、Cargo、PyPI、Go など主要なエコシステムに対応",
+  "zh-Hans": "支持 npm、Cargo、PyPI、Go 等常见生态"
+ },
+ "建議最小且能修好所有漏洞的版本": {
+  "en": "Suggests the smallest upgrade that fixes every vulnerability",
+  "ja": "すべての脆弱性を修正できる最小のバージョンを提案",
+  "zh-Hans": "建议能修复所有漏洞的最小版本"
+ },
+ "自動略過 node_modules、.git、build 等資料夾": {
+  "en": "Skips node_modules, .git, build and similar folders",
+  "ja": "node_modules、.git、build などのフォルダは自動でスキップ",
+  "zh-Hans": "自动跳过 node_modules、.git、build 等文件夹"
+ },
+ "漏洞檢查頁面": {
+  "en": "The Vulnerability Check page",
+  "ja": "脆弱性チェックのページ",
+  "zh-Hans": "漏洞检查页面"
+ },
+ "全部模組": {
+  "en": "All modules",
+  "ja": "すべてのモジュール",
+  "zh-Hans": "全部模块"
+ },
+ "十一個模組，各司其職。": {
+  "en": "Eleven modules, each with one job.",
+  "ja": "11 のモジュールが、それぞれの役割を担当。",
+  "zh-Hans": "十一个模块，各司其职。"
+ },
+ "Mac 狀態": {
+  "en": "Mac Status",
+  "ja": "Mac の状態",
+  "zh-Hans": "Mac 状态"
+ },
+ "健康分數、記憶體壓力、磁碟、CPU 與網路，加上選單列小工具。": {
+  "en": "Health score, memory pressure, disk, CPU and network, plus a menu bar widget.",
+  "ja": "ヘルススコア、メモリプレッシャー、ディスク、CPU、ネットワーク。メニューバーのウィジェットも。",
+  "zh-Hans": "健康分数、内存压力、磁盘、CPU 与网络，外加菜单栏小工具。"
+ },
+ "一次跑完清理、安全、效能與大型檔案檢查。": {
+  "en": "Runs the cleanup, security, performance and large-file checks in one go.",
+  "ja": "クリーンアップ、セキュリティ、パフォーマンス、大きなファイルのチェックを一度に実行。",
+  "zh-Hans": "一次跑完清理、安全、性能与大文件检查。"
+ },
+ "垃圾清理": {
+  "en": "Junk Cleanup",
+  "ja": "ジャンク削除",
+  "zh-Hans": "垃圾清理"
+ },
+ "快取、記錄檔、損壞的偏好設定、Xcode 殘留、npm／Cargo 等開發快取。": {
+  "en": "Caches, logs, broken preferences, Xcode leftovers and developer caches such as npm and Cargo.",
+  "ja": "キャッシュ、ログファイル、壊れた環境設定、Xcode の残りファイル、npm／Cargo などの開発用キャッシュ。",
+  "zh-Hans": "缓存、日志文件、损坏的偏好设置、Xcode 残留、npm／Cargo 等开发缓存。"
+ },
+ "惡意軟體掃描、即時監控、隔離區、瀏覽器擴充功能與 app 權限檢查。": {
+  "en": "Malware scanning, real-time monitoring, Quarantine, and checks of browser extensions and app permissions.",
+  "ja": "マルウェアスキャン、リアルタイム監視、隔離領域、ブラウザ機能拡張とアプリのアクセス権のチェック。",
+  "zh-Hans": "恶意软件扫描、实时监控、隔离区、浏览器扩展与应用权限检查。"
+ },
+ "效能最佳化": {
+  "en": "Performance",
+  "ja": "パフォーマンス",
+  "zh-Hans": "性能优化"
+ },
+ "刷新 DNS、重建快取、整理資料庫等維護任務，以及登入與背景項目管理。": {
+  "en": "Maintenance tasks such as flushing DNS, rebuilding caches and tidying databases, plus login and background item management.",
+  "ja": "DNS のリフレッシュ、キャッシュの再構築、データベースの整理などのメンテナンスと、ログイン項目・バックグラウンド項目の管理。",
+  "zh-Hans": "刷新 DNS、重建缓存、整理数据库等维护任务，以及登录项与后台项目管理。"
+ },
+ "應用程式": {
+  "en": "Applications",
+  "ja": "アプリケーション",
+  "zh-Hans": "应用程序"
+ },
+ "完整移除 app 連同設定與快取，找出已刪除 app 留下的殘留檔案。": {
+  "en": "Uninstalls apps along with their settings and caches, and finds leftover files from apps already deleted.",
+  "ja": "アプリを設定やキャッシュごと完全にアンインストールし、削除済みアプリの残りファイルも見つけます。",
+  "zh-Hans": "完整卸载应用及其设置与缓存，找出已删除应用留下的残留文件。"
+ },
+ "整理雜亂": {
+  "en": "Clutter",
+  "ja": "不要ファイル整理",
+  "zh-Hans": "整理杂乱"
+ },
+ "找出大型檔案與內容完全相同的重複檔案。": {
+  "en": "Finds large files and duplicates with identical content.",
+  "ja": "大きなファイルと、内容がまったく同じ重複ファイルを検出。",
+  "zh-Hans": "找出大文件与内容完全相同的重复文件。"
+ },
+ "視覺化每個資料夾的大小，逐層深入，附預估時間。": {
+  "en": "Shows the size of every folder, level by level, with a time estimate.",
+  "ja": "各フォルダのサイズを可視化。階層ごとに掘り下げられ、所要時間の目安も表示。",
+  "zh-Hans": "可视化每个文件夹的大小，逐层深入，附预计时间。"
+ },
+ "雲端檔案": {
+  "en": "Cloud Files",
+  "ja": "クラウドファイル",
+  "zh-Hans": "云端文件"
+ },
+ "找出已下載到本機的大型雲端檔案，釋放空間而不刪除雲端上的版本。": {
+  "en": "Finds large cloud files downloaded to this Mac and frees the space without deleting the copy in the cloud.",
+  "ja": "この Mac にダウンロード済みの大きなクラウドファイルを見つけ、クラウド上のファイルは残したまま容量を空けます。",
+  "zh-Hans": "找出已下载到本机的大型云端文件，释放空间而不删除云端上的版本。"
+ },
+ "Docker 清理": {
+  "en": "Docker Cleanup",
+  "ja": "Docker クリーンアップ",
+  "zh-Hans": "Docker 清理"
+ },
+ "分三個層級安全清理 Docker 的磁碟用量，只用 docker 指令，絕不清除 volume。": {
+  "en": "Safely trims Docker's disk use in three levels, using only docker commands and never removing volumes.",
+  "ja": "Docker のディスク使用量を 3 段階で安全にクリーンアップ。docker コマンドだけを使い、ボリュームは決して削除しません。",
+  "zh-Hans": "分三个级别安全清理 Docker 的磁盘占用，只用 docker 命令，绝不清除卷。"
+ },
+ "掃描專案相依套件，向 OSV.dev 查詢已知 CVE 並建議升級版本。": {
+  "en": "Scans project dependencies, looks up known CVEs on OSV.dev and suggests upgrade versions.",
+  "ja": "プロジェクトの依存パッケージをスキャンし、OSV.dev で既知の CVE を照会して、アップグレード先を提案。",
+  "zh-Hans": "扫描项目依赖包，向 OSV.dev 查询已知 CVE 并建议升级版本。"
+ },
+ "選單列小工具": {
+  "en": "Menu bar widget",
+  "ja": "メニューバーウィジェット",
+  "zh-Hans": "菜单栏小工具"
+ },
+ "不用打開視窗，也能看到記憶體壓力、健康分數與保護狀態。": {
+  "en": "See memory pressure, health score and protection status without opening the window.",
+  "ja": "ウインドウを開かなくても、メモリプレッシャー、ヘルススコア、保護の状態を確認できます。",
+  "zh-Hans": "不用打开窗口，也能看到内存压力、健康分数与防护状态。"
+ },
+ "清理工具最重要的，是不要清錯東西。": {
+  "en": "The most important thing for a cleaner is not deleting the wrong thing.",
+  "ja": "クリーンアップツールで一番大切なのは、消してはいけないものを消さないこと。",
+  "zh-Hans": "清理工具最重要的，是不要清错东西。"
+ },
+ "Sanitized 的每一個刪除動作，都照這幾條規則來。": {
+  "en": "Every deletion in Sanitized follows these rules.",
+  "ja": "Sanitized の削除操作は、すべて次のルールに従います。",
+  "zh-Hans": "Sanitized 的每一个删除动作，都遵循这几条规则。"
+ },
+ "所有刪除都可以還原": {
+  "en": "Every deletion can be undone",
+  "ja": "削除はすべて元に戻せる",
+  "zh-Hans": "所有删除都可以还原"
+ },
+ "檔案移到垃圾桶，可疑檔案移到隔離區。不會在沒問過你的情況下永久刪除任何東西。": {
+  "en": "Files go to the Trash and suspicious files go to Quarantine. Nothing is deleted for good without asking you first.",
+  "ja": "ファイルはゴミ箱へ、不審なファイルは隔離領域へ移します。確認なしに完全に削除することはありません。",
+  "zh-Hans": "文件移到废纸篓，可疑文件移到隔离区。不会在没问过你的情况下永久删除任何东西。"
+ },
+ "不碰不該碰的檔案": {
+  "en": "Hands off what shouldn't be touched",
+  "ja": "触れてはいけないファイルには触れない",
+  "zh-Hans": "不碰不该碰的文件"
+ },
+ "虛擬機器磁碟、Docker 的資料檔都受保護，沒有刪除按鈕。Docker 清理永遠不會動到 volume。": {
+  "en": "Virtual machine disks and Docker's data files are protected and have no delete button. Docker Cleanup never touches volumes.",
+  "ja": "仮想マシンのディスクや Docker のデータファイルは保護され、削除ボタンはありません。Docker クリーンアップがボリュームに触れることはありません。",
+  "zh-Hans": "虚拟机磁盘、Docker 的数据文件都受保护，没有删除按钮。Docker 清理永远不会动到卷。"
+ },
+ "資料留在你的 Mac 上": {
+  "en": "Your data stays on your Mac",
+  "ja": "データはあなたの Mac の中に",
+  "zh-Hans": "数据留在你的 Mac 上"
+ },
+ "沒有帳號、沒有追蹤、沒有分析。只有每天檢查一次 Sanitized 新版本（可在設定關閉）、執行漏洞檢查、填入 abuse.ch 金鑰或檢查其他 app 的更新時才會連網。": {
+  "en": "No account, no tracking, no analytics. It only goes online to check for a new version of Sanitized once a day (you can turn this off in Settings), to run a vulnerability check, when you enter an abuse.ch key, or to check other apps for updates.",
+  "ja": "アカウント不要、トラッキングなし、分析なし。ネットワークに接続するのは、1 日 1 回の Sanitized のアップデート確認（設定でオフにできます）、脆弱性チェックの実行、abuse.ch のキーを入力したとき、ほかのアプリのアップデートを確認するときだけです。",
+  "zh-Hans": "没有账户、没有追踪、没有分析。只有每天检查一次 Sanitized 新版本（可在设置中关闭）、运行漏洞检查、填入 abuse.ch 密钥或检查其他应用的更新时才会联网。"
+ },
+ "原始碼公開，經 Apple 公證": {
+  "en": "Open source, notarized by Apple",
+  "ja": "ソースコード公開、Apple 公証済み",
+  "zh-Hans": "源代码公开，经 Apple 公证"
+ },
+ "以 GPL-3.0 開源，任何人都能檢查程式在做什麼。安裝檔使用 Developer ID 簽章並通過 Apple 公證。": {
+  "en": "Released under GPL-3.0, so anyone can check what the code does. The installer is signed with a Developer ID and notarized by Apple.",
+  "ja": "GPL-3.0 のオープンソースなので、プログラムが何をしているか誰でも確認できます。インストーラは Developer ID で署名され、Apple の公証を受けています。",
+  "zh-Hans": "以 GPL-3.0 开源，任何人都能检查程序在做什么。安装包使用 Developer ID 签名并通过 Apple 公证。"
+ },
+ "病毒碼來源": {
+  "en": "Signature sources",
+  "ja": "定義ソース",
+  "zh-Hans": "病毒库来源"
+ },
+ "來自公開、可信的資料。": {
+  "en": "From public, trusted data.",
+  "ja": "公開された、信頼できるデータから。",
+  "zh-Hans": "来自公开、可信的数据。"
+ },
+ "每個掃描結果都標明來源，你可以自己查證。": {
+  "en": "Every scan result names its source, so you can check it yourself.",
+  "ja": "スキャン結果にはすべてソースが明記されているので、自分で確かめられます。",
+  "zh-Hans": "每个扫描结果都标明来源，你可以自己查证。"
+ },
+ "內建 · 自動更新": {
+  "en": "Built in · Updated automatically",
+  "ja": "内蔵 · 自動アップデート",
+  "zh-Hans": "内置 · 自动更新"
+ },
+ "macOS 內建、由 Apple 持續更新的惡意軟體 YARA 規則，直接從你的 Mac 讀取。": {
+  "en": "Malware YARA rules built into macOS and kept up to date by Apple, read straight from your Mac.",
+  "ja": "macOS に内蔵され、Apple が継続的にアップデートしているマルウェアの YARA ルール。お使いの Mac から直接読み込みます。",
+  "zh-Hans": "macOS 内置、由 Apple 持续更新的恶意软件 YARA 规则，直接从你的 Mac 读取。"
+ },
+ "選用 · 每日更新": {
+  "en": "Optional · Updated daily",
+  "ja": "オプション · 毎日アップデート",
+  "zh-Hans": "可选 · 每日更新"
+ },
+ "瑞士非營利組織 abuse.ch 的公開樣本資料庫。填入免費金鑰後，每天下載最新的 Mac 惡意軟體指紋。": {
+  "en": "The public sample database of abuse.ch, a Swiss non-profit. Enter a free key and Sanitized downloads the latest Mac malware fingerprints every day.",
+  "ja": "スイスの非営利団体 abuse.ch が公開しているサンプルデータベース。無料のキーを入力すると、最新の Mac マルウェアのフィンガープリントを毎日ダウンロードします。",
+  "zh-Hans": "瑞士非营利组织 abuse.ch 的公开样本数据库。填入免费密钥后，每天下载最新的 Mac 恶意软件指纹。"
+ },
+ "內建": {
+  "en": "Built in",
+  "ja": "内蔵",
+  "zh-Hans": "内置"
+ },
+ "專門研究 Mac 惡意軟體的非營利組織。依據公開分析整理出各家族的安裝位置規則。": {
+  "en": "A non-profit dedicated to Mac malware research. Its public analyses are the basis for rules on where each malware family installs itself.",
+  "ja": "Mac のマルウェアを専門に研究する非営利団体。公開されている分析をもとに、各ファミリーのインストール場所のルールをまとめています。",
+  "zh-Hans": "专门研究 Mac 恶意软件的非营利组织。依据公开分析整理出各家族的安装位置规则。"
+ },
+ "拖進「應用程式」，就完成了。": {
+  "en": "Drag it to Applications, and you're done.",
+  "ja": "「アプリケーション」にドラッグするだけ。",
+  "zh-Hans": "拖进“应用程序”，就完成了。"
+ },
+ "下載 DMG": {
+  "en": "Download the DMG",
+  "ja": "DMG をダウンロード",
+  "zh-Hans": "下载 DMG"
+ },
+ "從 GitHub Releases 下載最新版的 <code>Sanitized-arm64.dmg</code>。": {
+  "en": "Get the latest <code>Sanitized-arm64.dmg</code> from GitHub Releases.",
+  "ja": "GitHub Releases から最新の <code>Sanitized-arm64.dmg</code> をダウンロードします。",
+  "zh-Hans": "从 GitHub Releases 下载最新版的 <code>Sanitized-arm64.dmg</code>。"
+ },
+ "拖進應用程式": {
+  "en": "Drag to Applications",
+  "ja": "アプリケーションにドラッグ",
+  "zh-Hans": "拖进应用程序"
+ },
+ "打開 DMG，把 Sanitized 拖到「應用程式」資料夾，然後直接打開。": {
+  "en": "Open the DMG, drag Sanitized to the Applications folder, then open it.",
+  "ja": "DMG を開いて Sanitized を「アプリケーション」フォルダにドラッグし、そのまま開きます。",
+  "zh-Hans": "打开 DMG，把 Sanitized 拖到“应用程序”文件夹，然后直接打开。"
+ },
+ "給予完整磁碟取用權限": {
+  "en": "Grant Full Disk Access",
+  "ja": "フルディスクアクセスを許可",
+  "zh-Hans": "授予完全磁盘访问权限"
+ },
+ "到「系統設定 → 隱私權與安全性 → 完整磁碟取用權限」打開 Sanitized，掃描才看得到所有位置。": {
+  "en": "Turn on Sanitized in System Settings → Privacy &amp; Security → Full Disk Access so scans can see every location.",
+  "ja": "「システム設定 → プライバシーとセキュリティ → フルディスクアクセス」で Sanitized をオンにすると、すべての場所をスキャンできます。",
+  "zh-Hans": "在“系统设置 → 隐私与安全性 → 完全磁盘访问权限”中打开 Sanitized，扫描才能看到所有位置。"
+ },
+ "需求：Apple Silicon（M 系列晶片）的 Mac，macOS 11 以上。想自己編譯？<code>cargo run --release</code>": {
+  "en": "Requires a Mac with Apple silicon (M-series chip) and macOS 11 or later. Want to build it yourself? <code>cargo run --release</code>",
+  "ja": "必要環境：Apple シリコン（M シリーズチップ）搭載の Mac、macOS 11 以降。自分でビルドするなら <code>cargo run --release</code>",
+  "zh-Hans": "要求：Apple Silicon（M 系列芯片）的 Mac，macOS 11 及以上。想自己编译？<code>cargo run --release</code>"
+ },
+ "給 Mac 一次大掃除。": {
+  "en": "Give your Mac a deep clean.",
+  "ja": "Mac を大掃除しよう。",
+  "zh-Hans": "给 Mac 来一次大扫除。"
+ },
+ "免費、開源、沒有訂閱。": {
+  "en": "Free, open source, no subscription.",
+  "ja": "無料、オープンソース、サブスクリプションなし。",
+  "zh-Hans": "免费、开源、没有订阅。"
+ },
+ "下載 Sanitized": {
+  "en": "Download Sanitized",
+  "ja": "Sanitized をダウンロード",
+  "zh-Hans": "下载 Sanitized"
+ },
+ "所有版本": {
+  "en": "All releases",
+  "ja": "すべてのバージョン",
+  "zh-Hans": "所有版本"
+ },
+ "Sanitized · 以 GPL-3.0 授權開源。健康分數計算參考 <a href=\"https://github.com/tw93/Mole\">Mole</a>。": {
+  "en": "Sanitized · Open source under GPL-3.0. Health score based on <a href=\"https://github.com/tw93/Mole\">Mole</a>.",
+  "ja": "Sanitized · GPL-3.0 で公開しているオープンソースです。ヘルススコアの計算は <a href=\"https://github.com/tw93/Mole\">Mole</a> を参考にしています。",
+  "zh-Hans": "Sanitized · 以 GPL-3.0 许可开源。健康分数计算参考 <a href=\"https://github.com/tw93/Mole\">Mole</a>。"
+ },
+ "頁尾": {
+  "en": "Footer",
+  "ja": "フッター",
+  "zh-Hans": "页脚"
+ },
+ "回報問題": {
+  "en": "Report an issue",
+  "ja": "問題を報告",
+  "zh-Hans": "报告问题"
+ }
+}

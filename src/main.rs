@@ -22,6 +22,7 @@ struct Runner {
     shot: Option<PathBuf>,
     frames: u32,
     requested: bool,
+    started: std::time::Instant,
 }
 
 impl eframe::App for Runner {
@@ -30,7 +31,12 @@ impl eframe::App for Runner {
         if let Some(path) = self.shot.clone() {
             self.frames += 1;
             ctx.request_repaint();
-            if self.frames >= std::env::var("MCG_FRAMES").ok().and_then(|v| v.parse().ok()).unwrap_or(120) && !self.requested {
+            // MCG_SECS=<n> waits n seconds instead of counting frames (macOS slows background windows).
+            let ready = match std::env::var("MCG_SECS").ok().and_then(|v| v.parse::<u64>().ok()) {
+                Some(secs) => self.started.elapsed().as_secs() >= secs,
+                None => self.frames >= std::env::var("MCG_FRAMES").ok().and_then(|v| v.parse().ok()).unwrap_or(120),
+            };
+            if ready && !self.requested {
                 self.requested = true;
                 ctx.send_viewport_cmd(egui::ViewportCommand::Screenshot);
             }
@@ -80,6 +86,12 @@ fn main() -> eframe::Result<()> {
         }
     }
     let mut options = eframe::NativeOptions { viewport, ..Default::default() };
+    // Screenshots keep their window state apart, so they always use the default window size
+    // and never change the size the user saved.
+    if shooting {
+        options.persistence_path = Some(std::env::temp_dir().join("sanitized-screenshot.ron"));
+        let _ = std::fs::remove_file(std::env::temp_dir().join("sanitized-screenshot.ron"));
+    }
     #[cfg(target_os = "macos")]
     if shooting {
         options.event_loop_builder = Some(Box::new(|b| {
@@ -87,15 +99,13 @@ fn main() -> eframe::Result<()> {
             b.with_activate_ignoring_other_apps(false);
         }));
     }
-    #[cfg(not(target_os = "macos"))]
-    let _ = &mut options;
 
     eframe::run_native(
         "Sanitized",
         options,
         Box::new(move |cc| {
             app::setup_style(&cc.egui_ctx);
-            Ok(Box::new(Runner { app: { let mut a = app::MacApp::new(shooting); a.dev_autostart(); a }, shot, frames: 0, requested: false }))
+            Ok(Box::new(Runner { app: { let mut a = app::MacApp::new(shooting); a.dev_autostart(); a }, shot, frames: 0, requested: false, started: std::time::Instant::now() }))
         }),
     )
 }

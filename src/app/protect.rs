@@ -657,12 +657,10 @@ impl MacApp {
             ui.label(RichText::new("● LIVE CVE DATABASE").monospace().size(11.0).color(PRIMARY));
             ui.label(RichText::new("· OSV.dev API").monospace().size(11.0).color(SUBTLE));
         });
+        // Buttons first, title and description in the room left, so long translations wrap
+        // before the buttons instead of running under them.
         ui.horizontal(|ui| {
-            ui.vertical(|ui| {
-                ui.label(RichText::new(t!("專案漏洞檢查（CVE Scanner）")).size(22.0).strong());
-                ui.label(RichText::new(t!("掃描專案的相依套件，向 OSV.dev 公開資料庫比對 CVE 弱點與修正版本。")).size(12.5).color(SUBTLE));
-            });
-            ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+            ui.with_layout(Layout::right_to_left(Align::Min), |ui| {
                 let b = egui::Button::new(RichText::new(t!("重新掃描專案")).color(Color32::WHITE)).fill(PRIMARY_BTN).stroke(egui::Stroke::NONE).rounding(6.0).min_size(egui::vec2(110.0, 32.0));
                 if ui.add(b).clicked() {
                     rescan = true;
@@ -670,6 +668,11 @@ impl MacApp {
                 if ui.add(egui::Button::new(t!("檢查其他資料夾")).min_size(egui::vec2(0.0, 32.0))).clicked() {
                     again = true;
                 }
+                ui.add_space(12.0);
+                ui.with_layout(Layout::top_down(Align::LEFT), |ui| {
+                    ui.label(RichText::new(t!("專案漏洞檢查（CVE Scanner）")).size(22.0).strong());
+                    ui.label(RichText::new(t!("掃描專案的相依套件，向 OSV.dev 公開資料庫比對 CVE 弱點與修正版本。")).size(12.5).color(SUBTLE));
+                });
             });
         });
         ui.add_space(4.0);
@@ -718,12 +721,14 @@ impl MacApp {
             });
             ui.separator();
             let body_h = (ui.available_height() - 60.0).max(160.0);
-            egui::ScrollArea::vertical().max_height(body_h).auto_shrink([false, true]).show(ui, |ui| {
+            // Scrolls sideways when the window is narrow, instead of widening the whole page
+            // (which pushed the export button below out of view).
+            egui::ScrollArea::both().max_height(body_h).auto_shrink([false, true]).show(ui, |ui| {
                 if shown.is_empty() {
                     ui.add_space(8.0);
                     ui.label(RichText::new(t!("根據公開的 CVE 資料，這些套件版本目前沒有已知的安全漏洞。")).color(GOOD));
                 }
-                egui::Grid::new("vuln_grid").num_columns(6).spacing(egui::vec2(22.0, 12.0)).min_col_width(60.0).show(ui, |ui| {
+                egui::Grid::new("vuln_grid").num_columns(6).spacing(egui::vec2(14.0, 12.0)).min_col_width(60.0).show(ui, |ui| {
                     ui.style_mut().wrap_mode = Some(egui::TextWrapMode::Extend);
                     if !shown.is_empty() {
                         for h in [t!("套件名稱 (PACKAGE)"), t!("當前版本"), t!("嚴重程度"), t!("CVE 編號"), t!("建議升級版本"), t!("快速修復指令 (QUICK FIX)")] {
@@ -785,15 +790,19 @@ impl MacApp {
             });
         });
         // footer
+        // Export button first, privacy note in the room left (it wraps instead of overlapping).
         ui.horizontal(|ui| {
-            crate::theme::icon(ui.painter(), ui.cursor().min + egui::vec2(8.0, 9.0), 14.0, crate::theme::Glyph::Shield, GOOD);
-            ui.add_space(18.0);
-            ui.label(RichText::new(t!("本機隱私保護：")).strong().size(12.5));
-            ui.label(RichText::new(t!("只向 OSV.dev 查詢套件名稱與版本，不傳送專案程式碼。")).size(12.5).color(SUBTLE));
-            ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
+            ui.with_layout(Layout::right_to_left(Align::Min), |ui| {
                 if !findings.is_empty() && ui.button(t!("匯出檢查報告到桌面")).clicked() {
                     export = true;
                 }
+                ui.add_space(12.0);
+                ui.with_layout(Layout::left_to_right(Align::Min).with_main_wrap(true), |ui| {
+                    crate::theme::icon(ui.painter(), ui.cursor().min + egui::vec2(8.0, 9.0), 14.0, crate::theme::Glyph::Shield, GOOD);
+                    ui.add_space(18.0);
+                    ui.label(RichText::new(t!("本機隱私保護：")).strong().size(12.5));
+                    ui.label(RichText::new(t!("只向 OSV.dev 查詢套件名稱與版本，不傳送專案程式碼。")).size(12.5).color(SUBTLE));
+                });
             });
         });
         ui.data_mut(|d| d.insert_temp(filter_id, high_only));

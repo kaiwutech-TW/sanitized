@@ -69,4 +69,4 @@ GPL-3.0. See [LICENSE](LICENSE).
 
 ## Website
 
-The landing page lives in `site/` and is served by a Cloudflare Worker (`wrangler.jsonc`). Deploy with `npx wrangler deploy`.
+The landing page is served from `site/` by a Cloudflare Worker (`wrangler.jsonc`). It comes in the same four languages as the app: edit `site-src/index.html` (Traditional Chinese, translated parts marked `data-t`) and `site-src/strings.json`, run `python3 scripts/build-site.py` to write `site/`, `site/en/`, `site/ja/` and `site/zh-hans/`, then deploy with `npx wrangler deploy`.

@@ -3,13 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+  if (document.referrer.indexOf(location.origin + "/") === 0) return;
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var pick = function (t) {
+    t = (t || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return /hant|^zh-(tw|hk|mo)/.test(t) ? "zh-Hant" : "zh-Hans";
+    if (t.indexOf("ja") === 0) return "ja";
+    return "en";
+  };
+  var lang = saved || pick((navigator.languages && navigator.languages[0]) || navigator.language);
+  var to = { "zh-Hans": "/zh-hans/", en: "/en/", ja: "/ja/" }[lang];
+  if (to) location.replace(to + location.hash);
+})();
+</script>
 <title>Sanitized — 免費開源的 Mac 清理與防護工具</title>
 <meta name="description" content="Sanitized 是用 Rust 打造的 Mac 清理工具：垃圾清理、惡意軟體掃描、效能維護、空間地圖與專案漏洞檢查。所有刪除都可還原，經 Apple 公證，免費開源。">
 <meta name="theme-color" content="#0a0b0f">
-<link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="canonical" href="https://sanitized.kaiwu.com.tw/">
+<link rel="alternate" hreflang="zh-Hant" href="https://sanitized.kaiwu.com.tw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://sanitized.kaiwu.com.tw/zh-hans/">
+<link rel="alternate" hreflang="en" href="https://sanitized.kaiwu.com.tw/en/">
+<link rel="alternate" hreflang="ja" href="https://sanitized.kaiwu.com.tw/ja/">
+<link rel="alternate" hreflang="x-default" href="https://sanitized.kaiwu.com.tw/">
 <meta property="og:url" content="https://sanitized.kaiwu.com.tw/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Sanitized — 免費開源的 Mac 清理與防護工具">
 <meta property="og:description" content="垃圾清理、惡意軟體掃描、效能維護、空間地圖與專案漏洞檢查。所有刪除都可還原，經 Apple 公證。">
 <meta property="og:image" content="https://sanitized.kaiwu.com.tw/img/og.jpg">
@@ -72,8 +96,8 @@ nav.top {
 nav.top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; letter-spacing: .01em; }
 .brand img { width: 30px; height: 30px; }
-nav.top ul { display: flex; gap: 26px; list-style: none; margin: 0 0 0 auto; padding: 0; font-size: 15px; color: var(--muted); }
-nav.top ul a:hover { color: var(--text); }
+nav.top ul.links { display: flex; gap: 26px; list-style: none; margin: 0 0 0 auto; padding: 0; font-size: 15px; color: var(--muted); }
+nav.top ul.links a:hover { color: var(--text); }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   height: 46px; padding: 0 22px; border-radius: 12px;
@@ -87,6 +111,32 @@ nav.top ul a:hover { color: var(--text); }
 .btn-ghost:hover { border-color: #353947; background: rgba(255,255,255,.05); }
 .btn svg { width: 18px; height: 18px; flex: none; }
 nav.top .btn { height: 38px; padding: 0 16px; font-size: 14.5px; border-radius: 10px; }
+
+/* language switcher */
+.lang { position: relative; }
+.lang summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 7px;
+  height: 38px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line);
+  color: var(--muted); font-size: 14px; white-space: nowrap;
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary:hover, .lang[open] summary { color: var(--text); border-color: #353947; }
+.lang summary svg { width: 16px; height: 16px; }
+.lang ul {
+  position: absolute; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none;
+  min-width: 150px; background: var(--surface-hi); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 20px 50px -12px rgba(0,0,0,.8);
+}
+.lang li a { display: block; padding: 8px 12px; border-radius: 8px; font-size: 15px; color: var(--muted); }
+.lang li a:hover { background: rgba(255,255,255,.05); color: var(--text); }
+.lang li a[aria-current] { color: var(--accent); }
+.copy code, .step code { font-family: var(--mono); font-size: .9em; }
+
+/* fonts for the other languages */
+html:lang(zh-Hans) { --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+html:lang(ja) { --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, system-ui, sans-serif; }
+html:lang(ja) .eyebrow { letter-spacing: .1em; }
+html:lang(ja) :is(h1, h2, h3, h4) { word-break: auto-phrase; }
 
 /* ---------- hero */
 .hero { position: relative; padding: 96px 0 40px; }
@@ -221,8 +271,9 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .wrap { width: calc(100% - 32px); }
-  nav.top ul { display: none; }
-  nav.top .btn { margin-left: auto; }
+  nav.top ul.links { display: none; }
+  nav.top .lang { margin-left: auto; }
+  nav.top .wrap { gap: 14px; }
   .grid, .sources, .install, .principles { grid-template-columns: 1fr; }
   .window .bar { height: 22px; padding: 0 10px; gap: 6px; }
   .window .bar i { width: 8px; height: 8px; }
@@ -237,13 +288,14 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
 
 <nav class="top" aria-label="主選單">
   <div class="wrap">
-    <a class="brand" href="#"><img src="img/favicon.png" alt="" width="30" height="30">Sanitized</a>
-    <ul>
+    <a class="brand" href="/"><img src="/img/favicon.png" alt="" width="30" height="30">Sanitized</a>
+    <ul class="links">
       <li><a href="#features">功能</a></li>
       <li><a href="#safety">安全原則</a></li>
       <li><a href="#install">安裝</a></li>
       <li><a href="https://github.com/kaiwutech-TW/sanitized">GitHub</a></li>
     </ul>
+    <details class="lang"><summary aria-label="語言"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span>繁中</span></summary><ul><li><a href="/" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-Hant" aria-current="page">繁體中文</a></li><li><a href="/zh-hans/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-Hans">简体中文</a></li><li><a href="/en/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li></ul></details>
     <a class="btn btn-primary" href="https://github.com/kaiwutech-TW/sanitized/releases/latest/download/Sanitized-arm64.dmg">下載</a>
   </div>
 </nav>
@@ -257,16 +309,16 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
       <div class="cta">
         <a class="btn btn-primary" href="https://github.com/kaiwutech-TW/sanitized/releases/latest/download/Sanitized-arm64.dmg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-          下載 macOS 版
+          <span>下載 macOS 版</span>
         </a>
         <a class="btn btn-ghost" href="https://github.com/kaiwutech-TW/sanitized">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-          原始碼
+          <span>原始碼</span>
         </a>
       </div>
       <div class="meta"><span>v0.1.3</span><span>Apple Silicon</span><span>macOS 11 以上</span><span>Apple 公證</span><span>繁中 · 简中 · English · 日本語</span></div>
     </div>
-    <div class="hero-logo"><img src="img/logo-512.webp" alt="Sanitized 圖示：藍色噴霧罐" width="512" height="512"></div>
+    <div class="hero-logo"><img src="/img/logo-512.webp" alt="Sanitized 圖示：藍色噴霧罐" width="512" height="512"></div>
   </div>
 </header>
 
@@ -274,7 +326,7 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
   <div class="wrap">
     <div class="window">
       <div class="bar"><i></i><i></i><i></i></div>
-      <img src="img/shot-status.webp" alt="Sanitized 的 Mac 狀態頁：健康分數、磁碟、記憶體、CPU 與安全狀態" width="2320" height="1480">
+      <img src="/img/shot-status.webp" alt="Sanitized 的 Mac 狀態頁：健康分數、磁碟、記憶體、CPU 與安全狀態" width="2320" height="1480">
     </div>
   </div>
 </div>
@@ -296,9 +348,9 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
           <li>找出可以安全移除的系統垃圾</li>
           <li>掃描惡意軟體和可疑的自動啟動項目</li>
           <li>檢查損壞的背景項目與該做的維護</li>
-      </ul>
+        </ul>
       </div>
-      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="img/shot-home.webp" alt="一鍵健檢頁面" loading="lazy" width="2320" height="1480"></div>
+      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="/img/shot-home.webp" alt="一鍵健檢頁面" loading="lazy" width="2320" height="1480"></div>
     </div>
 
     <div class="row flip">
@@ -312,21 +364,21 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
           <li>可疑檔案先移到隔離區，可以還原</li>
         </ul>
       </div>
-      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="img/shot-sources.webp" alt="病毒碼來源頁面：Apple XProtect、MalwareBazaar、Objective-See" loading="lazy" width="2320" height="1480"></div>
+      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="/img/shot-sources.webp" alt="病毒碼來源頁面：Apple XProtect、MalwareBazaar、Objective-See" loading="lazy" width="2320" height="1480"></div>
     </div>
 
     <div class="row">
       <div class="copy">
         <span class="eyebrow">空間地圖</span>
         <h3>空間都跑去哪了？一層一層點進去看。</h3>
-        <p>六個資料夾平行計算，一邊掃描一邊顯示預估剩餘時間。大小用實際佔用的磁碟區塊計算，結果和 <code style="font-family:var(--mono);font-size:.9em">du</code> 一致。</p>
+        <p>六個資料夾平行計算，一邊掃描一邊顯示預估剩餘時間。大小用實際佔用的磁碟區塊計算，結果和 <code>du</code> 一致。</p>
         <ul class="ticks">
           <li>硬連結只算一次，Docker 映像檔不會被高估</li>
           <li>不會誤算外接或掛載的磁碟</li>
           <li>點選資料夾直接深入，或丟進垃圾桶</li>
         </ul>
       </div>
-      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="img/shot-lens.webp" alt="空間地圖頁面：依大小排列的資料夾" loading="lazy" width="2320" height="1480"></div>
+      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="/img/shot-lens.webp" alt="空間地圖頁面：依大小排列的資料夾" loading="lazy" width="2320" height="1480"></div>
     </div>
 
     <div class="row flip">
@@ -340,7 +392,7 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
           <li>自動略過 node_modules、.git、build 等資料夾</li>
         </ul>
       </div>
-      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="img/shot-vuln.webp" alt="漏洞檢查頁面" loading="lazy" width="2320" height="1480"></div>
+      <div class="window"><div class="bar"><i></i><i></i><i></i></div><img src="/img/shot-vuln.webp" alt="漏洞檢查頁面" loading="lazy" width="2320" height="1480"></div>
     </div>
   </div>
 </section>
@@ -406,7 +458,7 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
       <h2>拖進「應用程式」，就完成了。</h2>
     </div>
     <div class="install">
-      <div class="step"><h4>下載 DMG</h4><p>從 GitHub Releases 下載最新版的 <code style="font-family:var(--mono);font-size:.9em">Sanitized-arm64.dmg</code>。</p></div>
+      <div class="step"><h4>下載 DMG</h4><p>從 GitHub Releases 下載最新版的 <code>Sanitized-arm64.dmg</code>。</p></div>
       <div class="step"><h4>拖進應用程式</h4><p>打開 DMG，把 Sanitized 拖到「應用程式」資料夾，然後直接打開。</p></div>
       <div class="step"><h4>給予完整磁碟取用權限</h4><p>到「系統設定 → 隱私權與安全性 → 完整磁碟取用權限」打開 Sanitized，掃描才看得到所有位置。</p></div>
     </div>
@@ -416,13 +468,13 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
 
 <section class="final">
   <div class="wrap">
-    <img src="img/logo-512.webp" alt="" width="132" height="132" loading="lazy">
+    <img src="/img/logo-512.webp" alt="" width="132" height="132" loading="lazy">
     <h2>給 Mac 一次大掃除。</h2>
     <p>免費、開源、沒有訂閱。</p>
     <div class="cta">
       <a class="btn btn-primary" href="https://github.com/kaiwutech-TW/sanitized/releases/latest/download/Sanitized-arm64.dmg">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-        下載 Sanitized
+        <span>下載 Sanitized</span>
       </a>
       <a class="btn btn-ghost" href="https://github.com/kaiwutech-TW/sanitized/releases">所有版本</a>
     </div>
@@ -440,5 +492,14 @@ footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll(".lang a[data-lang]").forEach(function (a) {
+  a.addEventListener("click", function () { try { localStorage.setItem("lang", a.dataset.lang); } catch (e) {} });
+});
+document.addEventListener("click", function (e) {
+  var d = document.querySelector("details.lang");
+  if (d && d.open && !d.contains(e.target)) d.open = false;
+});
+</script>
 </body>
 </html>
