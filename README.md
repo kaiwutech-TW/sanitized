@@ -2,6 +2,8 @@
 
 A Mac cleanup and maintenance tool written in Rust (egui). The interface is in Traditional Chinese.
 
+Website: https://sanitized.kaiwu.com.tw
+
 ## Features
 
 - **Mac 狀態** (Mac status): live health score, CPU, memory pressure, disk, network and a menu-bar indicator
@@ -51,3 +53,7 @@ The health score weights, memory diagnosis thresholds, developer-cache locations
 ## License
 
 GPL-3.0. See [LICENSE](LICENSE).
+
+## Website
+
+The landing page lives in `site/` and is served by a Cloudflare Worker (`wrangler.jsonc`). Deploy with `npx wrangler deploy`.

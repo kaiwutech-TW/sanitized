@@ -1,0 +1,12 @@
+{
+  // Landing page: static files in site/, served by a Cloudflare Worker.
+  // Deploy with: npx wrangler deploy
+  "name": "sanitized",
+  "compatibility_date": "2026-11-13",
+  "assets": {
+    "directory": "site"
+  },
+  "routes": [
+    { "pattern": "sanitized.kaiwu.com.tw", "custom_domain": true }
+  ]
+}

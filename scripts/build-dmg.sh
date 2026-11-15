@@ -69,4 +69,7 @@ if [ "$SIGN_ID" != "-" ]; then
   fi
 fi
 
-echo "Built $DMG"
+# Fixed-name copy for "latest" download links (…/releases/latest/download/Sanitized-<arch>.dmg).
+cp "$DMG" "$DIST/$APP-$ARCH.dmg"
+
+echo "Built $DMG (and $DIST/$APP-$ARCH.dmg)"
