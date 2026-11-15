@@ -591,7 +591,10 @@ impl<'a> Checker<'a> {
         let mut z = zip::ZipArchive::new(f).ok()?;
         for i in 0..z.len().min(5000) {
             let Ok(mut e) = z.by_index(i) else { continue };
-            let name = e.name().to_string();
+            let name = match e.name() {
+                Ok(n) => n.to_string(),
+                Err(_) => String::from_utf8_lossy(e.name_raw()).to_string(),
+            };
             let esize = e.size();
             for r in &self.rules.names {
                 if r.re.is_match(&name) {

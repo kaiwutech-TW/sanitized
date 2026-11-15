@@ -67,7 +67,6 @@ impl Tray {
         let icon = TrayIconBuilder::new()
             .with_menu(Box::new(menu))
             .with_icon(logo_icon().unwrap_or_else(shield_icon))
-            .with_icon_as_template(false)
             .with_tooltip("Sanitized")
             .build()
             .ok()?;
